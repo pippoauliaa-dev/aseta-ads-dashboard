@@ -1,45 +1,3752 @@
 {
   "schemaVersion": 1,
-  "accountName": "Aseta - Ads (DEMO)",
+  "accountName": "Aseta - Ads",
   "currency": "IDR",
   "period": {
-    "since": "2026-08-01",
-    "until": "2026-08-28"
+    "since": "2026-09-21",
+    "until": "2026-10-18"
   },
-  "fetchedAt": "2026-08-29T03:00:00.000Z",
-  "source": "demo",
-  "analysis": {
-    "generatedAt": "2026-08-29T03:05:00.000Z",
-    "source": "assistant-analysis",
-    "summary": "DEMO: campaign lead memiliki biaya per hasil lebih rendah, tetapi hasil campaign lain bukan lead dan tidak dibandingkan sebagai CPL.",
-    "facts": ["DEMO: 2 campaign dianalisis untuk periode contoh."],
-    "findings": ["DEMO: jenis hasil berbeda, sehingga hasil tidak dijumlahkan lintas campaign."],
-    "recommendations": ["DEMO: tinjau campaign lead dan catat qualified leads secara terpisah di funnel manual."],
-    "limitations": ["DEMO: data Meta tidak menunjukkan kualitas lead atau meeting."],
-    "campaigns": [{"campaignId": "demo-lead", "label": "strongest", "reason": "DEMO: biaya per lead tersedia pada campaign bertipe LEAD."}]
+  "fetchedAt": "2026-10-19T02:54:51+00:00",
+  "source": "meta-read",
+  "entityLevel": "campaign",
+  "accountTotals": {
+    "spend": 6091666,
+    "reach": 523948,
+    "impressions": 650742,
+    "linkClicks": 1391,
+    "results": null,
+    "resultType": null
   },
-  "campaigns": [
+  "opportunityScore": 83,
+  "recommendations": [
     {
-      "id": "demo-lead",
-      "name": "Contoh campaign — Lead (DEMO)",
-      "status": "ACTIVE",
-      "spend": 1250000,
-      "reach": 15600,
-      "impressions": 28400,
-      "linkClicks": 672,
-      "results": 24,
-      "resultType": "LEAD"
+      "title": "Kirim peristiwa pesan",
+      "claim": "Meta memperkirakan biaya per pembelian dapat turun 24% dengan mengirim peristiwa pesan melalui Meta/mitra dan mengoptimalkan pembelian pesan.",
+      "url": "https://adsmanager.facebook.com/adsmanager/manage/accounts?act=5062020654022185&breakdown_regrouping=1&recommendation_hash_string=147b11435e1cd49256ab3d00b5b5bd4d&recommendation_type=messaging_events&is_mfr_model_shown_by_default=1&referral_source=marketing_api&nav_source=ads_mcp"
     },
     {
-      "id": "demo-message",
-      "name": "Contoh campaign — Pesan (DEMO)",
-      "status": "PAUSED",
-      "spend": 540000,
-      "reach": 7200,
-      "impressions": 11900,
-      "linkClicks": 201,
-      "results": 9,
-      "resultType": "MESSAGING_CONVERSATION"
+      "title": "Gunakan kampanye pesan yang disesuaikan",
+      "claim": "Meta memperkirakan biaya per percakapan dapat turun 7%; rekomendasi mencakup preset dan penempatan Advantage+.",
+      "url": "https://adsmanager.facebook.com/adsmanager/manage/accounts?act=5062020654022185&breakdown_regrouping=1&recommendation_hash_string=7c78a8d65eb6e977cb6d3a521654e29d&recommendation_type=ctx_creation_package&is_mfr_model_shown_by_default=1&referral_source=marketing_api&nav_source=ads_mcp"
+    },
+    {
+      "title": "Uji campuran format kreatif",
+      "claim": "Meta menyarankan mencampur gambar dan video pada set iklan terkait.",
+      "url": "https://adsmanager.facebook.com/adsmanager/manage/adsets?act=5062020654022185&breakdown_regrouping=1&filter_set=SEARCH_BY_CAMPAIGN_ID-STRING%1EEQUAL%1E%22120253031592940334%22&recommendation_type=mixed_formats_v3&selected_adset_ids=120253031592940334&is_mfr_model_shown_by_default=1&referral_source=marketing_api&nav_source=ads_mcp"
+    },
+    {
+      "title": "Evaluasi skala campaign awareness",
+      "claim": "Meta menandai campaign awareness berkinerja tinggi untuk dipertimbangkan skalanya; tinjau dulu tujuan dan hasil bisnisnya.",
+      "url": "https://adsmanager.facebook.com/adsmanager/manage/accounts?act=5062020654022185&breakdown_regrouping=1&recommendation_hash_string=36947b640d89ccce563a8389bf72de4e&recommendation_type=scale_good_campaign_v2&is_mfr_model_shown_by_default=1&referral_source=marketing_api&nav_source=ads_mcp"
+    },
+    {
+      "title": "Tinjau penyempurnaan Advantage+ Creative",
+      "claim": "Meta memperkirakan potensi biaya per hasil 21% lebih rendah dengan tiga penyempurnaan materi iklan tambahan pada iklan yang memenuhi syarat.",
+      "url": "https://adsmanager.facebook.com/adsmanager/manage/accounts?act=5062020654022185&breakdown_regrouping=1&recommendation_hash_string=4fc2ba6b7934b8295f39bcafdc324bcb&recommendation_type=aplusc_standard_enhancements_bundle&is_mfr_model_shown_by_default=1&referral_source=marketing_api&nav_source=ads_mcp"
     }
-  ]
+  ],
+  "dailyMetrics": [],
+  "campaigns": [
+    {
+      "id": "120253031440540334",
+      "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+      "status": "ACTIVE",
+      "spend": 376133,
+      "reach": 8402,
+      "impressions": 11259,
+      "linkClicks": 152,
+      "results": 25,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 700000,
+      "stopTime": "2026-10-22T13:36:20+0700"
+    },
+    {
+      "id": "120252608016880334",
+      "name": "[2026/SEP] Inter - New - Salin",
+      "status": "ACTIVE",
+      "spend": 2741637,
+      "reach": 92102,
+      "impressions": 142839,
+      "linkClicks": 687,
+      "results": 156,
+      "resultType": "MESSAGING_CONVERSATION"
+    },
+    {
+      "id": "120250312155800334",
+      "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+      "status": "ACTIVE",
+      "spend": 535980,
+      "reach": 355202,
+      "impressions": 423351,
+      "linkClicks": 402,
+      "results": 355202,
+      "resultType": "REACH",
+      "dailyBudget": 20000
+    },
+    {
+      "id": "120252882866310334",
+      "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+      "status": "PAUSED",
+      "spend": 554926,
+      "reach": 2311,
+      "impressions": 4346,
+      "linkClicks": 42,
+      "results": 8,
+      "resultType": "LEAD",
+      "lifetimeBudget": 700000,
+      "stopTime": "2026-10-20T00:00:00+0700"
+    },
+    {
+      "id": "120252618091430334",
+      "name": "[2026/SEP] Sales - Aseta - Salin",
+      "status": "PAUSED",
+      "spend": 1166636,
+      "reach": 37072,
+      "impressions": 46248,
+      "linkClicks": 65,
+      "results": 9,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 7000000,
+      "stopTime": "2026-10-17T23:59:00+0700"
+    },
+    {
+      "id": "120252604938260334",
+      "name": "[2026/SEP] Inter - New",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION"
+    },
+    {
+      "id": "120252181656800334",
+      "name": "[2026/AUG] Sales - Aseta New",
+      "status": "PAUSED",
+      "spend": 377874,
+      "reach": 9134,
+      "impressions": 10672,
+      "linkClicks": 28,
+      "results": 10,
+      "resultType": "MESSAGING_CONVERSATION"
+    },
+    {
+      "id": "120251945145370334",
+      "name": "[2026/AUG] Sales - Aseta - V3",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 4000000,
+      "stopTime": "2026-08-31T23:59:00+0700"
+    },
+    {
+      "id": "120251895975600334",
+      "name": "[2026/AUG] Sales - Aseta - V2",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 2000000,
+      "stopTime": "2026-09-07T23:59:00+0700"
+    },
+    {
+      "id": "120251822441550334",
+      "name": "[2026/AUG] ASETA - Instagram - Traffic - New",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 3500000,
+      "stopTime": "2026-08-31T23:59:00+0700"
+    },
+    {
+      "id": "120251754487730334",
+      "name": "[2026/AUG] Sales - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION"
+    },
+    {
+      "id": "120249589099830334",
+      "name": "[2026/JUNI] Consideration W2 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-06-23T23:59:00+0700"
+    },
+    {
+      "id": "120249094691260334",
+      "name": "[2026/JUNI] Consideration W1 - Konstruksi",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-06-09T23:59:00+0700"
+    },
+    {
+      "id": "120248659464380334",
+      "name": "[2026/MEI] Consideration W4 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-06-02T23:59:00+0700"
+    },
+    {
+      "id": "120248658823440334",
+      "name": "[2026/MEI] Sales W4 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 560000,
+      "stopTime": "2026-06-02T23:59:00+0700"
+    },
+    {
+      "id": "120248199122120334",
+      "name": "[2026/MEI] Sales W3 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 700000,
+      "stopTime": "2026-05-26T23:59:00+0700"
+    },
+    {
+      "id": "120248196776150334",
+      "name": "[2026/MEI] Consideration W3 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-05-26T23:59:00+0700"
+    },
+    {
+      "id": "120248195898500334",
+      "name": "[2026/MEI] Awareness W3 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-05-26T00:00:00+0700"
+    },
+    {
+      "id": "120247789660200334",
+      "name": "[2026/MEI] Sales W2 - Aseta - 3 Creative",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "dailyBudget": 61000,
+      "stopTime": "2026-05-19T23:59:00+0700"
+    },
+    {
+      "id": "120247788747330334",
+      "name": "[2026/MEI] Consideration W2 - Aseta - 3 Ad Set",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-05-19T23:59:00+0700"
+    },
+    {
+      "id": "120247788402420334",
+      "name": "[2026/MEI] Awareness W2 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 20000,
+      "stopTime": "2026-05-19T23:59:00+0700"
+    },
+    {
+      "id": "120247270735340334",
+      "name": "[2026/MEI] Sales W1 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-05-12T23:59:00+0700"
+    },
+    {
+      "id": "120247270664170334",
+      "name": "[2026/MEI] Consideration W1 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-05-12T23:59:00+0700"
+    },
+    {
+      "id": "120247270608920334",
+      "name": "[2026/MEI] Awareness W1 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2026-05-12T23:59:00+0700"
+    },
+    {
+      "id": "120247045940150334",
+      "name": "[2026/APR] Aseta | Awareness | W5 Apr | v2",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 21000,
+      "stopTime": "2026-05-05T23:59:00+0700"
+    },
+    {
+      "id": "120247042801560334",
+      "name": "[2026/APR]  Sales W5 - Konstruksi",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "dailyBudget": 80000,
+      "stopTime": "2026-05-05T23:59:00+0700"
+    },
+    {
+      "id": "120246919985970334",
+      "name": "[2026/APR] Sales W5 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-05-05T23:59:00+0700"
+    },
+    {
+      "id": "120246915248670334",
+      "name": "[2026/APR] Consideration W5 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-05-05T23:59:00+0700"
+    },
+    {
+      "id": "120246913203830334",
+      "name": "[2026/APR] Awareness W5 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 21000,
+      "stopTime": "2026-05-05T23:59:00+0700"
+    },
+    {
+      "id": "120246575933980334",
+      "name": "[2026/APR] Sales W4 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-04-28T23:59:00+0700"
+    },
+    {
+      "id": "120246575033280334",
+      "name": "[2026/APR] Consideration W4 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "stopTime": "2026-04-28T23:59:00+0700"
+    },
+    {
+      "id": "120246574559000334",
+      "name": "[2026/APR] Awareness W4 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 64286,
+      "stopTime": "2026-04-28T23:59:00+0700"
+    },
+    {
+      "id": "120246525297300334",
+      "name": "[2026/APR] Consideration W3 - Aseta - Salin",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": null,
+      "stopTime": "2026-04-21T23:59:00+0700"
+    },
+    {
+      "id": "120246250245200334",
+      "name": "[2026/APR] Awareness W3 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 64000,
+      "stopTime": "2026-04-21T00:00:00+0700"
+    },
+    {
+      "id": "120246248895890334",
+      "name": "[2026/APR] Consideration W3 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": null,
+      "stopTime": "2026-04-21T23:59:00+0700"
+    },
+    {
+      "id": "120246213455420334",
+      "name": "[2026/APR] Sales W3 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-04-21T00:00:00+0700"
+    },
+    {
+      "id": "120246027276290334",
+      "name": "[2026/APR] Sales W2 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-04-15T23:59:00+0700"
+    },
+    {
+      "id": "120245938662600334",
+      "name": "[2026/APR] Consideration W2 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-04-15T10:00:00+0700"
+    },
+    {
+      "id": "120245935659070334",
+      "name": "Uji - [2026/APR] Awareness W2 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 85000,
+      "stopTime": "2026-04-15T10:00:00+0700"
+    },
+    {
+      "id": "120245933235850334",
+      "name": "[2026/APR] Awareness W2 - Aseta",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 85000,
+      "stopTime": "2026-04-15T10:00:00+0700"
+    },
+    {
+      "id": "120243109141760334",
+      "name": "[2026/FEB] Awareness",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2026-03-03T23:59:00+0700"
+    },
+    {
+      "id": "120242600952130334",
+      "name": "[JAN-FEB 2026] Awareness - Specific Audience",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH"
+    },
+    {
+      "id": "120238508248170334",
+      "name": "Workshop RFID",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LANDING_PAGE_VIEW",
+      "stopTime": "2025-11-10T23:59:00+0700"
+    },
+    {
+      "id": "120223855594700334",
+      "name": "[2025/APR] ASETA - Instagram - Traffic",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-05-04T23:59:00+0700"
+    },
+    {
+      "id": "120217628361890334",
+      "name": "[2025/FEB] Aseta - Instagram - Traffic",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LINK_CLICK",
+      "stopTime": "2025-02-28T23:59:00+0700"
+    },
+    {
+      "id": "120216582500890334",
+      "name": "[2025/JAN] ASETA - Instagram - Traffic",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-01-31T23:59:00+0700"
+    },
+    {
+      "id": "120216249736080334",
+      "name": "[2024/DEC] Aseta - Instagram - Traffic (Optimization)",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-01-31T23:59:00+0700"
+    },
+    {
+      "id": "120215902130060334",
+      "name": "[2024/DEC] ASETA - Instagram - Traffic",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2024-12-31T23:59:00+0700"
+    },
+    {
+      "id": "120215858367100334",
+      "name": "[2024/DEC] Aseta - Instagram - Engagement",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2024-12-06T23:59:00+0700"
+    },
+    {
+      "id": "120215853057530334",
+      "name": "[2024/DEC] Aseta - Instagram - Awareness",
+      "status": "PAUSED",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2024-12-06T23:59:00+0700"
+    },
+    {
+      "id": "120252621170970334",
+      "name": "[2026/SEP] Instagram - Message Conversion - Salin",
+      "status": "ACTIVE",
+      "spend": 338480,
+      "reach": 10700,
+      "impressions": 12027,
+      "linkClicks": 15,
+      "results": 2,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-09-24T13:52:00+0700"
+    },
+    {
+      "id": "120252528051270334",
+      "name": "[2026/SEP] Cons - New Form",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "LEAD",
+      "dailyBudget": 180000,
+      "stopTime": "2026-09-15T23:59:00+0700"
+    },
+    {
+      "id": "120250884407880334",
+      "name": "[2026/JUL] Sales - Aseta",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 6500000,
+      "stopTime": "2026-08-04T23:59:21+0700"
+    },
+    {
+      "id": "120249782911000334",
+      "name": "[2026/JUNI] Awareness W2 - Aseta Keluh Kesah Mira",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "lifetimeBudget": 245000,
+      "stopTime": "2026-06-16T23:59:00+0700"
+    },
+    {
+      "id": "120249094637800334",
+      "name": "[2026/JUNI] Sales W1 - Specific Audience",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2026-06-30T23:59:00+0700"
+    },
+    {
+      "id": "120245635344850334",
+      "name": "[2026/APR] Awareness - Aseta",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2026-04-07T23:59:00+0700"
+    },
+    {
+      "id": "120245635073100334",
+      "name": "[2026/APR] Sales - Aseta",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 800000,
+      "stopTime": "2026-04-07T23:59:00+0700"
+    },
+    {
+      "id": "120244973577290334",
+      "name": "[2026/MAR] Awareness - Lebaran",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2026-03-31T23:59:00+0700"
+    },
+    {
+      "id": "120244715758780334",
+      "name": "[2026/MAR]  Sales - Konstruksi - New",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "dailyBudget": 125000,
+      "stopTime": "2026-03-17T23:59:00+0700"
+    },
+    {
+      "id": "120244327553670334",
+      "name": "[2026/MAR]  Sales - Konstruksi",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "dailyBudget": 125000,
+      "stopTime": "2026-03-10T23:59:00+0700"
+    },
+    {
+      "id": "120244026123300334",
+      "name": "[2026/FEB] Awareness - Konstruksi",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "dailyBudget": 100000,
+      "stopTime": "2026-03-03T23:59:00+0700"
+    },
+    {
+      "id": "120243142546290334",
+      "name": "[2026/FEB] Sales",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 4000000,
+      "stopTime": "2026-02-24T23:59:00+0700"
+    },
+    {
+      "id": "120242116091890334",
+      "name": "[2026/JAN] Sales - Aseta",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 7000000,
+      "stopTime": "2026-02-03T23:59:00+0700"
+    },
+    {
+      "id": "120242115638380334",
+      "name": "[2026/JAN] Awareness - Specific Audience",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2026-01-15T23:59:00+0700"
+    },
+    {
+      "id": "120239805767370334",
+      "name": "[2025/NOV] ASETA - Awareness",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2025-12-31T23:59:00+0700"
+    },
+    {
+      "id": "120239749418750334",
+      "name": "[2025/NOV] ASETA - Sales",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-12-31T23:59:00+0700"
+    },
+    {
+      "id": "120236985944450334",
+      "name": "[2025/OKT] Instagram - Message Conversion",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-11-21T23:59:00+0700"
+    },
+    {
+      "id": "120235116733100334",
+      "name": "[2025/SEP] - Instagram - Message Conversion",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-09-30T23:59:00+0700"
+    },
+    {
+      "id": "120235115282560334",
+      "name": "[2025/SEP-OKT] - Instagram - Awareness",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2025-11-14T23:59:00+0700"
+    },
+    {
+      "id": "120232548103530334",
+      "name": "[2025/AUG] ASETA - Instagram - Awareness",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "REACH",
+      "stopTime": "2025-08-31T23:59:00+0700"
+    },
+    {
+      "id": "120232544168280334",
+      "name": "[2025/AUG] ASETA - Instagram - Leads",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-08-31T23:59:00+0700"
+    },
+    {
+      "id": "120231679803310334",
+      "name": "Aseta Enterprise - A/B Test",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-08-06T23:59:00+0700"
+    },
+    {
+      "id": "120230262484860334",
+      "name": "[2025/JULY] ASETA - Instagram - Message",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "lifetimeBudget": 6300000,
+      "stopTime": "2025-07-31T23:59:00+0700"
+    },
+    {
+      "id": "120228180453920334",
+      "name": "[2025/JUNE] ASETA - Instagram - Message",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-06-30T23:59:00+0700"
+    },
+    {
+      "id": "120228059279160334",
+      "name": "[2025/JUNE] ASETA - Instagram - Traffic",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-06-30T23:59:00+0700"
+    },
+    {
+      "id": "120226416508610334",
+      "name": "[2025/MAY] ASETA - Instagram - Traffic",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-05-31T23:59:00+0700"
+    },
+    {
+      "id": "120219855400110334",
+      "name": "[2025/MAR] ASETA - Instagram - Traffic",
+      "status": "ACTIVE",
+      "spend": 0,
+      "reach": 0,
+      "impressions": 0,
+      "linkClicks": null,
+      "results": null,
+      "resultType": "MESSAGING_CONVERSATION",
+      "stopTime": "2025-04-07T11:59:00+0700"
+    }
+  ],
+  "contents": [
+    {
+      "platform": "instagram",
+      "contentId": "17909230509549323",
+      "publishedAt": "2026-10-07T08:50:03+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DeL98pEyb_W/",
+      "caption": "Aset hilang belum tentu dicuri! Bisa jadi karena pencatatan dan pelacakan aset perusahaan masih acak-acakan \n\nYuk, rapihin pencatatan aset kantor pakai Aseta! Mulai dari relokasi, maintenance, sampai depresiasi otomatis ada semua\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 11,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17903722485593089",
+      "publishedAt": "2026-09-28T02:06:05+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/Dd0EoJRn6ky/",
+      "caption": "Bingung mau pakai QR Code atau RFID untuk aset perusahaan Anda? Pilih teknologi yang tepat berdasarkan jumlah aset, target waktu, kompleksitas, dan anggaran Anda!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18120788321303970",
+      "publishedAt": "2026-09-22T07:05:01+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DdlKIl8EuEv/",
+      "caption": "Data aset yang gajelas & nggak update bikin pusing! Tim harus repot menelusuri data manual saat audit. Gak usah panik, rekonsiliasi data aset sebelum audit dengan Aseta! Data tertata, audit lancar jaya!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 2,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18114735392014586",
+      "publishedAt": "2026-09-21T03:00:05+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DdiJSLVuKCC/",
+      "caption": "Bye-bye Excel corrupt & rumus terhapus! Dengan Aseta, kelola aset perusahaan jadi lebih aman, akurat, dan bisa diakses kapan saja secara real-time\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 11,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18352026130175116",
+      "publishedAt": "2026-09-16T07:46:31+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DdVx_3JSBQy/",
+      "caption": "Kelola semua aset dan maintenance perusahaan jadi lebih tenang dan terintegrasi dalam satu sistem. Pantau kondisi aset hingga kalkulasi depresiasi secara real-time tanpa ribet.\n\nJadwalkan demo Aseta sekarang di aseta.id atau hubungi WhatsApp 0812-1798-4959. 🚀",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 2,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18107768276620845",
+      "publishedAt": "2026-09-08T04:05:02+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DdAyYrGEgZb/",
+      "caption": "Satu langkah lebih maju untuk agribisnis yang lebih cerdas dan berkelanjutan! 🚀\n\nAseta siap mendampingi PT Usaha Kita Sentosa dalam mengoptimalkan pemantauan serta pengelolaan aset secara terstruktur dan terintegrasi\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18482184859109434",
+      "publishedAt": "2026-09-06T02:05:15+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/Dc7bC9uEvUS/",
+      "caption": "Mulai September Ceria dengan aset tertata! ✨ Dapatkan FREE Assessment Manajemen Aset dari Aseta. Gunakan kode promo ASETATERTATA & jadwalkan sekarang! \n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18076447472376449",
+      "publishedAt": "2026-09-02T02:30:03+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DcxH6F9y08D/",
+      "caption": "Maintenance terjadwal adalah kunci operasional bisnis yang lancar. Aseta memberikan perencanaan matang untuk biaya, suku cadang, dan teknisi Anda. Jangan tunggu kerusakan fatal, kelola aset Anda dengan data bersama kami! 🤝\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18140698918600068",
+      "publishedAt": "2026-08-29T02:04:54+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/Dcm0pWSEg_M/",
+      "caption": "Jangan terjebak harga beli! Biaya kepemilikan aset itu berlanjut.  Pantau dan kelola lifecycle asetmu lebih mudah dengan Aseta!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18189395371395714",
+      "publishedAt": "2026-08-21T08:44:42+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DcS8Ci-koz1/",
+      "caption": "Jangan sampai biaya operasional aset Anda terjun payung cuma gara-gara nggak bisa kelola secara realtime! \n\nBersama Aseta, atasi semua kebutuhan pengelolaan aset secara realtime dan presisi lewat teknologi QR/RFID. Stock opname kilat, depresiasi terukur, dan maintenance terkontrol penuh.\n\nKlaim FREE TRIAL + DEMO LANGSUNG sekarang! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18103043720238624",
+      "publishedAt": "2026-08-17T10:38:04+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DcI1zwuSnXu/",
+      "caption": "Sambut HUT RI ke-81 dengan sistem pengelolaan aset terbaik dari Aseta. Nikmati Mega Promo Merdeka: Diskon RFID s/d 35% + Gratis Langganan 1 Bulan!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18025958711842582",
+      "publishedAt": "2026-08-13T13:04:57+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/Db-zdveElrN/",
+      "caption": "Precisely Measured, Perfectly Managed! ⚡\n\nBersama Aseta.id, PT Hioki Electric Indonesia mengotomatisasi kontrol aset presisi tinggi mereka untuk memangkas risiko kesalahan manual dan memantau kondisi aset secara real-time.\n\nPerpaduan teknologi mutakhir dan sistem terintegrasi untuk operasional yang lebih rapi dan efisien. \n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18138605794575072",
+      "publishedAt": "2026-08-08T05:45:05+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DbxGUnHSmPI/",
+      "caption": "Aset cabang suka hilang misterius? Pantau 100% lokasi aset secara terpusat dengan Aseta. Audit aset lebih cepat & akurat!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17931873918358791",
+      "publishedAt": "2026-08-04T08:30:04+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/Dbm-7LRyaw5/",
+      "caption": "Masih pusing kelola & mendata ratusan aset perusahaan? 🤔\nSaatnya beralih ke Aseta! Sekali scan, semua data unit hingga penanggung jawab langsung terpantau real-time. Praktis, cepat, dan akurat! 🚀\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18086580914653613",
+      "publishedAt": "2026-07-31T08:20:05+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DbcxsSIS1Jz/",
+      "caption": "Mengapa 90% Tim General Affair Kesulitan dalam Stock Opname Aset? \n\nProses rekonsiliasi aset secara manual sering kali menjadi beban operasional yang besar bagi tim General Affair (GA). Tanpa sistem yang terintegrasi, ketidakakuratan data ini memicu 3 titik senyap kebocoran biaya (hidden costs) yang merugikan efisiensi perusahaan:\n\n1. Capital Expenditure (CapEx) Tidak Efisien: Pembelian aset baru terus terjadi akibat visibilitas posisi dan status aset yang buruk, padahal utilitas aset yang ada belum optimal.\n\n2. Depresiasi Dini: Ketiadaan jadwal pemeliharaan preventif (preventive maintenance) yang terotomatisasi menyebabkan kerusakan fatal pada aset, sehingga biaya perbaikan atau penggantian unit membengkak.\n\n3. Penyusutan Aset Tanpa Jejak: Risiko kehilangan atau salah penempatan aset meningkat tajam karena tidak adanya sistem yang bisa mengetahui posisi aset secara real-time.\n\nJangan biarkan profitabilitas perusahaan tergerus oleh manajemen aset yang tidak efisien.\n\nSederhanakan stock opname dan amankan aset perusahaan Anda sekarang.\n👉 aseta.id | 📞 0812-1798-4959 | IG: @aseta_id",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18159348691433565",
+      "publishedAt": "2026-07-29T03:00:06+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DbXGUfRj7T_/",
+      "caption": "Pantau lokasi & jadwal pemeliharaan ribuan aset perusahaan tanpa ribet. Serahkan ke Aseta agar bisnis lebih tenang!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17898997731519493",
+      "publishedAt": "2026-07-23T04:00:05+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DbHsOcWS-3S/",
+      "caption": "Dimana posisi perusahaan Anda saat ini? Temukan 3 tahap kematangan manajemen aset mulai dari Reactive, Proactive, hingga Predictive bersama aseta! 🚀\n\nYuk, tingkatkan efisiensi pengelolaan aset perusahaan Anda sekarang juga!\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17935774605339623",
+      "publishedAt": "2026-07-21T11:30:07+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DbDaVSITS7c/",
+      "caption": "Bangga bisa berkolaborasi dengan PT Citarasa Kuliner Indonesia (Cimol Bojot Aa)! Sinergi dalam digitalisasi manajemen aset ini diharapkan mampu memberikan dampak positif dan mendukung pertumbuhan bisnis kedua belah pihak secara berkelanjutan. Cheers to a fruitful partnership! 🚀\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 17,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18016845773910995",
+      "publishedAt": "2026-07-17T04:55:06+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/Da4VhLjy8Au/",
+      "caption": "Mengapa harus manual kalau bisa otomatis dan 80% lebih cepat? ⚡\n\nAseta hadir sebagai solusi tepat untuk otomatisasi stock opname perusahaan Anda. Lebih hemat waktu, lebih efisien, dan pantau semuanya secara real-time langsung dari genggaman.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 2,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18601599991027752",
+      "publishedAt": "2026-07-13T06:00:06+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DauOScoz7an/",
+      "caption": "Keluh kesah Mira selesai! Perusahaannya kini beralih ke Aseta untuk manajemen aset berbasis QR Code & RFID yang serba otomatis dan real-time.\n\nEfisiensi total dalam satu ekosistem:\n⚡ Akselerasi Operasional: Stok opname dan relokasi antar divisi selesai instan.\n📈 Akurasi Finansial: Jadwal maintenance otomatis dan hitung depresiasi super akurat.\n📊 Transparansi Penuh: Proses disposal tercatat rapi untuk memangkas OpEx dan mencegah kerugian.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 10,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18156641200486839",
+      "publishedAt": "2026-07-10T07:28:13+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/Damp5p-FCQe/",
+      "caption": "Visibilitas aset yang jelas adalah kunci keputusan bisnis yang tepat. Dengan Aseta, Anda mendapatkan kendali penuh atas seluruh aset perusahaan dalam satu dashboard terintegrasi.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17949529083014654",
+      "publishedAt": "2026-07-06T02:39:49+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/Dab1ScsSCxo/",
+      "caption": "Stok opname sering tekor tapi gak ada yang ngaku? Ini solusinya! 💡\n\nPantau pergerakan aset berharga Anda secara real-time dengan teknologi RFID Aseta. Cukup scan, status aset langsung beres tanpa ribet pembukuan manual.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 13,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18096394072968077",
+      "publishedAt": "2026-06-28T11:00:12+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DaIInMfzEEI/",
+      "caption": "Ditagih laporan penyusutan siang ini tapi masih sibuk pusing pakai kalkulator? Keburu manajer ngamuk! 😭\n\n​Stop buang waktu! Pakai Aseta, hitung nilai sisa dan depresiasi aset otomatis secara akurat dalam hitungan detik. Laporan beres, kerjaan tenang.\n\n​Bikin laporan keuangan lebih cepat. Hubungi kami untuk jadwal demo hari ini!\n\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18119734492677947",
+      "publishedAt": "2026-06-19T23:58:36+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DZyWdrkSssW/",
+      "caption": "Capek rekap manual tiap kali aset kantor rusak? \n\n​Saatnya beralih ke Aseta! Hitung total biaya maintenance dan pantau riwayat servis aset secara otomatis. Bye-bye tumpukan nota!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 12,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18118440508693196",
+      "publishedAt": "2026-06-17T08:00:05+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DZrc8BMSZ_y/",
+      "caption": "Stop Kehilangan Aset Perusahaan! Pantau Setiap Perubahan Secara Instan! \n\nDengan Aseta, kelola mutasi, pindah tangan, dan perubahan lokasi aset jadi super mudah dan terlacak 100% aman langsung dari genggaman Anda.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18600834790041002",
+      "publishedAt": "2026-06-15T03:00:05+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DZlvxKBSwqP/",
+      "caption": "Mau kelola puluhan aset dengan aman tanpa boncos? Hubungi kami sekarang!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18091423703031063",
+      "publishedAt": "2026-06-10T12:21:06+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DZZ7V0kS8mt/",
+      "caption": "Semua operasional manajemen aset beres dalam satu aplikasi terintegrasi. Lebih aman, lebih transparan, dan pastinya jauh lebih efisien! Jangan tunggu sampai ada aset yang hilang atau rusak tanpa kejelasan\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 11,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18073430000660392",
+      "publishedAt": "2026-06-06T09:30:02+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DZPU4bskrQu/",
+      "caption": "Ribuan aset, satu dashboard, pantau secara real-time!\n\nKelola aset perusahaan Anda jadi lebih optimal, aman, dan efisien tanpa ribet dengan Teknologi RFID. Mulai dari Rp 1.500/aset/bulan aja!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17886635187395853",
+      "publishedAt": "2026-06-04T11:30:10+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DZKZAFQSs_3/",
+      "caption": "Apes banget.. mobil boks udah siap tancap gas demi kejar target, terpaksa ditahan dulu cuma gara-gara pajak kendaraan mati.\n\nSebenarnya pantau masa berlaku aset itu gak harus seribet ini, apalagi sampe bikin jadwal ke klien berantakan 🤔\n\nTemukan solusi manajemen aset yang anti-gagal bersama Aseta!\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 17,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18104615657058473",
+      "publishedAt": "2026-05-29T08:47:20+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DY6piVlSpkL/",
+      "caption": "Jalan-jalan ke kota Blitar,\nKelola aset harus yang pintar. 😎\n\nPakai aseta, audit aman dan serba instan!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18099311096587610",
+      "publishedAt": "2026-05-22T10:00:03+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DYowV4LkvEV/",
+      "caption": "STOP PEMBOROSAN! \n\nKendaraan gak terlacak? Fasilitas rusak atau hilang? Jangan biarkan operasional bisnis Anda bocor karena manajemen aset yang berantakan.\n\nKontrol penuh aset perusahaan Anda sekarang dengan Aseta.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 10,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17956756617139718",
+      "publishedAt": "2026-05-21T06:53:43+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DYl2DXjyRYb/",
+      "caption": "Stop paksa tim finance Anda pusing pakai cara manual. Dengan Aseta, Ribuan aset kantor terbaca akurat secara otomatis. Kerja lebih ringan, bisnis lebih aman!\n\nSiap untuk presisi?\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17891996307469854",
+      "publishedAt": "2026-05-20T03:26:39+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DYi5tyFEvie/",
+      "caption": "Beli aset baru lagi padahal yang lama cuma keselip di cabang sebelah? Itu namanya buang-buang profit! \nAmankan margin bisnis Anda dari tebak-tebakan data dengan sistem manajemen aset cerdas dari Aseta.\n\nSiap untuk presisi?\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18090351734250530",
+      "publishedAt": "2026-05-08T10:00:35+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DYEtQhzDH3M/",
+      "caption": "Rawat alatnya, simpan uangnya.\nMenunda maintenance bukan cara berhemat, tapi cara tercepat membuang biaya operasional. Pastikan aset Anda tetap prima bersama Aseta.\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17913232038371323",
+      "publishedAt": "2026-04-28T04:00:11+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DXqUDFfSnQ-/",
+      "caption": "Tenant Gathering “RFID for Smarter Warehouse & Asset Management” sukses digelar pekan lalu di Graha KIIC. 🚀\n\nKolaborasi dan teknologi berpadu untuk mendorong efisiensi operasional yang lebih nyata. Terima kasih atas partisipasinya!\n\nIdentify Faster, Manage Smarter with @rfid_totalsolution @aseta_id ✨",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 21,
+        "comments": 2,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17922226905303003",
+      "publishedAt": "2026-04-16T05:00:59+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DXLhe3sjVkt/",
+      "caption": "Tepat seminggu lalu, Aseta telah mengikuti rangkaian NextDev Summit di Jakarta. Banyak insight dan pembelajaran berharga dari para mentor dan technopreneurs inspiratif.\n\nMenjadi TOP 10 Technopreneurs NextDev menjadi milestone penting bagi Aseta untuk terus menghadirkan solusi pengelolaan aset yang lebih efisien dan berdampak. 🚀",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 11,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18135019882532103",
+      "publishedAt": "2026-04-14T08:30:13+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DXGv1lECPq5/",
+      "caption": "Tingkatkan pengelolaan aset Anda dimana dan kapan saja dengan Aseta!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18108442111854915",
+      "publishedAt": "2026-04-13T03:00:10+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DXDlREEy5qC/",
+      "caption": "Masih mengelola warehouse dan aset secara manual? 👀\n\nKesalahan data dan proses lambat bisa menghambat produktivitas bisnis Anda.\n\nIkuti seminar \"RFID for Smarter Warehouse and Asset Management\" dan temukan:\n\n 📊 Solusi nyata untuk warehouse & aset\n📦 Studi kasus implementasi RFID\n✨ Konsultasi langsung dengan ahli\n\n📅 Kamis, 23 April 2026 - 09:00 WIB\n📍 Graha KIIC\n\nInfo lebih lengkap : +62 851-1709-6580 (WA only)",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18188740666317779",
+      "publishedAt": "2026-03-12T04:18:11+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DVxUfBvEgcy/",
+      "caption": "Masih bingung jumlah, kondisi, dan nilai aset perusahaan Anda? 🤔\nSaatnya kelola aset lebih rapi dan terkontrol dengan ASETA.\n\n📊 Pantau aset\n🔧 Notifikasi maintenance\n📉 Hitung depresiasi otomatis\n\nCoba Aseta gratis sekarang juga! 🚀\n\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 35,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18084547571218260",
+      "publishedAt": "2026-03-06T12:01:39+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DVitCDlCFg8/",
+      "caption": "Pengelolaan aset yang baik sering dimulai dari pertanyaan sederhana:\nDi mana aset berada? Siapa pemegangnya? Berapa nilai asetnya? Berapa jumlah aset yang dimiliki? Kapan aset perlu dipelihara?\n\nSaat pertanyaan-pertanyaan ini terjawab dengan jelas, operasional pun bisa berjalan lebih lancar dan terkontrol!\n\nCoba Aseta gratis sekarang juga! 🚀\n@aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17859721965545189",
+      "publishedAt": "2026-02-25T05:00:14+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DVKxpodCDLN/",
+      "caption": "Kelola aset tanpa rasa khawatir ✅\n\nAseta hadir dengan 3 Garansi:\nHardware, Consumables (QR/RFID Tag), dan System\n\nKonsultasi sekarang & upgrade sistem pengelolaan aset bisnis Anda! 🚀\n@aseta_id",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18163477075411118",
+      "publishedAt": "2026-02-20T06:19:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DU-CVD3EgDg/",
+      "caption": "Aset di proyek hilang? Operasional terhambat, waktu terbuang berjam-jam? 😩\n\nAseta membantu tim mencatat dan melacak lokasi aset secara real-time untuk mengurangi risiko kehilangan.\n\nSudah siap upgrade sistem aset proyek Anda dengan Aseta? 🚀\n\nCoba gratis sekarang juga! @aseta_id | 0812-1798-4959",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 18,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17866587417563190",
+      "publishedAt": "2026-02-09T04:00:22+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DUheFOrDWma/",
+      "caption": "Alat proyek sering hilang?\nBiaya membengkak tanpa sadar.\n\nLacak aset real-time dengan @aseta_id .\nLebih efisien, aman, dan transparan.\n\nKonsultasi sekarang juga! ✨",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17879464275465330",
+      "publishedAt": "2026-01-30T13:00:25+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DUIr70njOfy/",
+      "caption": "Pengelolaan aset yang terstruktur menjadi bagian penting dalam menjaga kelancaran operasional.\n\nPT Leon Boga Sentosa memanfaatkan Aseta untuk mendukung pencatatan aset, maintenance berkala, serta pelacakan riwayat aset secara terpusat.\n\nDengan sistem yang mudah digunakan dan notifikasi tepat waktu, Aseta membantu perusahaan membangun fondasi pengelolaan aset yang lebih rapi dan berkelanjutan.\n\nCoba Aseta gratis sekarang juga! 🚀\n\n#Aseta #AssetManagementSystem #CustomerTestimonial #OperationalExcellence #MaintenanceManagement",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18088984864693263",
+      "publishedAt": "2025-09-09T08:30:14+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DOX_V1jCha-/",
+      "caption": "BIG NEWS from Aseta! \nSekarang Aseta hadir dalam versi Enterprise 🎉\n\nDengan fitur terbaru ini, kamu bisa merasakan:\n✨ Skalabilitas yang lebih tinggi\n✨ Keamanan data yang maksimal\n✨ Performa sistem yang lebih optimal\n\nSatu langkah lebih maju untuk pengelolaan aset perusahaan yang lebih efisien & terintegrasi.\n\n👉 Pelajari lebih lanjut dan temukan bagaimana Aseta Enterprise bisa jadi solusi terbaik untuk bisnismu!",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 2,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17912329152177130",
+      "publishedAt": "2025-08-28T11:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DN5W-TrSmzA/",
+      "caption": "Depresiasi aset penting banget untuk laporan keuangan yang akurat dan pengambilan keputusan yang lebih bijak, lho! 🔍📊\n\nDengan fitur depresiasi Aseta, hitung penyusutan aset secara otomatis dan dapatkan laporan ter-update untuk perencanaan bisnis yang lebih baik. 💼💡\n\nYuk Coba Demo Gratis Sekarang!\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#Aseta #ManajemenAset #Depresiasi #SoftwareBisnis #Keuangan #Pajak #PerencanaanBisnis #Indonesia",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18071514511875657",
+      "publishedAt": "2025-08-19T11:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DNiLz_ny1gk/",
+      "caption": "Jangan bingung lagi memilih penyedia software manajemen aset & maintenance. Jawabannya sudah pasti Aseta yang hadir dengan akurasi, kecepatan, dan efisiensi! 📊🚀\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#Aseta #ManajemenAset #SoftwareAset #Efisiensi #Teknologi #Indonesia #BisnisCerdas",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18065134150971215",
+      "publishedAt": "2025-08-11T09:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DNNXskkyrMN/",
+      "caption": "Dengan lebih dari 26,95 juta pengguna QR Code secara global, ini saatnya Anda bergabung juga! \n\nDengan integrasi QR Code dan Aseta, Anda akan semakin dimudahkan dengan proses yang otomatis mulai dari pelacakan hingga pencatatan aset!\n\nCoba demo gratis sekarang dan rasakan kemudahan pengelolaan aset bersama Aseta!\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#Aseta #QRCode #ManajemenAset #SolusiBisnis #Teknologi #AssetTracking",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18035461910443933",
+      "publishedAt": "2025-08-05T11:00:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DM-IsbDywBH/",
+      "caption": "Laporan Aset Tidak Terpercaya? Hati-hati dengan Dampaknya!\n\nLaporan aset yang nggak akurat bisa berdampak besar pada bisnis Anda, lho. Mulai dari:\n❌ Keputusan manajerial yang salah\n❌ Turunnya kepercayaan investor, hingga\n❌ Rugi secara finansial karena kesalahan data\n\nDengan Aseta, Anda bisa kelola aset secara otomatis, pelacakan cepat, dan laporan yang bisa diakses kapan saja untuk laporan aset yang lebih akurat dan kredibel\n\nIni saatnya tingkatkan Akurasi Laporan Aset Bisnis Anda dengan Aseta!\nYuk coba demo Aseta GRATIS sekarang dengan menghubungi kami!\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#ManajemenAset #KeakuratanData #Aseta #PengelolaanAset #BisnisSukses",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 11,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18062703974192851",
+      "publishedAt": "2025-07-30T02:17:58+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DMtwJZaSr6g/",
+      "caption": "RFID vs Barcode: Mana yang Lebih Cocok untuk Bisnis Anda? 🏷️\n\nIngin tahu perbedaan RFID & Barcode? Yuk Cek perbandingannya di atas!\n\nPenasaran dengan cara kerja RFID dalam pengelolaan aset Anda?\n📲 Hubungi Aseta sekarang untuk dapetin demo gratis!\n🌐 rfidtotalsolution.com | 📞 0813 2330 5239\n\n#RFIDvsBarcode #ProductInsider #SmartBusiness",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17859535635395092",
+      "publishedAt": "2025-07-25T10:00:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DMhtD6RyfJE/",
+      "caption": "Sekarang, jajanan favorit Sobat AA resmi bergabung dengan Aseta! 🥳 \n\nPT Citarasa Kuliner Indonesia, brand di balik Cimol Bojot AA, kini mempercayakan pengelolaan aset usahanya dengan solusi digital dari Aseta.\n\nKami bangga bisa turut mendampingi bisnis lokal yang terus bertumbuh dan menjadi kebanggaan kuliner khas Indonesia.\n\nAseta, solusi aset untuk UMKM naik kelas! 🚀\n\n#CimolBojotAA #JajajananBandung #Aseta #RFID",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 14,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18333199885164715",
+      "publishedAt": "2025-07-22T04:00:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DMZVfnPSRYv/",
+      "caption": "Aset Rusak? Perbaikan Kini Lebih Cepat & Tertata!\n\nScan. Ajukan. Perbaiki. Arsip Otomatis.\n\nDengan sistem RFID Aseta, pengajuan perawatan aset bisa dilakukan langsung dari lapangan.\n\nKonsultasi sekarang dan dapatkan FREE TRIAL!\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18053824979103654",
+      "publishedAt": "2025-07-03T09:13:36+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DLo-QDMSTk-/",
+      "caption": "[Lewat Teknologi RFID, Aseta Tunjukkan Kekuatan Inovasi di Bandung Startup Pitching Day]\n\nAseta kembali membuktikan relevansinya sebagai solusi digital aset berbasis RFID yang inovatif. Dalam gelaran Bandung Startup Pitching Day, Aseta sukses menarik perhatian para investor melalui presentasi solutifnya terhadap permasalahan manajemen aset di berbagai industri besar.\n\nMomentum ini menjadi bukti nyata komitmen Aseta dalam menghadirkan inovasi digital yang relevan dan berdampak langsung di lapangan. Dukungan dari ekosistem inkubasi The Greater Hub ITB juga menjadi bagian penting dalam mematangkan model bisnis Aseta menuju ekspansi yang lebih luas.\n\nBandung Startup Pitching Day menjadi langkah awal untuk kolaborasi yang lebih besar. Aseta akan terus bertumbuh dan berinovasi, membawa visi untuk menciptakan pengelolaan aset yang lebih cerdas di seluruh Indonesia.\n\nCredit To: Irfan Al Faritsi, Ade Bayu Indra\nSources: ayobandung.com, tugubandung.id",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 18,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17964811220767559",
+      "publishedAt": "2025-05-13T09:12:15+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DJlnrKwSfJT/",
+      "caption": "🚀 Optimalkan Manajemen Aset dengan Teknologi RFID!\n\nKesalahan pendataan dan informasi aset yang tidak akurat bisa menghambat operasional bisnis. Dengan teknologi RFID dari Aseta, Anda bisa melacak aset dengan cepat, meningkatkan efisiensi, dan mengurangi risiko kesalahan.\n\n💡 Saatnya beralih ke solusi cerdas untuk aset bisnis Anda!\n📲 Hubungi Aseta sekarang!\n\n#Aseta #RFIDTracking #ManajemenAset #EfisiensiBisnis",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18067239083297066",
+      "publishedAt": "2025-04-25T03:00:33+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DI2otXdPA1Z/",
+      "caption": "📦🔍 Kelola Mutasi Aset dengan Lebih Efisien!\n\nTanpa sistem yang tepat, data bisa tidak akurat, sulit dilacak, dan proses mutasi jadi terlambat. Hal ini berdampak pada produktivitas dan kualitas layanan perusahaan.\n\nDengan dokumentasi aset yang baik, laporan jadi lebih kredibel dan proses audit lebih mudah.\n\n🔗 Optimalkan pengelolaan aset Anda sekarang!\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#Aseta #KelolaAsetMudah #ManajemenAset #AsetTerawat #BisnisTerorganisir",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18035004767628686",
+      "publishedAt": "2025-03-30T12:01:13+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DH0p4NDhWy7/",
+      "caption": "✨ Selamat Hari Raya Idulfitri 1446 H! ✨\n\nMohon maaf lahir dan batin. Semoga di hari yang suci ini, hati kita kembali bersih, penuh kebahagiaan, dan keberkahan selalu menyertai. 🤍🌙\n\n#Aseta #NuansaCerahInformasi #EidMubarak #Lebaran1446H #ManajemenAsetDigital",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17993923973621773",
+      "publishedAt": "2025-03-20T08:00:21+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DHad95hSE7J/",
+      "caption": "📊🔍 Kelola Aset Lebih Mudah & Akurat dengan Aseta!\n\nFitur-fitur unggulan Aseta:\n📌 Dashboard sebagai pusat informasi aset\n🔧 Preventive & Corrective Maintenance\n📉 Fitur depresiasi untuk perhitungan lebih mudah\n📍 Mutasi aset untuk melacak perpindahan aset\n\n🔗 Saatnya kelola aset bisnis Anda dengan lebih efisien!\n\nKunjungi aseta.id dan coba sekarang! 🚀",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18047921282040552",
+      "publishedAt": "2025-03-07T07:29:39+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DG48jafyR0i/",
+      "caption": "🏢✨ Kenapa Manajemen Aset Itu Penting?\n\nManajemen aset yang baik bukan hanya soal pencatatan, tapi juga tentang membangun kepercayaan dan citra positif di mata klien, mitra, dan investor. \n\nPastikan aset perusahaan Anda selalu terkelola dengan baik!\n\nHubungi Aseta sekarang dan rasakan pengalaman terbaik dalam manajemen aset bisnis Anda. 🚀\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#Aseta #KelolaAsetMudah #ManajemenAset #AsetTerawat #BisnisTerorganisir",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18092889499551277",
+      "publishedAt": "2025-02-28T11:30:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DGnWis5yEAF/",
+      "caption": "🌙 Marhaban ya Ramadhan! 🌙\n\nPT Nuansa Cerah Informasi mengucapkan Selamat Menunaikan Ibadah Puasa 1445 H bagi seluruh umat Muslim. Semoga bulan suci ini membawa keberkahan, kedamaian, dan kebahagiaan bagi kita semua.\n\nMari jalani Ramadhan dengan penuh keikhlasan, saling berbagi, dan memperkuat silaturahmi. 🤲✨\n\n@aseta_id \n@rfid_totalsolution \n\n#RamadhanBerkah #MarhabanYaRamadhan #NuansaCerahInformasi",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 13,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18356481406124781",
+      "publishedAt": "2025-02-25T04:19:47+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DGe2rNZyTH5/",
+      "caption": "🚀 Webinar Eksklusif: Transformasi Teknologi Manajemen Aset 🎯\n\n🔍 Pelajari inovasi terbaru dalam manajemen aset dengan teknologi RFID & QR Code!\n💡 Dapatkan manfaat eksklusif:\n✅ E-Certificate\n✅ Penawaran menarik khusus peserta\n✅ Trial GRATIS dari Aseta\n\n📅 Rabu, 12 Maret 2025\n🕤 09:30 - 12:00 WIB\n📍 Zoom Meeting\n\n🎟 GRATIS! (Peserta terbatas)\n📌 Daftar sekarang: https://bit.ly/webinaraseta\n\n📞 Info lebih lanjut: +62 812 1798 4959 (Neneng)\n🌐 @aseta_id | aseta.id\n\n#WebinarAseta #ManajemenAset #RFID #QRCode #AsetDigital",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 14,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18024478352382872",
+      "publishedAt": "2025-02-24T09:06:55+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DGcysPfSlGG/",
+      "caption": "🚗⚙ Lupa Maintenance? Aset Bermasalah? 😟\n\nJangan sampai drama mobil mogok karena telat perawatan! Dengan Aseta, Anda akan mendapatkan reminder otomatis untuk maintenance kendaraan dan aset lainnya. 🔔✅\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📷 @Aseta_id\n\n#Aseta #KelolaAsetMudah #ManajemenAset #AsetTerawat #BisnisTerorganisir",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18037234535178587",
+      "publishedAt": "2025-02-19T08:53:36+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DGP5cQ-yoCG/",
+      "caption": "🚀 Webinar Eksklusif: Transformasi Teknologi Manajemen Aset 🎯\n\n🔍 Pelajari inovasi terbaru dalam manajemen aset dengan teknologi RFID & QR Code!\n💡 Dapatkan manfaat eksklusif:\n✅ E-Certificate\n✅ Penawaran menarik khusus peserta\n✅ Trial GRATIS dari Aseta\n\n📅 Rabu, 12 Maret 2025\n🕤 09:30 - 12:00 WIB\n📍 Zoom Meeting\n\n🎟 GRATIS! (Peserta terbatas)\n📌 Daftar sekarang: https://bit.ly/webinaraseta\n\n📞 Info lebih lanjut: +62 812 1798 4959 (Neneng)\n🌐 @aseta_id | aseta.id\n\n#WebinarAseta #ManajemenAset #RFID #QRCode #AsetDigital",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18045492113198660",
+      "publishedAt": "2025-02-18T06:38:07+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DGNFJHxyyiK/",
+      "caption": "Aset Hilang? Pencatatan Berantakan? 🔍\n\nKelola semua mutasi aset tetap dengan mudah dan akurat menggunakan Aseta! ✅\n\n✨ Proses bisnis yang dinamis membutuhkan sistem pengelolaan aset yang fleksibel. Dengan Aseta, Anda bisa lebih dari sekadar pemeliharaan & pengecekan lokasi—mutasi aset tetap pun terdokumentasi dengan baik! 📊📌\n\nInfo lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n📲 @Aseta_id\n\n#Aseta #KelolaAsetMudah #ManajemenAset #MutasiAset #BisnisTerorganisir",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17944774007820903",
+      "publishedAt": "2025-02-14T09:46:17+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DGDHfsdyB71/",
+      "caption": "📢 IMPORTANT ANNOUNCEMENT 📢\n\nHi, we have a new business number! 📞✨\n\n➡️ 0812-1798-4959 ⬅️\n\nPlease note that our old number is no longer in use. Save the new one so we can stay connected! Thank you for your support. 🤗",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18136000549382254",
+      "publishedAt": "2025-02-13T02:38:20+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DF_xil_ygd2/",
+      "caption": "Mengelola aset kini lebih mudah dan cepat! \n\nDengan teknologi RFID & QR Code, pencatatan aset jadi lebih akurat, efisien, dan terpercaya. Tak perlu repot mencari lokasi aset, cukup gunakan Aseta, semua bisa terpantau dalam hitungan detik! ⏳✨\n\n🔹 Hemat waktu operasional hingga 50%\n🔹 Pencatatan otomatis & akurat\n🔹 Pilihan sistem identifikasi: RFID & QR Code\n\nJadilah bagian dari bisnis modern yang lebih cerdas & kompetitif bersama Aseta! 🔥\n\n📲 Info lebih lanjut:\n🌐 aseta.id \n📞 0812-1798-4959 \n👉🏻 @aseta_id \n\n#Aseta #ManajemenAset #RFID #QRCode",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 7,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18068830678810410",
+      "publishedAt": "2025-01-31T06:22:31+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DFetDCKykeQ/",
+      "caption": "#KenalLebihDekat: Mengenal Aseta\n\nApa itu Aseta?\nAseta adalah software Asset Management & Maintenance berbasis Cloud yang dapat digunakan di berbagai industri. \n\nJenis Aset yang Bisa Dikelola dengan Aseta:\n🗂️ Dokumen \n🪑 Meja \n🖨️ Printer\n💻 Laptop \n🔌 Kabel … \ndan masih banyak lagi!\n\n Fitur Unggulan Aseta:\n🔹 Ketersediaan hardware/device\n🔹 Pemberitahuan maintenance aset otomatis\n🔹 Sistem identifikasi dengan RFID & QR Code\n\nAseta, Solusi Tepat Kelola Aset!\n👉🏻 @aseta_id \n📞 0821-2958-8868\n🌐 aseta.id\n\n#qrcode #rfid #manajemenaset #aset #aseta #nci",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 27,
+        "comments": 1,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18034990958172221",
+      "publishedAt": "2025-01-17T08:23:02+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DE63I9VSNHX/",
+      "caption": "Kelola aset perusahaan Anda lebih mudah dan efisien dengan teknologi RFID bersama Aseta! ✨\nCoba FREE TRIAL manajemen aset berbasis RFID sekarang, dan rasakan sendiri kemudahannya dalam melacak, memantau, dan mengelola aset Anda secara akurat.\n\n✨ Keuntungan yang Anda dapatkan:\n✅ Akurasi data tinggi\n✅ Pemantauan aset otomatis\n✅ Hemat waktu & biaya operasional\n\nJangan lewatkan kesempatan ini! Klik link di bio untuk klaim kesempatan ini👉🏻 @aseta_id \n\nAtau hubungi nomor: 082129588868\n\n#RFID #ManajemenAset #FreeTrial #Aseta",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 14,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17850527418329855",
+      "publishedAt": "2024-12-30T10:00:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DEMskkFS2Cq/",
+      "caption": "Dengan Aseta, tidak ada lagi aset hilang atau terlewat maintenance!\n\nTingkatkan efisiensi dan produktivitas bisnismu dengan Aseta! Klik link di bio untuk berlangganan!",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 17,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18165539377322443",
+      "publishedAt": "2024-12-30T08:10:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DEMf8mwyUyB/",
+      "caption": "Katakan selamat tinggal pada pencatatan manual! Aseta: - solusi tepat untuk kelola asetmu, mulai dari pemeliharaan hingga pengoperasian!😉",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 12,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18339729376198241",
+      "publishedAt": "2024-12-26T03:30:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DEBsxgLy7tK/",
+      "caption": "Hilang aset = hilang keuntungan?💵❌ \n\nJangan tunggu sampai kerugian menghampiri! Yuk beralih ke Aseta untuk manajemen asetmu!\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17967294563698424",
+      "publishedAt": "2024-12-24T03:00:00+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DD8fr2Hy1_D/",
+      "caption": "Fitur reminder dan pencatatan aset - Mulai dari penjadwalan otomatis untuk maintenance hingga mencatat riwayat maintenance secara terorganisir, aset pasti bertahan dalam jangka panjang! \n\nYuk berlangganan Aseta sekarang!\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18084920920485328",
+      "publishedAt": "2024-12-17T12:04:02+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DDrcXCNysgJ/",
+      "caption": "Aseta menyediakan berbagai jenis tag RFID untuk melindungi aset bisnismu dengan lebih efektif: Bingung tag mana yang cocok untuk bisnismu? Yuk, konsultasikan terlebih dahulu📲\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 1,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18113931082442527",
+      "publishedAt": "2024-12-17T11:44:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DDraES9SNL6/",
+      "caption": "Tag RFID tangguh untuk segala lingkungan! Bingung tag apa yang cocok untuk asetmu? Yuk konsultasi terlebih dahulu dengan kami!😉\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18260655337255287",
+      "publishedAt": "2024-11-28T04:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DC5p-CtSExl/",
+      "caption": "Merekap aset masih manual? Ucapkan selamat tinggal sekarang!👋🏻\n\nPakai Aseta untuk pencatatan aset yang lebih mudah!\n✅User-friendly\n✅Akses multi-platform\n✅Pelacakan mudah\n✅Pengingat maintenance\n\nManajemen aset kini lebih mudah, transparan, dan efisien dengan Aseta!😉✨\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18050922643972079",
+      "publishedAt": "2024-11-27T03:30:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DC3BqaMTR7R/",
+      "caption": "Aseta hadir untuk menyederhanakan aset dengan solusi berbasis cloud!\n\nProses yang lambat dan data yang tidak akurat dapat menghambat aktivitas. Pantau aset dan dapatkan notifikasi serta buat laporan dengan mudah. Explore Aseta untuk solusi tepat manajemen aset anda.\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17934580943948615",
+      "publishedAt": "2024-11-21T04:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DCnoaLoyUls/",
+      "caption": "Metode depresiasi untuk bisnismu - mana yang paling cocok?👀\n\nYuk simak perbedaan metode straight-line, single decline, dan double decline!👉🏻Masing-masing metodenya dapat kamu pilih berdasarkan jenis bisnis yang kamu miliki!\n\nPilih metode yang tepat dan optimalkan nilai asetmu!\n\n3 metode depresiasi tersebut sudah tersedia di software Aseta!✨\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18076322008579717",
+      "publishedAt": "2024-11-19T03:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DCiX2HWSawv/",
+      "caption": "Pantau aset yang berpindah lebih mudah dengan Aseta!🚗\n\nMengelola perpindahan aset tanpa sistem jelas dapat membingungkan! Banyak perusahaan yang kesulitan melacak lokasi, penanggung jawab, dan histori aset mereka. \n\nTenang! Aseta hadir dengan solusi mutasi aset! Semua perpindahan aset akan tercatat secara otomatis, sangat memudahkan kamu untuk mengetahui:\n- lokasi aset terkini\n- departemen yang bertanggung jawab\n- riwayat perpindahan aset\n\nYuk pastikan asetmu tercatat dengan tepat! Gunakan fitur mutasi dari Aseta untuk manajemen aset yang lebih efisien dan terorganisir!🥰\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18039580109229160",
+      "publishedAt": "2024-11-15T06:00:00+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DCYZRQUSZTV/",
+      "caption": "Melangkah lebih dekat dengan Aseta di Kalimantan Timur!✨\n\nKami dengan bangga memperkenalkan kemitraan strategis antara Aseta dan SPT Consulting (PT Semesta Prima Tatakelola) sebagai kantor representatif kami di Kalimantan Timur! 🌏🤝\n\nKerjasama ini menjadi wujud nyata komitmen kami untuk lebih dekat dan lebih responsif dalam melayani klien di wilayah Kalimantan Timur yang terus berkembang. Bersama SPT Consulting, kami siap menghadirkan solusi yang relevan, dukungan yang lebih baik, dan kehadiran lokal yang lebih kuat.\n\nMari jelajahi lebih banyak peluang dan raih kesuksesan bersama di Kalimantan Timur!\n\n#Aseta #SPTConsulting #KalimantanTimur #KerjaSamaStrategis #KehadiranLokal #SolusiBersama",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 15,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18065500867606975",
+      "publishedAt": "2024-11-12T03:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DCQ4oRWSo5T/",
+      "caption": "Lebih mudah dengan Aseta!🚀 - Mutasi aset kini hanya perlu 3 langkah mudah!\n\nIngin mutasi aset dengan software Aseta? Yuk ikuti langkah-langkah ini:\n📌 Langkah 1: Pilih Aset\nKlik aset yang ingin dipindahkan ke lokasi baru dengan mudah.\n\n📍 Langkah 2: Tentukan Lokasi/Penanggung Jawab Baru\nMasukkan lokasi atau departemen tujuan penerima aset.\n\n✅ Langkah 3: Konfirmasi & Selesai\nPerubahan tercatat otomatis, dan aset langsung siap di lokasi baru. Mudah dan efisien!\n\nOptimalkan manajemen asetmu hanya dengan Aseta!✨\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17865843534182338",
+      "publishedAt": "2024-11-07T04:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DCDlQw9SIWK/",
+      "caption": "Pelaporan aset yang rumit menghambat proses kredibilitas di bidang industri?🤔\n\nKredibilitas yang sukses membutuhkan pelaporan aset yang jelas dan terstruktur. Tanpa pelaporan yang rapi, kredibilitas industrimu bisa terancam! Dengan Aseta, pelaporan aset menjadi jauh lebih mudah dan tentunya akan meningkatkan kredibilitas industrimu!\n\nTingkatkan peluang sukses kredibilitas dengan pengelolaan aset yang efektif melalui Aseta!✨\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18061975585790594",
+      "publishedAt": "2024-11-05T03:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DB-Uyt_SCIu/",
+      "caption": "HATI HATI! Aset menjadi kurang optimal karena lupa jadwal maintenance❗\n\nTanpa pemeliharaan yang terstruktur, aset akan berisiko mengalami kerusakan di waktu yang tak terduga. Dengan Aseta, kamu tidak perlu khawatir jadwal maintenance terlewatkan, karena Aseta akan mengirimkan notifikasi untuk melakukan perawatan aset!\n\nSegera optimalkan asetmu dengan Aseta! Jaga performa aset tetap prima dan lancar tanpa gangguan!😉\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18087855133507316",
+      "publishedAt": "2024-10-31T04:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DBxjphNSG9g/",
+      "caption": "🚫 Buang aset yang rusak tanpa dicatat? ❌ Jangan lakukan itu! ❌\n\nAset yang rusak harus dicatat dalam pencatatan disposal. Kenapa? Karena catatan ini membantu perusahaan mengidentifikasi pola penggunaan aset dan membuat keputusan pembelian yang lebih baik di masa depan✨\n\nMulai gunakan Aseta untuk melakukan disposal yang tepat!✅\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17967002474808095",
+      "publishedAt": "2024-10-29T06:57:51+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DBsuXpfydXO/",
+      "caption": "✨ Tingkatkan efisiensi operasional dan pastikan aset perusahaanmu selalu terpantau dengan aman!\n\n🚀 Optimalkan Bisnis dengan Teknologi RFID!\nJangan lewatkan kesempatan untuk bergabung di workshop eksklusif ini:\n“RFID-Driven Innovation in Industrial Asset & Inventory Control”\n\n🗓️ 7 November 2024\n📍 Hotel Aston Pasteur, Bandung\n🔗 Daftar sekarang: bit.ly/RFIDTSWorkshop\n📱 Contact Person: 0813-2330-5239 (Wahyu)\n\nDaftar sekarang, kuota terbatas!\n\n#RFIDTotalSolution #TeknologiRFID #OptimalkanBisnis #WorkshopRFID #EfisiensiOperasional #ManajemenAset",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17972341997792088",
+      "publishedAt": "2024-10-25T09:53:30+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DBivIjiSFAw/",
+      "caption": "🔍 Kehilangan Aset?\nTanpa pengelolaan yang tepat, aset Anda berisiko hilang, rusak, atau salah penempatan, yang bisa merugikan operasional dan produktivitas.\n\n🏢 Solusi Kami:\nManajemen aset yang efektif adalah kunci untuk menjaga keamanan dan mencegah kerugian.\n\n💡 Kenapa RFID?\nDengan teknologi RFID, lacak dan pantau aset secara real-time. Ketahui lokasi, status, dan kondisi aset dengan akurat agar operasional tetap lancar!\n\n🎯 Ingin Tahu Lebih Lanjut?\nGabung di workshop eksklusif kami untuk memahami bagaimana RFID dapat meningkatkan keamanan dan efisiensi operasional Anda!\n\n🗓️ Tanggal: 7 November 2024\n📍 Lokasi: Hotel Aston, Bandung\n🔗 Pendaftaran: bit.ly/RFIDTSWorkshop\n\n📞 Hubungi: 0813-2330-5239 (Wahyu)\n\nDaftar sekarang dan optimalkan keamanan serta efisiensi operasional bisnismu dengan teknologi RFID!\n\n#RFIDTotalSolution #TeknologiRFID #OptimalkanBisnis #WorkshopRFID #EfisiensiOperasional #ManajemenAset",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 10,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18048863302964285",
+      "publishedAt": "2024-10-24T04:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DBfiDjZS5Dw/",
+      "caption": "Menjaga aset bukan hanya tentang performa, tapi juga tentang investasi cerdas!💡\n\nPerawatan rutin dapat memperpanjang umur aset, mengurangi risiko kerusakan, dan meningkatkan nilai jual. Aset yang terawat baik tentunya lebih cepat terjual dan bernilai lebih tinggi.\n\nMulai rawat asetmu untuk hasil investasi yang maksimal! Ayo jadikan perawatan aset sebagai langkah cerdas menuju masa depan yang lebih menguntungkan!😉\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17864024421185604",
+      "publishedAt": "2024-10-23T06:48:50+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DBdQbNBSlM8/",
+      "caption": "Ingin meningkatkan efisiensi operasional dan akurasi data bisnis Anda? Saatnya transformasi ke teknologi RFID yang siap membantu Anda melakukan pelacakan real-time, meningkatkan keamanan, dan mencegah kehilangan!\n\n✨ Pelajari lebih lanjut di Workshop Eksklusif kami! 💡 Ikuti simulasi interaktif untuk memahami bagaimana RFID dapat mengoptimalkan bisnis Anda.\n\n🗓️ 7 November 2024 \n📍 Hotel Aston, Bandung\n🔗Link Pendaftaran: bit.ly/RFIDTSWorkshop\n\nCP: 0813-2330-5239 (Wahyu)\n\nDaftar sekarang dan mulai kelola bisnismu dengan RFID!\n\n#RFIDTotalSolution #TeknologiRFID #OptimalkanBisnis #WorkshopRFID #EfisiensiOperasional #ManajemenAset",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17847986397324060",
+      "publishedAt": "2024-10-22T03:00:00+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DBaRpCoyRE6/",
+      "caption": "Atur perpindahan pengguna aset dengan mudah!🔄 \n\nSering merasa bingung saat harus mengatur perpindahan pengguna aset? Proses yang rumit bisa memakan waktu dan menyebabkan kesalahan pengelolaan. \n\nDengan fitur ✨Asset User✨dari Aseta, kamu bisa memindahakan dan mengatur pengguna aset dengan lebih cepat dan efisien. Semua bisa di atur dalam beberapa klik tanpa ribet!\n\n🚀Siap untuk manajemen aset yang lebih praktis? Yuk berlangganan Aseta sekarang dan rasakan kemudahannya\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 2,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18022900337240426",
+      "publishedAt": "2024-10-16T03:30:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DBK4SxXyxCG/",
+      "caption": "Ini dia cara kerja RFID!✨ \n\nRFID sendiri dibagi menjadi 2 jenis,\n- RFID Handheld Integrated Reader\n- RFID Handheld Sled Reader\nkalau kamu bakal pilih yang mana?\n\nMulailah kelola aset menjadi lebih mudah dengan RFID dari Aseta!🙌\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 10,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17852077116261435",
+      "publishedAt": "2024-10-15T03:00:00+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DBIQB6Ay1-g/",
+      "caption": "Visualisasi aset tanpa batas📊\n\nBanyaknya data aset bisa membuat kamu kewalahan. Tapi tenang! Aseta hadir untuk memudahkan segalanya dengan tampilan dashboard yang terorganisir rapi. Semua informasi penting seperti asset value per category hingga asset percentage per department ditampilkan secara real-time dalam satu tampilan yang jelas dan mudah dipahami. \n\nIngin merasakan kemudahan ini? Yuk berlangganan bersama Aseta untuk memulai visualisasi aset kamu tanpa batas!✨\n\n👉🏻Klik link di bio kami untuk berlangganan",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18044322632071487",
+      "publishedAt": "2024-10-08T03:00:00+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DA2Oe4yS9qY/",
+      "caption": "Bisnis rugi akibat kerusakan yang tidak terduga?!😱\n\nKerusakan aset yang mendadak bisa membuat operasional terhenti dan biaya perbaikan membengkak. Jangan biarkan masalah ini terus menggerogoti bisnis kamu! Dengan fitur preventive maintenance, kamu bisa mengurangi risiko kerusakan aset sebelum terjadi. Periksa, rawat, dan pantau aset secara berkala untuk menjaga performa bisnis tetap stabil.\n\nHentikan kerugian sekarang! Maksimalkan efisiensi dengan Aseta!👌🏻\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 2,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17997445187691820",
+      "publishedAt": "2024-10-07T05:59:51+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DAz-PgzS-Kx/",
+      "caption": "🔓 Unlocking Efficiency with RFID! 🔓\n\nOptimalkan pengelolaan warehouse dan aset bisnis Anda dengan teknologi RFID terbaru! Bergabunglah dalam Workshop Eksklusif: RFID-Driven Innovation in Industrial Asset & Inventory Control dan temukan cara meningkatkan efisiensi bisnis Anda.\n\nCATAT!\n📅 Kamis, 7 November 202\n📍 Hotel Aston Pasteur, Bandung\n💸 Early Bird Price Rp 300.000/perusahaan (max 2 orang) - sebelum tanggal 18 Oktober 2024\n💸 Normal Price Rp 500.000/perusahaan (max 2 orang)\n\nBENEFIT\n✅ Simulasi interaktif sistem RFID\n✅ Networking dengan para profesional industri\n✅ Wawasan RFID langsung dari para ahli\n\nSEGERA DAFTAR!\n👉 Daftar sekarang: bit.ly/RFIDTSWorkshop\n📞 Narahubung: +62 813 2330 5239 (Wahyu)\n\nWorkshop ini diselenggarakan oleh PT Nuansa Cerah Informasi. Jangan lewatkan kesempatan ini!\n\n#AsetManagement #WarehouseSolutions #RFID #RFIDTechnology #BusinessEfficiency #AsetaID #WorkshopRFID #BandungEvents",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18076779838558848",
+      "publishedAt": "2024-09-30T05:28:42+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DAh5HVuy8P3/",
+      "caption": "Maksimalkan pencatatan aset dengan fitur “Report Registration” dari Aseta!✨\n\nDengan fitur ini, kamu bisa mendaftarkan semua aset secara detail—mulai dari tanggal registrasi, kategori, nilai awal, hingga informasi penting lainnya.\n\nAset kamu dijamin tercatat lebih sempurna dan mudah dikelola!🤗\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18034207628189490",
+      "publishedAt": "2024-09-29T09:04:39+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DAftCFySMCK/",
+      "caption": "Mari mengelola aset lebih mudah bersama Aseta!🤩\n\nKenapa kamu harus pakai Aseta?\nKarena Aseta memastikan:\n- Data aset selalu akurat tanpa kesalahan manual. \n- Pelacakan dan pengingat perawatan otomatis, jadi kamu nggak akan ketinggalan perawatan penting! \n- Semua data terintegrasi dalam satu platform yang mudah diakses, memudahkan analisis dan pengambilan keputusan.\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18053680168875862",
+      "publishedAt": "2024-09-27T04:00:00+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/DAaAr6iSC0s/",
+      "caption": "Dengan fitur ✨User Management✨, atur kewenangan pengelolaan aset dengan mudah. \n\nKontrol akses, tetapkan peran, dan pastikan setiap pengguna punya hak yang sesuai. Semua jadi lebih terorganisir dan aman!\n\nKelola aset dengan lebih efisien dan terstruktur dengan Aseta yuk!🚀🔐\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18044378576067801",
+      "publishedAt": "2024-09-26T05:45:42+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DAXn4Qmya9a/",
+      "caption": "Stock opname itu penting banget loh!🤔🔍\n\nKok bisa? Soalnya manfaatnya banyak banget, mulai dari menghindari kehilangan hingga kemudahan pemeliharaan aset🤩Simak slide berikut untuk penjelasan lengkapnya ya!👉🏻\n\nJangan remehkan stock opname - ini kunci untuk manajemen aset yang lebih baik!😉\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 8,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17921250377977650",
+      "publishedAt": "2024-09-25T04:00:00+0000",
+      "mediaType": "VIDEO",
+      "permalink": "https://www.instagram.com/reel/DAU2_mxyStm/",
+      "caption": "Bikin report aset masih manual? Gak dulu deh!😫\n\nDaripada kepala pusing dan badan pegel-pegel, mendingan beralih ke Aseta sekarang! Semua report mengenai aset sudah tersedia, sangat cepat dan praktis, cukup klik-klik aja!😉\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 9,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "17940823493896258",
+      "publishedAt": "2024-09-22T09:05:18+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DANriucSC3L/",
+      "caption": "Aset sering rusak? Perbaikan terus-menerus malah memakan biaya lebih besar?😧\n\nTanpa analisis yang tepat, kinerja asetmu bisa terus menurun dan kerusakan bisa terulang berulang. Hal ini bisa menghambat operasional dan meningkatkan pengeluaran! Yuk manfaatkan 3 cara cerdas dari report inspection agar aset tetap optimal! Slide ke kiri untuk lengkapnya!👉🏻\n\nOptimalkan pengelolaan asetmu sekarang! Gunakan Aseta untuk pengelolaan aset yang lebih cerdas dan efektif!👌🏻\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 3,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18032864351234839",
+      "publishedAt": "2024-09-20T03:00:00+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/DAH4Kjuyjl2/",
+      "caption": "Aset nggak sesuai stock opname? 😰\n\nKebingungan mencari tahu kemana perginya asetmu? Ini bisa menyebabkan bisnis keteteran! Tapi jangan panik dulu ya! Dengan Aseta, lacak dan identifikasi aset yang hilang jadi lebih mudah. Proses lebih cepat, hasil lebih akurat!\n\nYuk, coba Aseta demi kelancaran bisnismu!🔍✨\n👉🏻Klik link di bio kami untuk berlangganan\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 5,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18464494699046686",
+      "publishedAt": "2024-09-16T09:02:54+0000",
+      "mediaType": "CAROUSEL_ALBUM",
+      "permalink": "https://www.instagram.com/p/C_-Of6tyKjc/",
+      "caption": "Optimalkan bisnis dengan mudah!🚀\n\nMau manajemen aset lebih terstruktur dan real-time? Gunakan Aseta! Dari pemantauan hingga strategi bisnis, semua jadi lebih efektif.\n\nCoba sekarang dan lihat perbedaannya!✨\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 6,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "PROMOTE"
+      }
+    },
+    {
+      "platform": "instagram",
+      "contentId": "18033691928511619",
+      "publishedAt": "2024-09-14T03:07:26+0000",
+      "mediaType": "IMAGE",
+      "permalink": "https://www.instagram.com/p/C_4cOnByI8J/",
+      "caption": "Tag kecil, manfaat besar!👌🏻\n\nKenapa harus repot dengan pengelolaan aset manual kalau tag RFID bisa dipasang dengan mudah tanpa mengganggu aset? Yuk, nikmati kemudahan pengelolaan aset dengan Aseta yang lebih efisien, akurat, dan tanpa ribet!\n\nWaktunya upgrade sekarang juga!✅\n\n👉🏻Klik link di bio kami untuk berlangganan\n\n#SobatAseta #SolusiAsetManagement #KelolaAset #AplikasiAset #AplikasiInventaris #SoftwareAset #SoftwareInventaris",
+      "organic": {
+        "reach": null,
+        "impressions": null,
+        "likes": 4,
+        "comments": 0,
+        "shares": null,
+        "saves": null,
+        "videoViews": null,
+        "engagementRate": null
+      },
+      "paid": {
+        "wasAdvertised": false,
+        "spend": null,
+        "results": null,
+        "resultType": null
+      },
+      "classification": {
+        "status": "TEST"
+      }
+    }
+  ],
+  "analysis": {
+    "generatedAt": "2026-10-19T02:54:51+00:00",
+    "source": "assistant-analysis",
+    "summary": "Snapshot Meta Ads diperbarui untuk 28 hari terakhir. Ringkasan akun memakai angka account-level Meta; hasil campaign memiliki beberapa jenis sasaran sehingga tidak digabungkan menjadi satu total.",
+    "facts": [
+      "Ringkasan akun Meta: belanja Rp6.091.666; Reach 523.948; impresi 650.742; klik tautan 1.391.",
+      "77 campaign tersedia pada hasil pembacaan; status dan metrik sesuai field yang Meta kembalikan.",
+      "Skor peluang Meta terbaru: 83/100 (tingkat akun).",
+      "Tren iklan 4 hari: kreatif Aset hilang belum tentu dicuri menunjukkan CTR membaik 109,68%; ini sinyal awal, bukan bukti kausal.",
+      "Tren iklan 4 hari: kreatif QR vs RFID CTR turun 7,80%; CPR dilaporkan tetap, tetapi volume rendah dapat membuat perubahan tidak stabil.",
+      "Beberapa kreatif campaign Inter September menunjukkan CPR memburuk sekitar 183–200%; kreatif Disposal menunjukkan CPR membaik 2,06%. Bandingkan dengan volume dan objective yang sama.",
+      "Ringkasan tren AD dan ADSET menunjukkan sinyal CTR berbeda antar-kreatif/set; jangan mengambil keputusan dari CTR saja."
+    ],
+    "findings": [
+      "Hasil campaign mencakup percakapan pesan, prospek formulir, Reach, klik tautan, dan kunjungan halaman; jenis hasil berbeda tidak dijumlahkan.",
+      "Meta menyertakan Event Match Quality 4,48/10 dan tren belanja 7 hari -21,33% pada konteks tambahan bertanggal 16 Oktober 2026."
+    ],
+    "recommendations": [
+      "Gunakan angka account-level untuk KPI agregat; jangan jumlahkan Reach antarcampaign sebagai Reach unik akun.",
+      "Validasi kualitas prospek, meeting, dan penjualan di CRM; hasil Meta tidak setara otomatis dengan qualified lead atau revenue.",
+      "Tinjau tren kreatif bersama volume, objective, serta biaya per hasil sebelum mengubah anggaran.",
+      "Tinjau rekomendasi Meta di bagian rekomendasi sebelum menerapkan perubahan."
+    ],
+    "limitations": [
+      "Respons harian Meta untuk rentang 28 hari berisi spend 0 dan metrik lain tidak tersedia pada seluruh baris; dailyMetrics dikosongkan agar tidak menyajikan data sebagai performa nol.",
+      "Tren, Event Match Quality, dan rekomendasi Meta berasal dari pembacaan bertanggal 16 Oktober 2026; bukan jaminan hasil.",
+      "Snapshot tidak berisi identitas prospek atau data pribadi CRM."
+    ],
+    "campaigns": []
+  },
+  "dataLimitations": [
+    "Metrik harian pada respons Meta tidak tersedia untuk disajikan secara akurat."
+  ],
+  "performanceTrend": {
+    "source": "meta-insights-performance-trend",
+    "asOf": "2026-10-16",
+    "granularity": [
+      "AD",
+      "ADSET"
+    ],
+    "notes": [
+      "Tren iklan 4 hari: kreatif Aset hilang belum tentu dicuri menunjukkan CTR membaik 109,68%; ini sinyal awal, bukan bukti kausal.",
+      "Tren iklan 4 hari: kreatif QR vs RFID CTR turun 7,80%; CPR dilaporkan tetap, tetapi volume rendah dapat membuat perubahan tidak stabil.",
+      "Beberapa kreatif campaign Inter September menunjukkan CPR memburuk sekitar 183–200%; kreatif Disposal menunjukkan CPR membaik 2,06%. Bandingkan dengan volume dan objective yang sama.",
+      "Ringkasan tren AD dan ADSET menunjukkan sinyal CTR berbeda antar-kreatif/set; jangan mengambil keputusan dari CTR saja."
+    ]
+  },
+  "measurementContext": {
+    "asOf": "2026-10-16",
+    "spendTrend7d": -0.2133,
+    "eventMatchQuality": 4.4793
+  },
+  "contentFetchedAt": "2026-10-13T08:38:45+00:00"
 }
