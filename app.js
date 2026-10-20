@@ -54,10 +54,6 @@
       : null;
   }
 
-  function costPerLead(campaign) {
-    return campaign.resultType === 'LEAD' ? costPerResult(campaign) : null;
-  }
-
   function normalizeResultType(value) {
     if (typeof value !== 'string' || !value.trim()) return null;
     const type = value.trim().toUpperCase();
@@ -807,9 +803,9 @@
       const blendedCost = activeSnapshot.entityLevel === 'campaign' ? totals.blendedCostPerResult : null;
       byId('total-cpl').textContent = formatMoney(blendedCost);
       byId('cpl-note').textContent = activeSnapshot.entityLevel !== 'campaign'
-        ? 'Bukan biaya gabungan campaign.'
+        ? 'Biaya dibagi jumlah hasil sesuai jenis hasil pada baris.'
         : blendedCost === null
-          ? 'Perlu biaya dan hasil pesan/form yang tersedia.'
+          ? 'Perlu belanja dan hasil pesan/form yang lengkap.'
           : `${formatNumber((totals.messagingConversations ?? 0) + (totals.formLeads ?? 0))} percakapan + prospek; biaya mencakup semua campaign.`;
       byId('reach-note').textContent = totals.reach === null ? 'Tidak tersedia' : activeSnapshot.accountTotals ? 'Reach tingkat akun, sesuai ringkasan Meta.' : 'Jumlah reach per campaign; bukan orang unik tingkat akun.';
 
@@ -827,7 +823,7 @@
       }
       campaigns.forEach(campaign => {
         const row = document.createElement('tr');
-        const cost = activeSnapshot.entityLevel === 'campaign' ? costPerLead(campaign) : costPerResult(campaign);
+        const cost = costPerResult(campaign);
         const resultLabel = campaign.results === null ? '—' : `${formatNumber(campaign.results)}${campaign.resultType ? ` · ${campaign.resultType.replaceAll('_', ' ').toLowerCase()}` : ''}`;
         const values = [campaign.name, campaign.status.toLowerCase() === 'active' ? 'Aktif' : campaign.status.toLowerCase() === 'paused' ? 'Jeda' : campaign.status, formatMoney(campaign.spend), resultLabel, formatMoney(cost)];
         for (const value of values) {
@@ -1101,7 +1097,6 @@
     escapeHtml,
     normalizeSnapshot,
     aggregateCampaigns,
-    costPerLead,
     costPerResult,
     normalizeFunnel,
     mergeManualFunnel,
