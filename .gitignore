@@ -1,0 +1,13 @@
+# No live Meta snapshots or user exports in the public deployment.
+/data/meta-snapshot*.json
+/data/daily-meta-rows.json
+/data/content-snapshot.json
+/data/instagram-media*.json
+/collector/.env
+/collector/.env.txt
+*.token
+*.csv
+*.json.backup
+*.bak
+__pycache__/
+*.pyc

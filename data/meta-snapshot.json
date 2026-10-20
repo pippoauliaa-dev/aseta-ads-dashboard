@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "accountName": "Aseta - Ads (DEMO)",
+  "currency": "IDR",
+  "period": {
+    "since": "2026-08-01",
+    "until": "2026-08-28"
+  },
+  "fetchedAt": "2026-08-29T03:00:00.000Z",
+  "source": "demo",
+  "analysis": {
+    "generatedAt": "2026-08-29T03:05:00.000Z",
+    "source": "assistant-analysis",
+    "summary": "DEMO: campaign lead memiliki biaya per hasil lebih rendah, tetapi hasil campaign lain bukan lead dan tidak dibandingkan sebagai CPL.",
+    "facts": ["DEMO: 2 campaign dianalisis untuk periode contoh."],
+    "findings": ["DEMO: jenis hasil berbeda, sehingga hasil tidak dijumlahkan lintas campaign."],
+    "recommendations": ["DEMO: tinjau campaign lead dan catat qualified leads secara terpisah di funnel manual."],
+    "limitations": ["DEMO: data Meta tidak menunjukkan kualitas lead atau meeting."],
+    "campaigns": [{"campaignId": "demo-lead", "label": "strongest", "reason": "DEMO: biaya per lead tersedia pada campaign bertipe LEAD."}]
+  },
+  "campaigns": [
+    {
+      "id": "demo-lead",
+      "name": "Contoh campaign — Lead (DEMO)",
+      "status": "ACTIVE",
+      "spend": 1250000,
+      "reach": 15600,
+      "impressions": 28400,
+      "linkClicks": 672,
+      "results": 24,
+      "resultType": "LEAD"
+    },
+    {
+      "id": "demo-message",
+      "name": "Contoh campaign — Pesan (DEMO)",
+      "status": "PAUSED",
+      "spend": 540000,
+      "reach": 7200,
+      "impressions": 11900,
+      "linkClicks": 201,
+      "results": 9,
+      "resultType": "MESSAGING_CONVERSATION"
+    }
+  ]
+}

@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Dashboard statis untuk meninjau performa Meta Ads dan funnel campaign.">
+  <meta name="theme-color" content="#101e32">
+  <title>Ads Desk</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#main" aria-label="Ads Desk Aseta — beranda">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>ASETA <span class="brand-divider">/</span> ADS DESK</span>
+    </a>
+    <span class="private-badge"><span class="private-dot" aria-hidden="true"></span> DATA CONTOH · DEMO</span>
+  </header>
+
+  <main id="main" class="page-shell">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">ADS DESK · ASETA</p>
+        <h1 id="page-title">Performa iklan,<br class="desktop-break"> lebih mudah dipahami.</h1>
+        <p class="hero-subtitle">Lihat angka penting, temuan utama, dan langkah berikutnya dalam satu tampilan.</p>
+      </div>
+    </section>
+
+    <section class="toolbar panel" aria-labelledby="refresh-title">
+      <div class="toolbar-copy">
+        <p class="eyebrow eyebrow-muted">DATA TERAKHIR DIPERBARUI</p>
+        <h2 id="refresh-title"><span id="toolbar-source-label">Belum ada data</span></h2>
+        <p><span id="toolbar-account-name">Aseta — Ads</span> · <span id="toolbar-period-label">Periode belum dipilih</span> · Terakhir diperbarui <span id="updated-at">Belum</span></p>
+      </div>
+      <div class="toolbar-actions">
+        <button id="import-snapshot-button" class="button button-primary" type="button">Muat data terbaru</button>
+        <input id="snapshot-file" class="visually-hidden" type="file" accept="application/json,.json">
+      </div>
+      <details id="data-options" class="data-options">
+        <summary>Lihat opsi data</summary>
+        <div class="data-options-content">
+          <p>Pilih snapshot JSON yang sudah disiapkan asisten, impor CSV Ads Manager, atau lihat contoh fiktif. Halaman ini tidak menyimpan token Meta.</p>
+          <div class="toolbar-actions">
+            <button id="import-csv-button" class="button button-secondary" type="button">Impor CSV Meta</button>
+            <input id="csv-file" class="visually-hidden" type="file" accept="text/csv,.csv">
+            <button id="demo-toggle" class="text-button" type="button">Lihat contoh data</button>
+          </div>
+        </div>
+      </details>
+      <div class="import-confirm" id="import-confirm">
+        <p id="file-preview"></p>
+        <button id="use-snapshot-button" class="button button-primary" type="button" hidden>Gunakan snapshot</button>
+        <button id="confirm-csv-button" class="button button-primary" type="button" hidden>Gunakan data ini</button>
+      </div>
+      <p id="status-message" class="status-message" role="status" aria-live="polite">Dashboard siap dengan data contoh fiktif.</p>
+    </section>
+
+    <section class="section-block" aria-labelledby="overview-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-muted">RINGKASAN</p>
+          <h2 id="overview-title">Angka utama</h2>
+        </div>
+        <p class="period-chip"><span class="period-icon" aria-hidden="true">◷</span> <span id="period-label">Periode belum dipilih</span></p>
+      </div>
+      <div id="week-controls" class="week-controls" hidden>
+        <label for="week-select">Tampilkan minggu</label>
+        <select id="week-select"></select>
+        <span id="week-data-note" class="table-context"></span>
+      </div>
+      <div class="kpi-grid">
+        <article class="kpi-card kpi-spend">
+          <span class="kpi-label">BELANJA</span>
+          <strong id="total-spend" class="kpi-value">—</strong>
+          <span class="kpi-foot">Total periode ini</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">REACH</span>
+          <strong id="total-reach" class="kpi-value">—</strong>
+          <span id="reach-note" class="kpi-foot">Akun Meta</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">PERCAKAPAN PESAN</span>
+          <strong id="total-messaging" class="kpi-value">—</strong>
+          <span class="kpi-foot">Percakapan dimulai</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">PROSPEK FORMULIR</span>
+          <strong id="total-form-leads" class="kpi-value">—</strong>
+          <span class="kpi-foot">Lead dari formulir</span>
+        </article>
+        <article class="kpi-card">
+          <span class="kpi-label">BIAYA / HASIL</span>
+          <strong id="total-cpl" class="kpi-value">—</strong>
+          <span id="cpl-note" class="kpi-foot">Hanya jika hasil sejenis</span>
+        </article>
+      </div>
+      <p id="reach-note-detail" class="updated-line"></p>
+      <p id="weekly-data-note" class="updated-line"></p>
+      <details class="metric-details"><summary>Lihat impresi dan klik</summary><p>Impresi: <strong id="total-impressions">—</strong> · Klik tautan: <strong id="total-clicks">—</strong></p></details>
+    </section>
+
+    <section id="analysis-section" class="section-block panel analysis-panel" aria-labelledby="analysis-title" hidden>
+      <div class="section-heading section-heading-panel">
+        <div>
+          <p class="eyebrow eyebrow-muted">ANALISIS AI</p>
+          <h2 id="analysis-title">Ringkasan analisis</h2>
+        </div>
+        <span id="analysis-generated-at" class="table-context"></span>
+      </div>
+      <p id="analysis-summary" class="analysis-summary"></p>
+      <div id="analysis-empty" class="empty-state" hidden>Analisis belum tersedia untuk snapshot ini.</div>
+      <div class="analysis-quick-grid">
+        <article class="analysis-quick-card"><span class="analysis-quick-label">YANG BAGUS</span><p id="analysis-good">—</p></article>
+        <article class="analysis-quick-card"><span class="analysis-quick-label">PERLU DICEK</span><p id="analysis-watch">—</p></article>
+        <article class="analysis-quick-card"><span class="analysis-quick-label">SARAN BERIKUTNYA</span><p id="analysis-next">—</p></article>
+      </div>
+      <details id="analysis-details" class="analysis-details">
+        <summary>Lihat analisis lengkap</summary>
+        <div class="analysis-grid">
+          <section class="analysis-block" aria-labelledby="analysis-facts-title"><h3 id="analysis-facts-title">FAKTA</h3><ul id="analysis-facts"></ul></section>
+          <section class="analysis-block" aria-labelledby="analysis-findings-title"><h3 id="analysis-findings-title">TEMUAN</h3><ul id="analysis-findings"></ul></section>
+          <section class="analysis-block" aria-labelledby="analysis-recommendations-title"><h3 id="analysis-recommendations-title">LANGKAH BERIKUTNYA</h3><ul id="analysis-recommendations"></ul></section>
+          <section class="analysis-block analysis-limitations" aria-labelledby="analysis-limitations-title"><h3 id="analysis-limitations-title">BATASAN</h3><ul id="analysis-limitations"></ul></section>
+        </div>
+        <section id="analysis-campaign-section" class="analysis-campaigns" aria-labelledby="analysis-campaign-title" hidden>
+          <h3 id="analysis-campaign-title">Perbandingan campaign</h3>
+          <div id="analysis-campaign-list" class="analysis-campaign-list"></div>
+        </section>
+        <p class="table-footnote">Analisis indikatif dari data yang tersedia, bukan bukti bahwa iklan menyebabkan penjualan.</p>
+      </details>
+    </section>
+
+    <section id="content-analysis-section" class="section-block panel table-panel" aria-labelledby="content-analysis-title" hidden>
+      <div class="section-heading section-heading-panel">
+        <div><p class="eyebrow eyebrow-muted">KONTEN ORGANIK</p><h2 id="content-analysis-title">Analisis Konten</h2></div>
+        <span id="content-status-summary" class="table-context"></span>
+      </div>
+      <p class="table-footnote">Shortlist ini bersifat kualitatif. Insights organik seperti reach, saves, shares, dan watch time belum tersedia; status bukan bukti performa iklan.</p>
+      <div class="content-filters">
+        <label>Platform <select id="content-platform-filter"><option value="all">Semua</option><option value="instagram">Instagram</option><option value="facebook">Facebook</option></select></label>
+        <label>Status <select id="content-status-filter"><option value="all">Semua status</option><option value="PROMOTE">PROMOTE</option><option value="TEST">TEST</option><option value="KEEP_ORGANIC">KEEP ORGANIC</option><option value="DEPRIORITIZE">DEPRIORITIZE</option></select></label>
+        <label>Format <select id="content-format-filter"><option value="all">Semua format</option><option value="VIDEO">Video/Reels</option><option value="CAROUSEL_ALBUM">Carousel</option><option value="IMAGE">Gambar</option></select></label>
+      </div>
+      <div class="table-scroll"><table id="content-table"><thead><tr><th>PLATFORM</th><th>TANGGAL</th><th>FORMAT</th><th>STATUS AWAL</th><th>LIKE / KOMENTAR</th><th>KONTEN</th><th>LINK</th></tr></thead><tbody id="content-table-body"></tbody></table></div>
+    </section>
+
+    <section class="section-block panel table-panel" aria-labelledby="campaign-title">
+      <div class="section-heading section-heading-panel">
+        <div>
+          <p class="eyebrow eyebrow-muted">PERFORMA</p>
+          <h2 id="campaign-title">Campaign</h2>
+        </div>
+        <span id="table-level-note" class="table-context">Pilih snapshot untuk melihat data campaign</span>
+      </div>
+      <p id="campaign-empty" class="empty-state">Data contoh fiktif tersedia. Impor snapshot JSON atau CSV Ads Manager milikmu untuk mengganti tampilan; file diproses di browser ini dan tidak diunggah.</p>
+      <div class="table-scroll">
+        <table id="campaign-table" hidden>
+          <caption class="visually-hidden">Metrik campaign Meta Ads untuk periode yang dipilih</caption>
+          <thead><tr><th id="campaign-name-heading" scope="col">CAMPAIGN</th><th scope="col">STATUS</th><th scope="col">BELANJA</th><th scope="col">HASIL</th><th id="cpl-heading-note" scope="col">BIAYA / HASIL</th></tr></thead>
+          <tbody id="campaign-table-body"></tbody>
+        </table>
+      </div>
+      <details class="table-details"><summary>Lihat detail campaign</summary><p class="table-footnote">Reach, impresi, klik, anggaran, dan jadwal tersedia pada data snapshot tetapi disembunyikan dari tampilan utama agar lebih ringkas. Reach adalah jumlah per campaign, bukan orang unik tingkat akun.</p></details>
+      <p id="opportunity-score-note" class="table-footnote">Skor peluang Meta tidak disertakan pada snapshot ini.</p>
+      <section id="recommendations-section" class="recommendations-section" aria-labelledby="recommendations-title" hidden>
+        <div class="section-heading section-heading-panel"><div><p class="eyebrow eyebrow-muted">SARAN META</p><h2 id="recommendations-title">Peluang optimasi</h2></div></div>
+        <div id="recommendation-list" class="recommendation-list"></div>
+      </section>
+    </section>
+
+    <section class="section-block funnel-section" aria-labelledby="funnel-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow eyebrow-muted">DATA YANG META TIDAK PUNYA</p>
+          <h2 id="funnel-title">Dari lead ke meeting</h2>
+          <p class="section-intro">Tambahkan angka funnel agregat—tanpa data pribadi lead.</p>
+          <p id="funnel-level-help" class="section-intro" hidden>Funnel tersedia untuk snapshot campaign-level.</p>
+        </div>
+        <div class="funnel-actions"><span id="funnel-record-count" class="table-context">0 catatan</span><button id="funnel-toggle" class="button button-secondary" type="button">Isi / lihat funnel</button></div>
+      </div>
+      <div class="funnel-layout" hidden>
+        <form id="funnel-form" class="panel funnel-form">
+          <div class="form-heading"><span class="form-step">01</span><h3 id="funnel-form-title">Tambah data funnel</h3></div>
+          <label for="funnel-campaign">Campaign</label>
+          <select id="funnel-campaign" required><option value="">Impor snapshot terlebih dahulu</option></select>
+          <div class="date-grid">
+            <div><label for="funnel-since">Mulai periode</label><input id="funnel-since" type="date" required></div>
+            <div><label for="funnel-until">Akhir periode</label><input id="funnel-until" type="date" required></div>
+          </div>
+          <div class="count-grid">
+            <div><label for="qualified-leads">Lead berkualifikasi</label><input id="qualified-leads" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
+            <div><label for="meetings-scheduled">Meeting dijadwalkan</label><input id="meetings-scheduled" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
+            <div><label for="meetings-attended">Meeting dihadiri</label><input id="meetings-attended" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
+          </div>
+          <label for="outcome-note">Hasil / catatan campaign <span class="optional-label">OPSIONAL</span></label>
+          <textarea id="outcome-note" maxlength="500" rows="3" placeholder="Contoh: banyak lead dari manufaktur, tindak lanjut minggu depan"></textarea>
+          <div class="form-actions">
+            <button id="funnel-submit" class="button button-primary" type="submit">Simpan funnel</button>
+            <button id="funnel-cancel-edit" class="button button-secondary" type="button" hidden>Batal edit</button>
+          </div>
+        </form>
+        <div class="panel funnel-table-panel">
+          <div class="funnel-table-top"><div><span class="form-step">02</span><h3>Ringkasan funnel manual</h3></div><span class="local-only-label">DISIMPAN LOKAL</span></div>
+          <div class="table-scroll">
+            <table>
+              <caption class="visually-hidden">Data funnel manual yang tersimpan di browser untuk periode snapshot aktif</caption>
+              <thead><tr><th scope="col">CAMPAIGN</th><th scope="col">QUALIFIED</th><th scope="col">MEETING</th><th scope="col">HADIR</th><th scope="col">HASIL / CATATAN</th><th scope="col"><span class="visually-hidden">AKSI</span></th></tr></thead>
+              <tbody id="funnel-table-body"></tbody>
+            </table>
+          </div>
+          <p class="table-footnote">Data ini di perangkat dan browser saat ini; gunakan backup untuk membawanya ke perangkat lain.</p>
+        </div>
+      </div>
+      <div class="backup-bar panel">
+        <div><strong>Jaga datamu tetap aman.</strong><span>Backup funnel tidak mencakup data iklan maupun informasi lead pribadi.</span></div>
+        <div class="backup-actions">
+          <button id="export-funnel" class="button button-secondary" type="button">Ekspor backup JSON</button>
+          <button id="import-funnel-button" class="button button-secondary" type="button">Impor backup</button>
+          <input id="funnel-file" class="visually-hidden" type="file" accept="application/json,.json">
+        </div>
+        <p id="funnel-preview" class="backup-preview"></p>
+        <button id="confirm-funnel-button" class="button button-primary" type="button" hidden>Konfirmasi gabungkan backup</button>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span><span class="brand-mark brand-mark-small" aria-hidden="true">A</span> DATA PRIBADI. KEPUTUSANMU.</span>
+      <span id="footer-local-status">Semua input funnel disimpan lokal di browser ini.</span>
+    </footer>
+  </main>
+</body>
+</html>
