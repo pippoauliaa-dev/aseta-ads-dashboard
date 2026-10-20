@@ -58,6 +58,17 @@
     return campaign.resultType === 'LEAD' ? costPerResult(campaign) : null;
   }
 
+  function normalizeResultType(value) {
+    if (typeof value !== 'string' || !value.trim()) return null;
+    const type = value.trim().toUpperCase();
+    if (type.includes('MESSAGING_CONVERSATION_STARTED')) return 'MESSAGING_CONVERSATION';
+    if (type === 'ACTIONS:LEADGEN.OTHER' || type.includes('LEADGEN')) return 'LEAD';
+    if (type.includes('LANDING_PAGE_VIEW')) return 'LANDING_PAGE_VIEW';
+    if (type === 'ACTIONS:LINK_CLICK' || type === 'LINK_CLICK') return 'LINK_CLICK';
+    if (type === 'REACH') return 'REACH';
+    return type;
+  }
+
   function escapeHtml(value) {
     return String(value ?? '').replace(/[&<>"']/g, character => ({
       '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;',
@@ -176,8 +187,7 @@
       if (!campaign || typeof campaign !== 'object' || Array.isArray(campaign)) {
         throw new Error(`Data campaign baris ${index + 1} tidak valid.`);
       }
-      const resultType = typeof campaign.resultType === 'string' && campaign.resultType.trim()
-        ? campaign.resultType.trim().toUpperCase() : null;
+      const resultType = normalizeResultType(campaign.resultType);
       return {
         id: String(campaign.id ?? `row-${index + 1}`),
         name: String(campaign.name ?? `Campaign ${index + 1}`),
@@ -225,7 +235,7 @@
           id: item.id,
           name: String(item.name ?? item.id),
           status: String(item.status ?? 'UNKNOWN'),
-          resultType: typeof item.resultType === 'string' ? item.resultType.trim().toUpperCase() : null,
+          resultType: normalizeResultType(item.resultType),
           spend: optionalMetric(item.spend, 'Spend harian'),
           reach: optionalMetric(item.reach, 'Reach harian'),
           impressions: optionalMetric(item.impressions, 'Impresi harian'),
@@ -243,16 +253,22 @@
   }
 
   function aggregateCampaigns(campaigns) {
-    const resultTypes = [...new Set(campaigns.map(item => item.resultType).filter(Boolean))];
+    const resultTypes = [...new Set(campaigns.map(item => normalizeResultType(item.resultType)).filter(Boolean))];
     const sameResultType = resultTypes.length === 1
-      && campaigns.every(item => item.results !== null && item.resultType === resultTypes[0]);
+      && campaigns.every(item => item.results !== null && normalizeResultType(item.resultType) === resultTypes[0]);
     const sumResultType = type => {
-      const matching = campaigns.filter(item => item.resultType === type);
-      return matching.length ? sumKnown(matching, 'results') : 0;
+      const matching = campaigns.filter(item => normalizeResultType(item.resultType) === type);
+      if (!matching.length) return 0;
+      if (matching.some(item => item.results === null && Number.isFinite(item.spend) && item.spend > 0)) return null;
+      return matching.reduce((total, item) => total + (Number.isFinite(item.results) ? item.results : 0), 0);
     };
     const messagingConversations = sumResultType('MESSAGING_CONVERSATION');
     const formLeads = sumResultType('LEAD');
-    const blendedResults = messagingConversations === null || formLeads === null ? null : messagingConversations + formLeads;
+    const outcomeCampaigns = campaigns.filter(item => item.resultType === 'MESSAGING_CONVERSATION' || item.resultType === 'LEAD');
+    const blendedResults = outcomeCampaigns.length && outcomeCampaigns.every(item => Number.isFinite(item.results)
+      || (item.results === null && item.spend === 0))
+      ? outcomeCampaigns.reduce((total, item) => total + (Number.isFinite(item.results) ? item.results : 0), 0)
+      : null;
     const spend = sumKnown(campaigns, 'spend');
     return {
       spend,
@@ -264,7 +280,7 @@
       resultType: sameResultType ? resultTypes[0] : null,
       messagingConversations,
       formLeads,
-      blendedCostPerResult: blendedResults && spend !== null ? spend / blendedResults : null,
+      blendedCostPerResult: blendedResults !== null && blendedResults > 0 && spend !== null ? spend / blendedResults : null,
     };
   }
 
@@ -401,9 +417,7 @@
       const spend = metric(spendIndex);
       if (spend === null || spend < 0) throw new Error(`Spend tidak valid pada baris ${rowIndex + 2}.`);
       const rawType = resultTypeIndex >= 0 ? row[resultTypeIndex].trim() : '';
-      const resultType = rawType.toUpperCase().includes('LEAD') ? 'LEAD'
-        : /purchase|omni_purchase/i.test(rawType) ? 'PURCHASE'
-          : rawType ? rawType.toUpperCase() : null;
+      const resultType = normalizeResultType(rawType);
       campaigns.push({
         id: `csv-row-${rowIndex + 1}`,
         name: row[nameIndex].trim() || `Baris ${rowIndex + 2}`,
