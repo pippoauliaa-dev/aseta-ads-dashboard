@@ -45,7 +45,1688 @@
       "url": "https://adsmanager.facebook.com/adsmanager/manage/accounts?act=5062020654022185&breakdown_regrouping=1&recommendation_hash_string=4fc2ba6b7934b8295f39bcafdc324bcb&recommendation_type=aplusc_standard_enhancements_bundle&is_mfr_model_shown_by_default=1&referral_source=marketing_api&nav_source=ads_mcp"
     }
   ],
-  "dailyMetrics": [],
+  "dailyMetrics": [
+    {
+      "date": "2026-09-21",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 16944.0,
+          "reach": 13722.0,
+          "impressions": 14028.0,
+          "linkClicks": 15.0,
+          "results": 13722.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 38594.0,
+          "reach": 2356.0,
+          "impressions": 2837.0,
+          "linkClicks": 18.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 182512.0,
+          "reach": 6703.0,
+          "impressions": 7740.0,
+          "linkClicks": 13.0,
+          "results": 1.0
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-22",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 15877.0,
+          "reach": 13035.0,
+          "impressions": 13035.0,
+          "linkClicks": 24.0,
+          "results": 13035.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 52978.0,
+          "reach": 1218.0,
+          "impressions": 1411.0,
+          "linkClicks": 9.0,
+          "results": 3.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 111932.0,
+          "reach": 4167.0,
+          "impressions": 4403.0,
+          "linkClicks": 3.0,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-23",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 22502.0,
+          "reach": 17457.0,
+          "impressions": 17457.0,
+          "linkClicks": 25.0,
+          "results": 17457.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 58047.0,
+          "reach": 1121.0,
+          "impressions": 1331.0,
+          "linkClicks": 11.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 243084.0,
+          "reach": 11786.0,
+          "impressions": 13183.0,
+          "linkClicks": 15.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-24",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 21327.0,
+          "reach": 16828.0,
+          "impressions": 16828.0,
+          "linkClicks": 13.0,
+          "results": 16828.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 80931.0,
+          "reach": 1483.0,
+          "impressions": 1754.0,
+          "linkClicks": 13.0,
+          "results": 3.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 200566.0,
+          "reach": 6954.0,
+          "impressions": 7753.0,
+          "linkClicks": 9.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-25",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 19479.0,
+          "reach": 14761.0,
+          "impressions": 14761.0,
+          "linkClicks": 18.0,
+          "results": 14761.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 87069.0,
+          "reach": 1619.0,
+          "impressions": 2038.0,
+          "linkClicks": 13.0,
+          "results": 4.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 254497.0,
+          "reach": 8403.0,
+          "impressions": 9891.0,
+          "linkClicks": 15.0,
+          "results": 4.0
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-26",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 2536.0,
+          "reach": 1806.0,
+          "impressions": 1830.0,
+          "linkClicks": 2.0,
+          "results": 1806.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 9057.0,
+          "reach": 273.0,
+          "impressions": 296.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 21446.0,
+          "reach": 679.0,
+          "impressions": 707.0,
+          "linkClicks": 3.0,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-27",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-28",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-29",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 24224.0,
+          "reach": 14093.0,
+          "impressions": 14348.0,
+          "linkClicks": 2.0,
+          "results": 14093.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 164043.0,
+          "reach": 6583.0,
+          "impressions": 7313.0,
+          "linkClicks": 56.0,
+          "results": 12.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 152599.0,
+          "reach": 2463.0,
+          "impressions": 2571.0,
+          "linkClicks": 7.0,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-09-30",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 33710.0,
+          "reach": 22235.0,
+          "impressions": 22235.0,
+          "linkClicks": 14.0,
+          "results": 22235.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 188759.0,
+          "reach": 4012.0,
+          "impressions": 4714.0,
+          "linkClicks": 36.0,
+          "results": 10.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-01",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 30863.0,
+          "reach": 22433.0,
+          "impressions": 22433.0,
+          "linkClicks": 4.0,
+          "results": 22433.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 156567.0,
+          "reach": 8407.0,
+          "impressions": 10119.0,
+          "linkClicks": 68.0,
+          "results": 9.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-02",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 24380.0,
+          "reach": 18436.0,
+          "impressions": 18668.0,
+          "linkClicks": 3.0,
+          "results": 18436.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 171316.0,
+          "reach": 11528.0,
+          "impressions": 13959.0,
+          "linkClicks": 65.0,
+          "results": 15.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-03",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 26823.0,
+          "reach": 21595.0,
+          "impressions": 21595.0,
+          "linkClicks": 2.0,
+          "results": 21595.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 157896.0,
+          "reach": 11829.0,
+          "impressions": 12503.0,
+          "linkClicks": 45.0,
+          "results": 7.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-04",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 20517.0,
+          "reach": 17904.0,
+          "impressions": 17904.0,
+          "linkClicks": 21.0,
+          "results": 17904.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 169734.0,
+          "reach": 11613.0,
+          "impressions": 14187.0,
+          "linkClicks": 37.0,
+          "results": 11.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-05",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 25746.0,
+          "reach": 23913.0,
+          "impressions": 23913.0,
+          "linkClicks": 21.0,
+          "results": 23913.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 192087.0,
+          "reach": 20270.0,
+          "impressions": 27032.0,
+          "linkClicks": 60.0,
+          "results": 8.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-06",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 18246.0,
+          "reach": 17087.0,
+          "impressions": 17087.0,
+          "linkClicks": 19.0,
+          "results": 17087.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 205650.0,
+          "reach": 18269.0,
+          "impressions": 23005.0,
+          "linkClicks": 69.0,
+          "results": 15.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 84757.0,
+          "reach": 449.0,
+          "impressions": 560.0,
+          "linkClicks": 10.0,
+          "results": 3.0
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-07",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 19502.0,
+          "reach": 17693.0,
+          "impressions": 17693.0,
+          "linkClicks": 16.0,
+          "results": 17693.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 156556.0,
+          "reach": 2395.0,
+          "impressions": 3092.0,
+          "linkClicks": 27.0,
+          "results": 9.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 63242.0,
+          "reach": 461.0,
+          "impressions": 595.0,
+          "linkClicks": 6.0,
+          "results": 1.0
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-08",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 18473.0,
+          "reach": 16071.0,
+          "impressions": 16082.0,
+          "linkClicks": 24.0,
+          "results": 16071.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 85797.0,
+          "reach": 1434.0,
+          "impressions": 1742.0,
+          "linkClicks": 18.0,
+          "results": 4.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 61060.0,
+          "reach": 366.0,
+          "impressions": 460.0,
+          "linkClicks": 2.0,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-09",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 17976.0,
+          "reach": 15039.0,
+          "impressions": 15360.0,
+          "linkClicks": 22.0,
+          "results": 15039.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 65740.0,
+          "reach": 1225.0,
+          "impressions": 1460.0,
+          "linkClicks": 10.0,
+          "results": 5.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 60515.0,
+          "reach": 336.0,
+          "impressions": 435.0,
+          "linkClicks": 6.0,
+          "results": 2.0
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-10",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 19540.0,
+          "reach": 14598.0,
+          "impressions": 14901.0,
+          "linkClicks": 21.0,
+          "results": 14598.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 60644.0,
+          "reach": 1355.0,
+          "impressions": 1514.0,
+          "linkClicks": 9.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 65534.0,
+          "reach": 330.0,
+          "impressions": 423.0,
+          "linkClicks": 2.0,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-11",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 22304.0,
+          "reach": 16877.0,
+          "impressions": 16919.0,
+          "linkClicks": 15.0,
+          "results": 16877.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 68993.0,
+          "reach": 1436.0,
+          "impressions": 1591.0,
+          "linkClicks": 8.0,
+          "results": 6.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 55557.0,
+          "reach": 349.0,
+          "impressions": 430.0,
+          "linkClicks": 7.0,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-12",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 17798.0,
+          "reach": 14178.0,
+          "impressions": 14178.0,
+          "linkClicks": 17.0,
+          "results": 14178.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 67473.0,
+          "reach": 1232.0,
+          "impressions": 1413.0,
+          "linkClicks": 15.0,
+          "results": 3.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 40307.0,
+          "reach": 319.0,
+          "impressions": 377.0,
+          "linkClicks": 2.0,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-13",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 23315.0,
+          "reach": 18944.0,
+          "impressions": 18944.0,
+          "linkClicks": 24.0,
+          "results": 18944.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 77165.0,
+          "reach": 943.0,
+          "impressions": 1157.0,
+          "linkClicks": 16.0,
+          "results": 3.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 53435.0,
+          "reach": 395.0,
+          "impressions": 456.0,
+          "linkClicks": 3.0,
+          "results": 2.0
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-14",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 19313.0,
+          "reach": 15218.0,
+          "impressions": 15392.0,
+          "linkClicks": 18.0,
+          "results": 15218.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 78444.0,
+          "reach": 1216.0,
+          "impressions": 1448.0,
+          "linkClicks": 17.0,
+          "results": 6.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 48609.0,
+          "reach": 387.0,
+          "impressions": 477.0,
+          "linkClicks": 4.0,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        }
+      ]
+    },
+    {
+      "date": "2026-10-15",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 17453.0,
+          "reach": 13382.0,
+          "impressions": 13382.0,
+          "linkClicks": 15.0,
+          "results": 13382.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 78791.0,
+          "reach": 1088.0,
+          "impressions": 1296.0,
+          "linkClicks": 10.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 21910.0,
+          "reach": 115.0,
+          "impressions": 133.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 48810.0,
+          "reach": 1456.0,
+          "impressions": 1549.0,
+          "linkClicks": 17.0,
+          "results": 2.0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-16",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 19148.0,
+          "reach": 14443.0,
+          "impressions": 14740.0,
+          "linkClicks": 13.0,
+          "results": 14443.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 112098.0,
+          "reach": 1637.0,
+          "impressions": 2040.0,
+          "linkClicks": 19.0,
+          "results": 2.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 126375.0,
+          "reach": 1543.0,
+          "impressions": 1775.0,
+          "linkClicks": 30.0,
+          "results": 4.0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-17",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 19951.0,
+          "reach": 15097.0,
+          "impressions": 15097.0,
+          "linkClicks": 18.0,
+          "results": 15097.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 75036.0,
+          "reach": 1343.0,
+          "impressions": 1504.0,
+          "linkClicks": 16.0,
+          "results": 7.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 104568.0,
+          "reach": 2883.0,
+          "impressions": 3292.0,
+          "linkClicks": 39.0,
+          "results": 11.0
+        }
+      ]
+    },
+    {
+      "date": "2026-10-18",
+      "campaigns": [
+        {
+          "id": "120250312155800334",
+          "name": "[2026/JUNI] Awareness W4 - Keluh Kesah Mira",
+          "status": "UNKNOWN",
+          "resultType": "reach",
+          "spend": 18064.0,
+          "reach": 14182.0,
+          "impressions": 14566.0,
+          "linkClicks": 16.0,
+          "results": 14182.0
+        },
+        {
+          "id": "120252608016880334",
+          "name": "[2026/SEP] Inter - New - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 82284.0,
+          "reach": 1721.0,
+          "impressions": 2087.0,
+          "linkClicks": 22.0,
+          "results": 6.0
+        },
+        {
+          "id": "120252618091430334",
+          "name": "[2026/SEP] Sales - Aseta - Salin",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120252882866310334",
+          "name": "Aseta — Retargeting Qualified Leads — Okt 2026",
+          "status": "UNKNOWN",
+          "resultType": "actions:leadgen.other",
+          "spend": 0.0,
+          "reach": 0.0,
+          "impressions": 0.0,
+          "linkClicks": null,
+          "results": null
+        },
+        {
+          "id": "120253031440540334",
+          "name": "[2026/OKT] Aseta - Prospecting - 3 Creative",
+          "status": "UNKNOWN",
+          "resultType": "actions:onsite_conversion.messaging_conversation_started_7d",
+          "spend": 97179.0,
+          "reach": 3810.0,
+          "impressions": 4645.0,
+          "linkClicks": 66.0,
+          "results": 8.0
+        }
+      ]
+    }
+  ],
   "campaigns": [
     {
       "id": "120253031440540334",
