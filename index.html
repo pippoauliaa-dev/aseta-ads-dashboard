@@ -144,6 +144,11 @@
         <label>Format <select id="content-format-filter"><option value="all">Semua format</option><option value="VIDEO">Video/Reels</option><option value="CAROUSEL_ALBUM">Carousel</option><option value="IMAGE">Gambar</option></select></label>
       </div>
       <div class="table-scroll"><table id="content-table"><thead><tr><th>PLATFORM</th><th>TANGGAL</th><th>FORMAT</th><th>STATUS AWAL</th><th>LIKE / KOMENTAR</th><th>KONTEN</th><th>LINK</th></tr></thead><tbody id="content-table-body"></tbody></table></div>
+      <nav id="content-pagination" class="content-pagination" aria-label="Halaman konten" hidden>
+        <button id="content-prev-page" class="button button-secondary button-small" type="button">Sebelumnya</button>
+        <span id="content-page-label" class="table-context" aria-live="polite"></span>
+        <button id="content-next-page" class="button button-secondary button-small" type="button">Berikutnya</button>
+      </nav>
     </section>
 
     <section class="section-block panel table-panel" aria-labelledby="campaign-title">

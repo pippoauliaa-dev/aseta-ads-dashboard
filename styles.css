@@ -115,6 +115,8 @@ tbody tr:last-child td { border-bottom: 0; }
 .content-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; }
 .content-filters label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; }
 .content-filters select { min-height: 30px; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); font-size: 10px; }
+.content-pagination { display: flex; justify-content: flex-end; align-items: center; gap: 9px; padding-top: 12px; }
+.content-pagination[hidden] { display: none; }
 .recommendations-section { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
 .recommendations-section h2 { font-size: 16px; }
 .recommendation-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 9px; }

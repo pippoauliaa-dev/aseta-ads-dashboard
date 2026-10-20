@@ -8,6 +8,7 @@
 
   const FUNNEL_KEY = 'asetaAdsDashboard:funnel:v1';
   const SNAPSHOT_VERSION = 1;
+  const CONTENT_PAGE_SIZE = 5;
   const FUNNEL_VERSION = 1;
   const FUNNEL_FIELDS = ['qualifiedLeads', 'meetingsScheduled', 'meetingsAttended'];
   const MISSING = new Set(['', '—', '-', '–', 'na', 'n/a', 'null']);
@@ -530,6 +531,11 @@
     const contentPlatformFilter = byId('content-platform-filter');
     const contentStatusFilter = byId('content-status-filter');
     const contentFormatFilter = byId('content-format-filter');
+    const contentPagination = byId('content-pagination');
+    const contentPageLabel = byId('content-page-label');
+    const contentPrevPage = byId('content-prev-page');
+    const contentNextPage = byId('content-next-page');
+    let contentPage = 1;
     let activeSnapshot = null;
     let pendingCsv = null;
     let pendingFunnel = null;
@@ -596,9 +602,16 @@
       const filtered = contents.filter(item => (contentPlatformFilter.value === 'all' || item.platform === contentPlatformFilter.value)
         && (contentStatusFilter.value === 'all' || item.status === contentStatusFilter.value)
         && (contentFormatFilter.value === 'all' || item.mediaType === contentFormatFilter.value));
+      const pageCount = Math.ceil(filtered.length / CONTENT_PAGE_SIZE);
+      contentPage = Math.min(contentPage, Math.max(1, pageCount));
+      contentPagination.hidden = filtered.length <= CONTENT_PAGE_SIZE;
+      contentPageLabel.textContent = filtered.length ? `Halaman ${contentPage} dari ${pageCount} · ${filtered.length} konten` : '0 konten';
+      contentPrevPage.disabled = contentPage <= 1;
+      contentNextPage.disabled = contentPage >= pageCount;
+      const pageItems = filtered.slice((contentPage - 1) * CONTENT_PAGE_SIZE, contentPage * CONTENT_PAGE_SIZE);
       const body = byId('content-table-body');
       body.replaceChildren();
-      for (const item of filtered) {
+      for (const item of pageItems) {
         const row = document.createElement('tr');
         const values = [item.platform, item.publishedAt ? formatDate(item.publishedAt.slice(0, 10)) : '—', item.mediaType, item.status, `${formatNumber(item.organic.likes)} / ${formatNumber(item.organic.comments)}`, item.caption.split('\\n')[0].slice(0, 100)];
         for (const value of values) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
@@ -781,7 +794,20 @@
       selectedWeek = weekSelect.value;
       if (activeSnapshot) renderDashboard(activeSnapshot);
     });
-    [contentPlatformFilter, contentStatusFilter, contentFormatFilter].forEach(filter => filter.addEventListener('change', () => renderContentAnalysis(activeSnapshot?.contents ?? [])));
+    [contentPlatformFilter, contentStatusFilter, contentFormatFilter].forEach(filter => filter.addEventListener('change', () => {
+      contentPage = 1;
+      renderContentAnalysis(activeSnapshot?.contents ?? []);
+    }));
+    contentPrevPage.addEventListener('click', () => {
+      if (contentPage > 1) {
+        contentPage--;
+        renderContentAnalysis(activeSnapshot?.contents ?? []);
+      }
+    });
+    contentNextPage.addEventListener('click', () => {
+      contentPage++;
+      renderContentAnalysis(activeSnapshot?.contents ?? []);
+    });
 
     function updateCampaignOptions(selectedId = '') {
       const select = byId('funnel-campaign');
