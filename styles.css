@@ -117,6 +117,7 @@ tbody tr:last-child td { border-bottom: 0; }
 .content-filters select { min-height: 30px; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); font-size: 10px; }
 .content-pagination { display: flex; justify-content: flex-end; align-items: center; gap: 9px; padding-top: 12px; }
 .content-pagination[hidden] { display: none; }
+.content-insight-reason { max-width: 360px; margin: 4px 0 0; color: var(--muted); font-size: 9px; line-height: 1.45; white-space: normal; }
 .recommendations-section { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--line); }
 .recommendations-section h2 { font-size: 16px; }
 .recommendation-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 9px; }

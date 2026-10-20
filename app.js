@@ -488,6 +488,34 @@
     };
   }
 
+  function analyzeOrganicContent(contents) {
+    const scores = contents.map(item => {
+      const { likes, comments } = item.organic ?? {};
+      return Number.isFinite(likes) && Number.isFinite(comments) ? likes + comments : null;
+    });
+    const known = scores.filter(Number.isFinite).sort((a, b) => a - b);
+    const median = known.length ? known[Math.floor((known.length - 1) / 2)] : null;
+    const relevant = item => /asset|aset|rfid|maintenance|pemeliharaan|stock opname|depresiasi|inventaris|qr code/i.test(item.caption);
+
+    return contents.map((item, index) => {
+      const engagement = scores[index];
+      const isRelevant = relevant(item);
+      if (engagement === null) {
+        return { label: 'Belum cukup data', reason: 'Like/komentar belum tersedia; potensi engagement dan hasil iklan belum bisa dinilai.' };
+      }
+      if (isRelevant && (known.length === 1 || engagement > median)) {
+        return { label: 'Kandidat uji iklan', reason: `Caption relevan dengan manajemen aset dan ${engagement} like + komentar; interaksi di atas median konten yang datanya tersedia (${median}). Layak diuji, bukan jaminan hasil iklan.` };
+      }
+      if (isRelevant) {
+        return { label: 'Relevan — pantau', reason: `Caption relevan dengan manajemen aset, tetapi ${engagement} like + komentar belum di atas median (${median}); belum ada sinyal kuat untuk diprioritaskan.` };
+      }
+      if (known.length > 1 && engagement > median) {
+        return { label: 'Interaksi tinggi — cek relevansi', reason: `${engagement} like + komentar di atas median (${median}), tetapi relevansi dengan manajemen aset tidak terdeteksi dari caption.` };
+      }
+      return { label: 'Belum diprioritaskan', reason: `${engagement} like + komentar; belum ada sinyal relevansi dan engagement relatif yang cukup untuk shortlist.` };
+    });
+  }
+
   function buildWeeklySnapshot(snapshot) {
     const days = new Map();
     for (const day of snapshot.dailyMetrics ?? []) {
@@ -622,13 +650,25 @@
       contentPageLabel.textContent = filtered.length ? `Halaman ${contentPage} dari ${pageCount} · ${filtered.length} konten` : '0 konten';
       contentPrevPage.disabled = contentPage <= 1;
       contentNextPage.disabled = contentPage >= pageCount;
-      const pageItems = filtered.slice((contentPage - 1) * CONTENT_PAGE_SIZE, contentPage * CONTENT_PAGE_SIZE);
+      const pageStart = (contentPage - 1) * CONTENT_PAGE_SIZE;
+      const pageItems = filtered.slice(pageStart, pageStart + CONTENT_PAGE_SIZE);
+      const insights = analyzeOrganicContent(contents);
+      const insightById = new Map(contents.map((item, index) => [item.contentId, insights[index]]));
       const body = byId('content-table-body');
       body.replaceChildren();
       for (const item of pageItems) {
         const row = document.createElement('tr');
-        const values = [item.platform, item.publishedAt ? formatDate(item.publishedAt.slice(0, 10)) : '—', item.mediaType, item.status, `${formatNumber(item.organic.likes)} / ${formatNumber(item.organic.comments)}`, item.caption.split('\\n')[0].slice(0, 100)];
+        const values = [item.platform, item.publishedAt ? formatDate(item.publishedAt.slice(0, 10)) : '—', item.mediaType, `${formatNumber(item.organic.likes)} / ${formatNumber(item.organic.comments)}`, item.caption.split('\\n')[0].slice(0, 100)];
         for (const value of values) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
+        const insight = insightById.get(item.contentId);
+        const insightCell = document.createElement('td');
+        const label = document.createElement('strong');
+        label.textContent = insight.label;
+        const reason = document.createElement('p');
+        reason.className = 'content-insight-reason';
+        reason.textContent = insight.reason;
+        insightCell.append(label, reason);
+        row.append(insightCell);
         const linkCell = document.createElement('td');
         if (item.permalink) { const link = document.createElement('a'); link.href = item.permalink; link.target = '_blank'; link.rel = 'noopener noreferrer'; link.textContent = 'Buka'; linkCell.append(link); } else linkCell.textContent = '—';
         row.append(linkCell); body.append(row);
@@ -1072,6 +1112,7 @@
     loadFunnel,
     saveFunnel,
     normalizeAnalysis,
+    analyzeOrganicContent,
     buildDeterministicAnalysis,
     init,
   };
