@@ -9,7 +9,8 @@ const html = fs.readFileSync(path.join(root, 'index.html'), 'utf8');
 
 test('content list paginates filtered rows in pages of five', () => {
   assert.match(app, /CONTENT_PAGE_SIZE\s*=\s*5/);
-  assert.match(app, /filtered\.slice\(\(contentPage - 1\) \* CONTENT_PAGE_SIZE, contentPage \* CONTENT_PAGE_SIZE\)/);
+  assert.match(app, /const pageStart = \(contentPage - 1\) \* CONTENT_PAGE_SIZE/);
+  assert.match(app, /filtered\.slice\(pageStart, pageStart \+ CONTENT_PAGE_SIZE\)/);
   assert.match(html, /id="content-pagination"/);
   assert.match(html, /id="content-page-label"/);
   assert.match(html, /id="content-prev-page"/);

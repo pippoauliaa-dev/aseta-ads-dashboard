@@ -42,7 +42,7 @@ test('adds funnel context only for the exact analyzed date range', () => {
   assert.ok(analysis.facts.some(item => /3.*qualified/i.test(item)));
   assert.ok(analysis.facts.some(item => /1.*deal/i.test(item)));
   assert.ok(!analysis.facts.some(item => /99.*qualified/i.test(item)));
-  assert.ok(analysis.findings.some(item => /qualified.*deal/i.test(item) && /33\.3%/.test(item)));
+  assert.ok(analysis.findings.some(item => /deal.*qualified/i.test(item) && /(33\.3|33,3)%/.test(item)));
 });
 
 test('rejects negative or fractional deals in funnel backup', () => {

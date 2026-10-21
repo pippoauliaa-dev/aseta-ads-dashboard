@@ -112,6 +112,10 @@ tbody tr:last-child td { border-bottom: 0; }
 .empty-state { margin: 0; padding: 17px 16px; border: 1px dashed #dce2e6; border-radius: 8px; background: #fafbfa; color: #738091; font-size: 11px; line-height: 1.6; }
 .empty-cell { padding: 22px 14px; color: #7b8793; text-align: center; white-space: normal; }
 .table-footnote { margin: 9px 1px 0; color: #939ca6; font-size: 9px; line-height: 1.5; }
+.audience-analyzer-controls { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+.audience-analyzer-controls label { color: var(--muted); font-size: 10px; }
+.audience-analyzer-controls input { min-height: 34px; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; color: var(--ink); font-size: 10px; }
+.audience-funnel-title { margin: 18px 0 8px; font-size: 14px; }
 .content-filters { display: flex; flex-wrap: wrap; gap: 10px; margin: 0 0 12px; }
 .content-filters label { display: inline-flex; align-items: center; gap: 6px; color: var(--muted); font-size: 10px; }
 .content-filters select { min-height: 30px; padding: 0 8px; border: 1px solid var(--line); border-radius: 6px; background: white; color: var(--ink); font-size: 10px; }

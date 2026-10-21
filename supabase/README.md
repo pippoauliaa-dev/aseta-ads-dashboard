@@ -29,6 +29,26 @@ Save the config, then choose **Masuk**. The browser stores the URL, publishable 
 
 Before enabling cloud storage, export the local funnel backup using **Ekspor backup JSON**. After signing in, use **Impor backup** and confirm merge; the imported records are saved to the signed-in user's private table. Verify counts and dates before deleting any old local backup. Existing backups without `dealsClosed` remain valid; the field defaults to null.
 
+## Audience and location analyzer (manual trigger)
+
+The **Analisis audience & lokasi** button invokes `analyze-audience-location` only when clicked and while signed in. It requests active ad sets, their configured targeting and Meta insights for the selected completed date range (maximum 28 days). The result is held in page memory and is never written to the public snapshot.
+
+### Configure Edge Function
+
+1. Use Supabase CLI from the repository root and link your project: `supabase link --project-ref YOUR_PROJECT_REF`.
+2. Set secrets directly in your terminal (do not paste them into chat or commit them):
+
+   ```sh
+   supabase secrets set META_ACCESS_TOKEN='YOUR_META_TOKEN' META_AD_ACCOUNT_ID='YOUR_NUMERIC_AD_ACCOUNT_ID' ALLOWED_ORIGIN='https://pippoauliaa-dev.github.io'
+   ```
+
+   The Meta token must have permission to read the account's campaigns, ad sets, targeting, and insights. Never use or expose a `service_role` key in the browser.
+3. Deploy with JWT verification enabled: `supabase functions deploy analyze-audience-location` (do not pass `--no-verify-jwt`).
+4. In Supabase Function settings, verify `verify_jwt` is enabled for `analyze-audience-location`. The function additionally validates the caller user and exact Pages origin.
+5. Sign in to the dashboard's private Supabase funnel storage, then click **Analisis audience & lokasi**. Pick a completed date range of up to 28 days.
+
+The function returns ad-set targeting and performance per result type. Campaign-level funnel counts are separately labeled and are never assigned to individual ad sets. “Jawa included” is a targeting configuration check only; it is not evidence that leads came from Java. If the endpoint reports missing secrets, permission failures, or RLS errors, fix those settings in Supabase/Meta and retry manually.
+
 ## Data handling
 
 Only aggregate campaign/date funnel counts and the optional outcome note are sent to Supabase. Do not enter company names, contact details, lead identifiers, or other personal data in notes. Each user sees only their own rows through RLS. The public Meta campaign/content snapshot on GitHub Pages remains public and is unrelated to this private funnel storage.
