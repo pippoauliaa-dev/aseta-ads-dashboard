@@ -7,6 +7,7 @@
   <meta name="theme-color" content="#101e32">
   <title>Ads Desk</title>
   <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -36,6 +37,25 @@
       <div class="toolbar-actions">
         <button id="import-snapshot-button" class="button button-primary" type="button">Muat data terbaru</button>
         <input id="snapshot-file" class="visually-hidden" type="file" accept="application/json,.json">
+        <button id="funnel-auth-button" class="button button-secondary" type="button">Hubungkan penyimpanan privat</button>
+      </div>
+      <p id="funnel-sync-status" class="status-message" role="status" aria-live="polite">Funnel tersimpan lokal di browser ini.</p>
+      <div id="funnel-auth-panel" class="panel funnel-auth-panel" hidden>
+        <h3>Akses penyimpanan funnel privat</h3>
+        <label for="funnel-supabase-url">Supabase Project URL</label>
+        <input id="funnel-supabase-url" type="url" autocomplete="url" placeholder="https://project-id.supabase.co">
+        <label for="funnel-supabase-key">Supabase publishable / anon key</label>
+        <input id="funnel-supabase-key" type="password" autocomplete="off" placeholder="sb_publishable_… atau anon key">
+        <label for="funnel-auth-email">Email</label>
+        <input id="funnel-auth-email" type="email" autocomplete="email" placeholder="nama@perusahaan.com">
+        <label for="funnel-auth-password">Password</label>
+        <input id="funnel-auth-password" type="password" autocomplete="current-password">
+        <div class="toolbar-actions">
+          <button id="funnel-auth-save" class="button button-secondary" type="button">Simpan konfigurasi</button>
+          <button id="funnel-auth-signin" class="button button-primary" type="button">Masuk</button>
+          <button id="funnel-auth-signup" class="button button-secondary" type="button">Buat akun</button>
+          <button id="funnel-auth-signout" class="button button-secondary" type="button" hidden>Keluar</button>
+        </div>
       </div>
       <details id="data-options" class="data-options">
         <summary>Lihat opsi data</summary>

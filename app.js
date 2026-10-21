@@ -10,6 +10,9 @@
   const SNAPSHOT_VERSION = 1;
   const CONTENT_PAGE_SIZE = 5;
   const FUNNEL_VERSION = 1;
+  const SUPABASE_CONFIG_KEY = 'asetaAdsDashboard:supabase-config:v1';
+  const SUPABASE_SESSION_KEY = 'asetaAdsDashboard:supabase-session:v1';
+  const SUPABASE_TABLE = 'private_funnel_records';
   const FUNNEL_FIELDS = ['qualifiedLeads', 'meetingsScheduled', 'meetingsAttended', 'dealsClosed'];
   const MISSING = new Set(['', '—', '-', '–', 'na', 'n/a', 'null']);
 
@@ -46,6 +49,44 @@
     return Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
       ? numerator / denominator
       : null;
+  }
+
+  function getSupabaseConfig(input) {
+    if (!input || typeof input !== 'object') return null;
+    const url = typeof input.url === 'string' ? input.url.trim().replace(/\/$/, '') : '';
+    const anonKey = typeof input.anonKey === 'string' ? input.anonKey.trim() : '';
+    if (!/^https:\/\/[a-z0-9-]+\.supabase\.co$/i.test(url)) return null;
+    if (!anonKey || /service[_-]?role/i.test(anonKey)) return null;
+    return { url, anonKey };
+  }
+
+  function funnelRecordToEntry(record) {
+    return {
+      campaignId: record.campaign_id,
+      campaignName: record.campaign_name,
+      periodSince: record.period_since,
+      periodUntil: record.period_until,
+      qualifiedLeads: record.qualified_leads,
+      meetingsScheduled: record.meetings_scheduled,
+      meetingsAttended: record.meetings_attended,
+      dealsClosed: record.deals_closed,
+      outcomeNote: record.outcome_note ?? '',
+    };
+  }
+
+  function funnelEntryToRecord(entry, userId) {
+    return {
+      user_id: userId,
+      campaign_id: entry.campaignId,
+      campaign_name: entry.campaignName,
+      period_since: entry.periodSince,
+      period_until: entry.periodUntil,
+      qualified_leads: entry.qualifiedLeads,
+      meetings_scheduled: entry.meetingsScheduled,
+      meetings_attended: entry.meetingsAttended,
+      deals_closed: entry.dealsClosed,
+      outcome_note: entry.outcomeNote,
+    };
   }
 
   function normalizeFunnelDealRate(entry) {
@@ -538,6 +579,14 @@
     });
   }
 
+  function loadStoredSupabaseConfig() {
+    try { return JSON.parse(localStorage.getItem(SUPABASE_CONFIG_KEY) || 'null'); } catch { return null; }
+  }
+
+  function loadStoredSupabaseSession() {
+    try { return JSON.parse(localStorage.getItem(SUPABASE_SESSION_KEY) || 'null'); } catch { return null; }
+  }
+
   function loadFunnel() {
     try {
       const raw = localStorage.getItem(FUNNEL_KEY);
@@ -698,6 +747,10 @@
     let pendingCsv = null;
     let pendingFunnel = null;
     let funnel = loadFunnel();
+    let supabaseConfig = getSupabaseConfig(loadStoredSupabaseConfig());
+    let supabaseSession = loadStoredSupabaseSession();
+    let supabaseClient = null;
+    let funnelStorageMode = 'local';
     let lastCsvFilename = 'meta-ads-export.csv';
     let lastLocalSnapshotTimestamp = null;
     let selectedWeek = null;
@@ -706,6 +759,70 @@
     function announce(message, isError = false) {
       status.textContent = message;
       status.classList.toggle('status-error', isError);
+    }
+
+    function setFunnelSyncStatus(message, isError = false) {
+      const target = byId('funnel-sync-status');
+      target.textContent = message;
+      target.classList.toggle('status-error', isError);
+    }
+
+    function saveSupabaseConfig(config) {
+      const nextConfig = getSupabaseConfig(config);
+      if (!nextConfig) throw new Error('Masukkan URL proyek Supabase HTTPS dan publishable/anon key yang valid. Jangan gunakan service_role key.');
+      localStorage.setItem(SUPABASE_CONFIG_KEY, JSON.stringify(nextConfig));
+      supabaseConfig = nextConfig;
+      supabaseClient = null;
+    }
+
+    async function getSupabaseClient() {
+      if (!supabaseConfig) throw new Error('Konfigurasi Supabase belum disimpan.');
+      if (supabaseClient) return supabaseClient;
+      const client = window.supabase?.createClient;
+      if (!client) throw new Error('Library Supabase belum tersedia; periksa koneksi internet lalu muat ulang halaman.');
+      supabaseClient = client(supabaseConfig.url, supabaseConfig.anonKey, { auth: { persistSession: false, autoRefreshToken: true, detectSessionInUrl: true } });
+      return supabaseClient;
+    }
+
+    async function restoreSupabaseSession() {
+      if (!supabaseConfig || !supabaseSession?.access_token) return false;
+      const client = await getSupabaseClient();
+      const { data, error } = await client.auth.setSession({ access_token: supabaseSession.access_token, refresh_token: supabaseSession.refresh_token });
+      if (error) throw error;
+      supabaseSession = data.session;
+      localStorage.setItem(SUPABASE_SESSION_KEY, JSON.stringify(supabaseSession));
+      return Boolean(data.session?.user?.id);
+    }
+
+    async function loadPrivateFunnel() {
+      const client = await getSupabaseClient();
+      const { data: userResult, error: userError } = await client.auth.getUser();
+      if (userError || !userResult.user) throw new Error('Sesi masuk tidak berlaku. Silakan masuk kembali.');
+      const { data, error } = await client.from(SUPABASE_TABLE).select('*');
+      if (error) throw error;
+      const remoteFunnel = normalizeFunnel({ schemaVersion: FUNNEL_VERSION, entries: (data ?? []).map(funnelRecordToEntry) });
+      funnel = remoteFunnel;
+      funnelStorageMode = 'remote';
+      renderFunnel();
+      setFunnelSyncStatus(`Penyimpanan privat aktif · ${userResult.user.email ?? 'akun masuk'}`);
+    }
+
+    async function savePrivateFunnel(nextFunnel) {
+      const client = await getSupabaseClient();
+      const { data: userResult, error: userError } = await client.auth.getUser();
+      if (userError || !userResult.user) throw new Error('Sesi masuk tidak berlaku. Silakan masuk kembali.');
+      const userId = userResult.user.id;
+      const records = normalizeFunnel(nextFunnel).entries.map(entry => {
+        const row = funnelEntryToRecord(entry, userId);
+        delete row.user_id;
+        return row;
+      });
+      const { error } = await client.rpc('replace_my_funnel', { entries: records });
+      if (error) throw error;
+      funnel = normalizeFunnel(nextFunnel);
+      funnelStorageMode = 'remote';
+      renderFunnel();
+      setFunnelSyncStatus(`Tersimpan privat · ${userResult.user.email ?? 'akun masuk'}`);
     }
 
     function showNumber(id, value, suffix = '') {
@@ -1078,6 +1195,73 @@
       }
     });
 
+    const authPanel = byId('funnel-auth-panel');
+    const authButton = byId('funnel-auth-button');
+    const authSignIn = byId('funnel-auth-signin');
+    const authSignUp = byId('funnel-auth-signup');
+    const authSignOut = byId('funnel-auth-signout');
+    const authSaveConfig = byId('funnel-auth-save');
+    byId('funnel-supabase-url').value = supabaseConfig?.url ?? '';
+    byId('funnel-supabase-key').value = supabaseConfig?.anonKey ?? '';
+    authButton.addEventListener('click', () => { authPanel.hidden = !authPanel.hidden; });
+    authSaveConfig.addEventListener('click', () => {
+      try {
+        saveSupabaseConfig({ url: byId('funnel-supabase-url').value, anonKey: byId('funnel-supabase-key').value });
+        setFunnelSyncStatus('Konfigurasi tersimpan lokal. Masuk untuk mengaktifkan sinkronisasi privat.');
+      } catch (error) { setFunnelSyncStatus(error.message, true); }
+    });
+    const authenticate = async createAccount => {
+      try {
+        saveSupabaseConfig({ url: byId('funnel-supabase-url').value, anonKey: byId('funnel-supabase-key').value });
+        const client = await getSupabaseClient();
+        const credentials = { email: byId('funnel-auth-email').value.trim(), password: byId('funnel-auth-password').value };
+        const response = createAccount ? await client.auth.signUp(credentials) : await client.auth.signInWithPassword(credentials);
+        if (response.error) throw response.error;
+        if (!response.data.session) {
+          setFunnelSyncStatus('Akun dibuat. Konfirmasi email dari Supabase dahulu, lalu masuk.');
+          return;
+        }
+        supabaseSession = response.data.session;
+        localStorage.setItem(SUPABASE_SESSION_KEY, JSON.stringify(supabaseSession));
+        await loadPrivateFunnel();
+        authSignOut.hidden = false;
+        authSignIn.hidden = true;
+        authSignUp.hidden = true;
+        authPanel.hidden = true;
+        if (funnel.entries.length === 0) {
+          const local = loadFunnel();
+          if (local.entries.length) setFunnelSyncStatus('Penyimpanan privat aktif. Ada backup lokal yang belum dipindahkan; impor backup funnel untuk memindahkannya.');
+        }
+      } catch (error) { setFunnelSyncStatus(`Gagal masuk: ${error.message}`, true); }
+    };
+    authSignIn.addEventListener('click', () => authenticate(false));
+    authSignUp.addEventListener('click', () => authenticate(true));
+    authSignOut.addEventListener('click', async () => {
+      try {
+        const client = await getSupabaseClient();
+        const { error } = await client.auth.signOut();
+        if (error) throw error;
+      } catch (error) { setFunnelSyncStatus(`Gagal keluar dari Supabase: ${error.message}`, true); return; }
+      localStorage.removeItem(SUPABASE_SESSION_KEY);
+      supabaseSession = null;
+      funnelStorageMode = 'local';
+      funnel = loadFunnel();
+      renderFunnel();
+      authSignOut.hidden = true;
+      authSignIn.hidden = false;
+      authSignUp.hidden = false;
+      setFunnelSyncStatus('Keluar. Funnel kembali memakai penyimpanan lokal browser.');
+    });
+    if (supabaseConfig) {
+      restoreSupabaseSession().then(active => {
+        if (active) {
+          authSignIn.hidden = true; authSignUp.hidden = true; authSignOut.hidden = false;
+          return loadPrivateFunnel();
+        }
+        setFunnelSyncStatus('Konfigurasi Supabase tersimpan. Masuk untuk membuka penyimpanan privat.');
+      }).catch(error => setFunnelSyncStatus(`Sesi privat tidak dapat dipulihkan: ${error.message}`, true));
+    }
+
     importSnapshotButton.addEventListener('click', () => snapshotInput.click());
     funnelToggle.addEventListener('click', () => {
       funnelLayout.hidden = !funnelLayout.hidden;
@@ -1125,7 +1309,7 @@
       }
     });
 
-    funnelForm.addEventListener('submit', event => {
+    funnelForm.addEventListener('submit', async event => {
       event.preventDefault();
       const campaign = activeSnapshot?.campaigns.find(item => item.id === byId('funnel-campaign').value);
       if (!campaign) return announce('Pilih campaign dari snapshot yang aktif.', true);
@@ -1142,12 +1326,13 @@
       };
       try {
         const next = mergeManualFunnel(funnel, [entry]);
-        funnel = saveFunnel(next);
-        renderFunnel();
+        if (funnelStorageMode === 'remote') await savePrivateFunnel(next);
+        else { funnel = saveFunnel(next); renderFunnel(); }
         resetFunnelForm();
-        announce('Data funnel tersimpan di penyimpanan browser perangkat ini.');
+        announce(funnelStorageMode === 'remote' ? 'Data funnel tersimpan di penyimpanan privat.' : 'Data funnel tersimpan di penyimpanan browser perangkat ini.');
       } catch (error) {
         announce(error.message, true);
+        setFunnelSyncStatus(`Penyimpanan gagal: ${error.message}`, true);
       }
     });
 
@@ -1178,15 +1363,16 @@
       }
     });
 
-    confirmFunnelButton.addEventListener('click', () => {
+    confirmFunnelButton.addEventListener('click', async () => {
       if (!pendingFunnel) return;
       try {
-        funnel = saveFunnel(mergeManualFunnel(funnel, pendingFunnel.entries));
-        renderFunnel();
+        const next = mergeManualFunnel(funnel, pendingFunnel.entries);
+        if (funnelStorageMode === 'remote') await savePrivateFunnel(next);
+        else { funnel = saveFunnel(next); renderFunnel(); }
         pendingFunnel = null;
         confirmFunnelButton.hidden = true;
         byId('funnel-preview').textContent = '';
-        announce('Backup berhasil digabungkan ke penyimpanan browser.');
+        announce(funnelStorageMode === 'remote' ? 'Backup berhasil digabung ke penyimpanan privat.' : 'Backup berhasil digabungkan ke penyimpanan browser.');
       } catch (error) {
         announce(error.message, true);
       }
