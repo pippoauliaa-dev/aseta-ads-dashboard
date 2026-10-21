@@ -54,6 +54,33 @@
       : null;
   }
 
+  function compareWeeklyResults(current, previous) {
+    if (!current?.complete || !previous?.complete) return [];
+    const aggregateByType = week => {
+      const result = new Map();
+      for (const campaign of week.campaigns ?? []) {
+        const type = campaign.resultType;
+        if (!['MESSAGING_CONVERSATION', 'LEAD'].includes(type)) continue;
+        if (!Number.isFinite(campaign.spend) || !Number.isFinite(campaign.results)) return null;
+        const group = result.get(type) ?? { spend: 0, results: 0 };
+        group.spend += campaign.spend;
+        group.results += campaign.results;
+        result.set(type, group);
+      }
+      return result;
+    };
+    const currentGroups = aggregateByType(current);
+    const previousGroups = aggregateByType(previous);
+    if (!currentGroups || !previousGroups) return [];
+    return [...currentGroups.entries()].flatMap(([type, values]) => {
+      const previousValues = previousGroups.get(type);
+      if (!previousValues || values.results <= 0 || previousValues.results <= 0) return [];
+      const currentCost = values.spend / values.results;
+      const previousCost = previousValues.spend / previousValues.results;
+      return [{ resultType: type, currentCost, previousCost, deltaPercent: (currentCost / previousCost - 1) * 100 }];
+    });
+  }
+
   function normalizeResultType(value) {
     if (typeof value !== 'string' || !value.trim()) return null;
     const type = value.trim().toUpperCase();
@@ -114,44 +141,100 @@
     };
   }
 
-  function buildDeterministicAnalysis(snapshot) {
+  function compareWeeklyResults(current, previous) {
+    if (current.days !== 7 || previous.days !== 7) return [];
+    const byType = period => {
+      const groups = new Map();
+      for (const campaign of period.campaigns ?? []) {
+        if (!['MESSAGING_CONVERSATION', 'LEAD'].includes(campaign.resultType)) continue;
+        if (!Number.isFinite(campaign.spend) || !Number.isFinite(campaign.results)) return null;
+        const group = groups.get(campaign.resultType) ?? { spend: 0, results: 0 };
+        group.spend += campaign.spend;
+        group.results += campaign.results;
+        groups.set(campaign.resultType, group);
+      }
+      return groups;
+    };
+    const currentGroups = byType(current);
+    const previousGroups = byType(previous);
+    if (!currentGroups || !previousGroups) return [];
+    return [...currentGroups.entries()].flatMap(([type, values]) => {
+      const old = previousGroups.get(type);
+      if (!old || values.results <= 0 || old.results <= 0) return [];
+      return [{
+        resultType: type,
+        currentCost: values.spend / values.results,
+        previousCost: old.spend / old.results,
+        deltaPercent: ((values.spend / values.results) / (old.spend / old.results) - 1) * 100,
+        currentResults: values.results,
+        previousResults: old.results,
+      }];
+    });
+  }
+
+  function buildDeterministicAnalysis(snapshot, options = {}) {
     const campaigns = Array.isArray(snapshot?.campaigns) ? snapshot.campaigns : [];
     const resultTypes = [...new Set(campaigns.map(item => item.resultType).filter(Boolean))];
     const totals = aggregateCampaigns(campaigns);
-    const resultCount = (totals.messagingConversations ?? 0) + (totals.formLeads ?? 0);
-    const comparable = resultTypes.length === 1 ? campaigns.filter(item => item.results !== null && item.resultType === resultTypes[0]) : [];
     const limitations = [];
     const facts = [`Periode analisis: ${snapshot?.period?.since ?? 'tidak diketahui'} sampai ${snapshot?.period?.until ?? 'tidak diketahui'}.`, `${campaigns.length} baris campaign dianalisis.`];
     if (!campaigns.length) limitations.push('Belum ada campaign untuk dianalisis.');
-    if (campaigns.some(item => item.spend === null || item.results === null)) limitations.push('Sebagian metrik spend atau hasil tidak tersedia; biaya per hasil tidak dihitung untuk baris tersebut.');
-    if (resultTypes.length > 1) limitations.push('Jenis hasil campaign berbeda, sehingga hasil dan biaya per hasil tidak dibandingkan lintas campaign.');
-    if (campaigns.some(item => item.results !== null && !item.resultType)) limitations.push('Ada hasil tanpa jenis hasil; jangan menganggapnya sebagai lead.');
-    const ranked = comparable.filter(item => Number.isFinite(item.spend) && Number.isFinite(item.results) && item.results > 0)
-      .map(item => ({ item, cost: item.spend / item.results })).sort((a, b) => a.cost - b.cost);
-    const campaignAnalysis = resultTypes.length === 1 && ranked.length > 1 ? ranked.map((entry, index) => ({
-      campaignId: entry.item.id,
-      label: index === 0 ? 'strongest' : index === ranked.length - 1 ? 'needs-attention' : 'not-comparable',
-      reason: `Biaya per hasil ${new Intl.NumberFormat('id-ID').format(entry.cost)} ${snapshot.currency ?? 'IDR'} untuk hasil bertipe ${resultTypes[0]}.`,
-    })) : [];
+    if (campaigns.some(item => item.spend === null || item.results === null)) limitations.push('Sebagian metrik belanja atau hasil tidak tersedia; biaya per hasil campaign tersebut tidak dihitung.');
+    if (resultTypes.length > 1) limitations.push('Jenis hasil berbeda. Campaign chat dan formulir hanya dibandingkan di dalam jenis hasil masing-masing.');
+    if (campaigns.some(item => item.results !== null && !item.resultType)) limitations.push('Ada hasil tanpa jenis hasil yang jelas; hasil tersebut tidak dimasukkan ke perbandingan.');
+    if (resultTypes.length > 1) limitations.push('Biaya gabungan chat + formulir bersifat indikatif; biaya per jenis hasil lebih tepat untuk optimasi.');
+    const rankedByType = campaigns.filter(item => Number.isFinite(item.spend) && Number.isFinite(item.results) && item.results > 0 && ['MESSAGING_CONVERSATION', 'LEAD'].includes(item.resultType))
+      .map(item => ({ item, cost: item.spend / item.results }))
+      .reduce((groups, entry) => { (groups[entry.item.resultType] ??= []).push(entry); return groups; }, {});
+    const trendComparisons = options.weeklyComparisons ?? [];
+    const campaignAnalysis = Object.entries(rankedByType).flatMap(([type, entries]) => {
+      entries.sort((a, b) => a.cost - b.cost);
+      return entries.length > 1 ? entries.map((entry, index) => ({
+        campaignId: entry.item.id,
+        label: index === 0 ? 'strongest' : index === entries.length - 1 ? 'needs-attention' : 'not-comparable',
+        reason: `Biaya ${formatMoney(entry.cost)} per ${type === 'LEAD' ? 'prospek formulir' : 'percakapan pesan'}; dibandingkan hanya dengan campaign berjenis hasil sama.`,
+      })) : [];
+    });
     const actions = [];
-    const highFrequency = campaigns.filter(item => item.status === 'ACTIVE' && item.results !== null && item.results > 0);
-    if (ranked.length > 1) actions.push('Bandingkan campaign dengan sasaran dan jenis hasil yang sama sebelum menggeser anggaran.');
-    if (campaigns.some(item => item.status === 'ACTIVE' && item.spend > 0 && item.results === 0)) actions.push('Tinjau campaign yang sudah membelanjakan anggaran tetapi belum mencatat percakapan atau prospek.');
-    if (highFrequency.length) actions.push('Pastikan percakapan dan prospek yang tercatat sesuai hasil aktual di CRM; dashboard Meta tidak menunjukkan kualitas lead.');
+    if (campaignAnalysis.length) actions.push('Gunakan perbandingan biaya hanya di dalam jenis hasil yang sama; validasi kualitas percakapan dan prospek di CRM sebelum memindahkan anggaran.');
+    if (campaigns.some(item => item.status === 'ACTIVE' && item.spend > 0 && item.results === 0)) actions.push('Tinjau campaign aktif yang sudah berbelanja tetapi belum mencatat hasil pada periode ini.');
+    if (campaigns.some(item => item.status === 'ACTIVE' && item.spend > 0 && item.results === null)) actions.push('Periksa pelaporan hasil pada campaign aktif yang memiliki belanja tetapi hasilnya tidak tersedia.');
     const findings = [];
     if (totals.messagingConversations > 0) facts.push(`${formatNumber(totals.messagingConversations)} percakapan pesan tercatat.`);
     if (totals.formLeads > 0) facts.push(`${formatNumber(totals.formLeads)} prospek formulir tercatat.`);
-    if (totals.blendedCostPerResult !== null) facts.push(`Biaya gabungan seluruh campaign, termasuk awareness, sekitar ${formatMoney(totals.blendedCostPerResult)} per percakapan atau prospek.`);
-    if (resultTypes.includes('REACH')) findings.push('Campaign awareness menyumbang biaya dan jangkauan, tetapi hasil Reach tidak dihitung sebagai percakapan atau prospek.');
-    if (ranked.length > 1) {
-      const best = ranked[0];
-      const worst = ranked[ranked.length - 1];
-      findings.push(`${best.item.name} memiliki biaya per hasil terendah dalam kelompok ${resultTypes[0]} (${formatMoney(best.cost)}); ${worst.item.name} tertinggi (${formatMoney(worst.cost)}).`);
+    if (totals.blendedCostPerResult !== null) facts.push(`Biaya gabungan kampanye berorientasi hasil sekitar ${formatMoney(totals.blendedCostPerResult)} per percakapan atau prospek; ini bukan perbandingan antarjenis hasil.`);
+    if (resultTypes.includes('REACH')) findings.push('Hasil Reach dari campaign awareness dipisahkan dari percakapan dan prospek.');
+    for (const [type, entries] of Object.entries(rankedByType)) {
+      if (entries.length < 2) continue;
+      const ordered = [...entries].sort((a, b) => a.cost - b.cost);
+      findings.push(`${ordered[0].item.name} memiliki biaya terendah untuk ${type === 'LEAD' ? 'prospek formulir' : 'percakapan pesan'} (${formatMoney(ordered[0].cost)}); ${ordered[ordered.length - 1].item.name} tertinggi (${formatMoney(ordered[ordered.length - 1].cost)}). Ini perbandingan observasional, bukan bukti sebab-akibat.`);
     }
+    if (options.funnelEntries) {
+      const matching = options.funnelEntries.filter(entry => entry.periodSince === snapshot.period?.since && entry.periodUntil === snapshot.period?.until);
+      if (matching.length) {
+        const qualified = matching.reduce((sum, entry) => sum + (entry.qualifiedLeads ?? 0), 0);
+        const scheduled = matching.reduce((sum, entry) => sum + (entry.meetingsScheduled ?? 0), 0);
+        const attended = matching.reduce((sum, entry) => sum + (entry.meetingsAttended ?? 0), 0);
+        const hasQualified = matching.some(entry => entry.qualifiedLeads !== null);
+        const hasScheduled = matching.some(entry => entry.meetingsScheduled !== null);
+        const hasAttended = matching.some(entry => entry.meetingsAttended !== null);
+        facts.push(`Funnel manual untuk rentang yang sama: ${hasQualified ? `${qualified} qualified lead` : 'qualified lead tidak dicatat'}, ${hasScheduled ? `${scheduled} meeting dijadwalkan` : 'jadwal meeting tidak dicatat'}, ${hasAttended ? `${attended} meeting dihadiri` : 'kehadiran meeting tidak dicatat'}.`);
+        if (qualified > 0 && totals.messagingConversations > 0) findings.push(`${formatNumber(qualified)} qualified lead dicatat dari ${formatNumber(totals.messagingConversations)} percakapan Meta pada periode sama. Rasio ini hanya indikatif karena sumber funnel manual dapat mencakup kanal lain.`);
+      } else {
+        limitations.push('Belum ada catatan funnel manual dengan tanggal yang persis sama dengan periode analisis.');
+      }
+    }
+    const weeklyComparisons = options.weeklyComparisons ?? [];
+    for (const comparison of weeklyComparisons) {
+      const name = comparison.resultType === 'LEAD' ? 'prospek formulir' : 'percakapan pesan';
+      const direction = comparison.deltaPercent < 0 ? 'turun' : 'naik';
+      findings.push(`Biaya per ${name} ${direction} ${formatNumber(Math.abs(comparison.deltaPercent), 1)}% dibanding minggu sebelumnya (${formatMoney(comparison.previousCost)} → ${formatMoney(comparison.currentCost)}). Perubahan biaya bersifat observasional.`);
+    }
+    if (options.previousWeek && !weeklyComparisons.length) limitations.push('Tren mingguan tidak ditampilkan karena data pembanding, rentang tujuh hari penuh, atau jenis hasil yang cocok tidak tersedia.');
     return normalizeAnalysis({
       generatedAt: new Date().toISOString(), source: 'assistant-analysis',
       summary: campaigns.length
-        ? `Analisis otomatis berbasis metrik Meta untuk ${campaigns.length} campaign. Pesan: ${formatNumber(totals.messagingConversations)} percakapan; formulir: ${formatNumber(totals.formLeads)} prospek. Biaya gabungan: ${formatMoney(totals.blendedCostPerResult)} per hasil.`
+        ? `Analisis indikatif untuk ${campaigns.length} campaign. Percakapan: ${formatNumber(totals.messagingConversations)}; prospek formulir: ${formatNumber(totals.formLeads)}. Campaign dibandingkan hanya dalam jenis hasil yang sama.`
         : 'Belum ada data campaign untuk dianalisis.',
       facts, findings, recommendations: actions, limitations, campaigns: campaignAnalysis,
     });
@@ -516,9 +599,10 @@
     const days = new Map();
     for (const day of snapshot.dailyMetrics ?? []) {
       const week = tuesdayWeekRange(day.date);
-      const entry = days.get(week.since) ?? { ...week, campaigns: new Map() };
+      const entry = days.get(week.since) ?? { ...week, campaigns: new Map(), dates: new Set() };
+      entry.dates.add(day.date);
       for (const metric of day.campaigns ?? []) {
-        const normalizedMetric = metric.results === null && Number.isFinite(metric.spend)
+        const normalizedMetric = metric.results === null && metric.spend === 0
           ? { ...metric, results: 0 }
           : metric;
         const current = entry.campaigns.get(normalizedMetric.id);
@@ -530,14 +614,34 @@
           current[field] = Number.isFinite(current[field]) && Number.isFinite(normalizedMetric[field])
             ? current[field] + normalizedMetric[field] : null;
         }
+        if (current.resultType !== normalizedMetric.resultType) current.resultType = null;
       }
       days.set(week.since, entry);
     }
-    return [...days.values()].sort((a, b) => a.since.localeCompare(b.since)).map(week => ({
-      since: week.since,
-      until: week.until,
-      campaigns: [...week.campaigns.values()],
-    }));
+    return [...days.values()].sort((a, b) => a.since.localeCompare(b.since)).map(week => {
+      const expectedDays = Math.round((Date.parse(`${week.until}T00:00:00Z`) - Date.parse(`${week.since}T00:00:00Z`)) / 86400000) + 1;
+      const campaignData = [...week.campaigns.values()];
+      const byResultType = {};
+      for (const type of ['MESSAGING_CONVERSATION', 'LEAD']) {
+        const matching = campaignData.filter(item => item.resultType === type);
+        const completeResults = matching.length > 0 && matching.every(item => Number.isFinite(item.results));
+        byResultType[type] = completeResults
+          ? {
+            spend: matching.reduce((sum, item) => sum + (item.spend ?? 0), 0),
+            results: matching.reduce((sum, item) => sum + item.results, 0),
+            costPerResult: matching.reduce((sum, item) => sum + (item.spend ?? 0), 0) / matching.reduce((sum, item) => sum + item.results, 0),
+          }
+          : null;
+      }
+      return {
+        since: week.since,
+        until: week.until,
+        days: week.dates.size,
+        complete: week.dates.size === expectedDays,
+        byResultType,
+        campaigns: campaignData,
+      };
+    });
   }
 
   function downloadJson(filename, value) {
@@ -743,6 +847,7 @@
       const hasWeeklyData = weeks.length > 0;
       const weekControls = byId('week-controls');
       const weekSelect = byId('week-select');
+      const weekTrendNote = byId('weekly-trend-note');
       weekControls.hidden = !hasWeeklyData;
       let displayedCampaigns = activeSnapshot.campaigns;
       let displayedPeriod = activeSnapshot.period;
@@ -757,13 +862,29 @@
         }
         selectedWeek = weeks.some(week => week.since === selectedWeek) ? selectedWeek : weeks[weeks.length - 1].since;
         weekSelect.value = selectedWeek;
-        const week = weeks.find(item => item.since === selectedWeek);
+        const weekIndex = weeks.findIndex(item => item.since === selectedWeek);
+        const week = weeks[weekIndex];
+        const previousWeek = weeks[weekIndex - 1];
         displayedCampaigns = week.campaigns;
         displayedPeriod = week;
         totals = aggregateCampaigns(displayedCampaigns);
-        byId('week-data-note').textContent = 'Data harian aktual · minggu Selasa–Senin';
+        byId('week-data-note').textContent = `${week.complete ? 'Data 7 hari lengkap' : `Data parsial · ${week.days} hari`} · minggu Selasa–Senin`;
+        const weeklyComparisons = week.complete && previousWeek?.complete
+          ? compareWeeklyResults(week, previousWeek)
+          : [];
+        const trendText = weeklyComparisons.length
+          ? weeklyComparisons.map(item => `${item.resultType === 'LEAD' ? 'Formulir' : 'Chat'}: ${formatMoney(item.previousCost)} → ${formatMoney(item.currentCost)} (${item.deltaPercent < 0 ? '↓' : '↑'} ${formatNumber(Math.abs(item.deltaPercent), 1)}%)`).join(' · ')
+          : 'Tren biaya minggu sebelumnya tidak tersedia (perlu dua minggu penuh dan data lengkap).';
+        weekTrendNote.hidden = false;
+        weekTrendNote.textContent = trendText;
+        week.previous = previousWeek;
+        if (weekTrendNote) {
+          weekTrendNote.hidden = false;
+          weekTrendNote.textContent = trendText;
+        }
       } else {
         byId('week-data-note').textContent = 'Data harian belum tersedia; menampilkan seluruh periode.';
+        if (weekTrendNote) weekTrendNote.hidden = true;
       }
       const periodText = `${formatDate(displayedPeriod.since)} – ${formatDate(displayedPeriod.until)}`;
       const updatedAt = new Intl.DateTimeFormat('id-ID', { dateStyle: 'medium', timeStyle: 'short' }).format(new Date(activeSnapshot.fetchedAt));
@@ -779,9 +900,13 @@
       byId('opportunity-score-note').textContent = activeSnapshot.accountTotals ? `Skor peluang akun: ${activeSnapshot.opportunityScore ?? '—'}/100.` : scoreLabel;
       byId('recommendations-section').hidden = true;
       byId('opportunity-score-note').textContent = 'Rekomendasi Meta tidak ditampilkan di panel analisis AI.';
-      const selectedAnalysis = displayedCampaigns === activeSnapshot.campaigns && !hasWeeklyData
-        ? (activeSnapshot.aiAnalysis ?? activeSnapshot.analysis ?? buildDeterministicAnalysis(activeSnapshot))
-        : (activeSnapshot.aiAnalysisByWeek[selectedWeek] ?? buildDeterministicAnalysis({ ...activeSnapshot, period: displayedPeriod, campaigns: displayedCampaigns }));
+      const currentWeeklyComparisons = hasWeeklyData && displayedPeriod.complete && displayedPeriod.previous?.complete
+        ? compareWeeklyResults(displayedPeriod, displayedPeriod.previous)
+        : [];
+      const selectedAnalysis = buildDeterministicAnalysis(
+        { ...activeSnapshot, period: displayedPeriod, campaigns: displayedCampaigns },
+        { funnelEntries: funnel.entries, weeklyComparisons: currentWeeklyComparisons, previousWeek: Boolean(displayedPeriod.previous) },
+      );
       renderAnalysis(selectedAnalysis);
       renderContentAnalysis(activeSnapshot.contents);
       const levelLabel = activeSnapshot.entityLevel === 'campaign' ? 'campaign' : activeSnapshot.entityLevel === 'adset' ? 'set iklan' : 'iklan';
@@ -1097,6 +1222,7 @@
     escapeHtml,
     normalizeSnapshot,
     aggregateCampaigns,
+    compareWeeklyResults,
     costPerResult,
     normalizeFunnel,
     mergeManualFunnel,
