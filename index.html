@@ -50,11 +50,10 @@
         <input id="funnel-auth-email" type="email" autocomplete="email" placeholder="nama@perusahaan.com">
         <label for="funnel-auth-password">Password</label>
         <input id="funnel-auth-password" type="password" autocomplete="current-password">
-        <p class="table-footnote">Untuk penggunaan pribadi, matikan public sign-up di Supabase dan buat akun dari dashboard Supabase. Setelah konfigurasi disimpan, ekspor backup lokal; migrasi otomatis ke cloud belum tersedia. Hubungkan hanya setelah schema RLS disiapkan. Periode trial dapat membatasi project tidak aktif—cek statusnya di Supabase.</p>
+        <p class="table-footnote">Akun dibuat admin di Supabase; pendaftaran dari halaman ini dinonaktifkan. Setelah konfigurasi disimpan, ekspor backup lokal; migrasi otomatis ke cloud belum tersedia. Hubungkan hanya setelah schema RLS disiapkan. Periode trial dapat membatasi project tidak aktif—cek statusnya di Supabase.</p>
         <div class="toolbar-actions">
           <button id="funnel-auth-save" class="button button-secondary" type="button">Simpan konfigurasi</button>
           <button id="funnel-auth-signin" class="button button-primary" type="button">Masuk</button>
-          <button id="funnel-auth-signup" class="button button-secondary" type="button">Buat akun</button>
           <button id="funnel-auth-signout" class="button button-secondary" type="button" hidden>Keluar</button>
         </div>
       </div>
@@ -152,6 +151,27 @@
         </section>
         <p class="table-footnote">Analisis indikatif dari data yang tersedia, bukan bukti bahwa iklan menyebabkan penjualan.</p>
       </details>
+    </section>
+
+    <section class="section-block panel analysis-panel audience-analyzer" aria-labelledby="audience-analyzer-title">
+      <div class="section-heading section-heading-panel">
+        <div><p class="eyebrow eyebrow-muted">TARGETING & HASIL</p><h2 id="audience-analyzer-title">Analisis audience & lokasi</h2></div>
+      </div>
+      <p class="table-footnote">Jalankan manual untuk memeriksa ad set aktif. Hasil funnel kualitas tetap pada level campaign, bukan atribusi per ad set.</p>
+      <div class="audience-analyzer-controls">
+        <label for="audience-analysis-since">Mulai</label><input id="audience-analysis-since" type="date">
+        <label for="audience-analysis-until">Sampai</label><input id="audience-analysis-until" type="date">
+        <button id="run-audience-analysis" class="button button-primary" type="button">Analisis audience & lokasi</button>
+      </div>
+      <p id="audience-analysis-status" class="status-message" role="status" aria-live="polite">Analisis belum dijalankan.</p>
+      <div id="audience-analysis-results" hidden>
+        <p id="audience-analysis-coverage" class="table-footnote"></p>
+        <p class="table-footnote">Konfigurasi targeting menunjukkan pilihan yang disetel, bukan bukti siapa yang melihat iklan. Qualified B2B hanya tersedia per campaign; tidak dibagikan ke ad set.</p>
+        <div class="table-scroll"><table><thead><tr><th>AD SET / CAMPAIGN</th><th>OBJECTIVE</th><th>LOKASI TARGET</th><th>AUDIENCE SETTING</th><th>HASIL IKLAN</th><th>CAKUPAN DATA</th></tr></thead><tbody id="audience-adset-body"></tbody></table></div>
+        <h3 class="audience-funnel-title">Kualitas funnel (level campaign)</h3>
+        <div class="table-scroll"><table><thead><tr><th>CAMPAIGN</th><th>QUALIFIED B2B</th><th>MEETING</th><th>HADIR</th><th>DEAL</th><th>CATATAN</th></tr></thead><tbody id="audience-funnel-body"></tbody></table></div>
+        <ul id="audience-analysis-limitations" class="analysis-list"></ul>
+      </div>
     </section>
 
     <section id="content-analysis-section" class="section-block panel table-panel" aria-labelledby="content-analysis-title" hidden>

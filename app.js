@@ -60,6 +60,68 @@
     return { url, anonKey };
   }
 
+  function getLastCompleteDate(now = new Date()) {
+    const date = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()));
+    date.setUTCDate(date.getUTCDate() - 1);
+    return date.toISOString().slice(0, 10);
+  }
+
+  function getDefaultAnalysisRange(now = new Date()) {
+    const until = getLastCompleteDate(now);
+    const sinceDate = new Date(`${until}T00:00:00Z`);
+    sinceDate.setUTCDate(sinceDate.getUTCDate() - 27);
+    return { since: sinceDate.toISOString().slice(0, 10), until };
+  }
+
+  function summarizeAudienceAnalysis(payload) {
+    if (!payload || typeof payload !== 'object' || !Array.isArray(payload.adSets) || !Array.isArray(payload.campaignFunnel)) {
+      throw new Error('Format hasil analisis audience tidak valid.');
+    }
+    const metricsByType = input => Object.fromEntries(Object.entries(input && typeof input === 'object' ? input : {}).filter(([type]) => ['MESSAGING_CONVERSATION', 'LEAD'].includes(type)).map(([type, metrics]) => {
+      const spend = Number.isFinite(metrics?.spend) && metrics.spend >= 0 ? metrics.spend : null;
+      const results = Number.isFinite(metrics?.results) && metrics.results >= 0 ? metrics.results : null;
+      return [type, { spend, results, costPerResult: spend !== null && results > 0 ? spend / results : null }];
+    }));
+    return {
+      since: String(payload.since ?? ''),
+      until: String(payload.until ?? ''),
+      adSets: payload.adSets.map(item => ({
+        adSetId: String(item.adSetId ?? ''), adSetName: String(item.adSetName ?? 'Ad set'),
+        campaignId: String(item.campaignId ?? ''), campaignName: String(item.campaignName ?? 'Campaign'),
+        objective: typeof item.objective === 'string' ? item.objective : null,
+        targeting: {
+          locations: item.targeting?.locations && typeof item.targeting.locations === 'object' ? {
+            included: Array.isArray(item.targeting.locations.included) ? item.targeting.locations.included.map(location => ({ name: String(location.name ?? ''), type: String(location.type ?? ''), key: String(location.key ?? '') })) : [],
+            excluded: Array.isArray(item.targeting.locations.excluded) ? item.targeting.locations.excluded.map(location => ({ name: String(location.name ?? ''), type: String(location.type ?? ''), key: String(location.key ?? '') })) : [],
+            javaCoverage: ['includes', 'excludes', 'not-targeted', 'unknown'].includes(item.targeting.locations.javaCoverage) ? item.targeting.locations.javaCoverage : 'unknown',
+          } : null,
+          ageMin: Number.isFinite(item.targeting?.ageMin) ? item.targeting.ageMin : null,
+          ageMax: Number.isFinite(item.targeting?.ageMax) ? item.targeting.ageMax : null,
+          genders: Array.isArray(item.targeting?.genders) ? item.targeting.genders.filter(Number.isFinite) : null,
+          interests: item.targeting?.interests && typeof item.targeting.interests === 'object' ? {
+            count: Number.isFinite(item.targeting.interests.count) ? item.targeting.interests.count : null,
+            hasCustomAudiences: Boolean(item.targeting.interests.hasCustomAudiences),
+          } : null,
+        },
+        metricsByResultType: metricsByType(item.metricsByResultType),
+        dataCoverage: Array.isArray(item.dataCoverage) ? item.dataCoverage.map(String) : [],
+      })),
+      campaignFunnel: payload.campaignFunnel.map(item => ({
+        campaignId: String(item.campaignId ?? ''), campaignName: String(item.campaignName ?? 'Campaign'), scope: 'campaign',
+        qualifiedLeads: Number.isSafeInteger(item.qualifiedLeads) && item.qualifiedLeads >= 0 ? item.qualifiedLeads : null,
+        meetingsScheduled: Number.isSafeInteger(item.meetingsScheduled) && item.meetingsScheduled >= 0 ? item.meetingsScheduled : null,
+        meetingsAttended: Number.isSafeInteger(item.meetingsAttended) && item.meetingsAttended >= 0 ? item.meetingsAttended : null,
+        dealsClosed: Number.isSafeInteger(item.dealsClosed) && item.dealsClosed >= 0 ? item.dealsClosed : null,
+      })),
+      coverage: payload.coverage && typeof payload.coverage === 'object' ? {
+        activeAdSets: Number.isFinite(payload.coverage.activeAdSets) ? payload.coverage.activeAdSets : null,
+        insightsRows: Number.isFinite(payload.coverage.insightsRows) ? payload.coverage.insightsRows : null,
+        truncated: Boolean(payload.coverage.truncated),
+      } : {},
+      limitations: [...(Array.isArray(payload.limitations) ? payload.limitations.map(String) : []), ...(payload.campaignFunnel.length ? [] : ['No exact-date campaign funnel records found for this selected range.'])],
+    };
+  }
+
   function funnelRecordToEntry(record) {
     return {
       campaignId: record.campaign_id,
@@ -271,7 +333,7 @@
         const qualificationRate = safeRate(qualified, totals.messagingConversations);
         if (hasQualified && totals.messagingConversations > 0 && qualificationRate !== null) findings.push(`${formatNumber(qualified)} qualified B2B dari ${formatNumber(totals.messagingConversations)} percakapan pesan (${formatNumber(qualificationRate * 100, 1)}%). Rasio indikatif; funnel manual dapat mencakup kanal lain.`);
         const dealRate = safeRate(deals, qualified);
-        if (hasDeals && hasQualified && dealRate !== null) findings.push(`${formatNumber(deals)} deal dari ${formatNumber(qualified)} qualified B2B (${formatNumber(dealRate * 100, 1)}%); hubungan ini indikatif untuk periode dan campaign yang dicatat.`);
+        if (hasDeals && hasQualified && dealRate !== null) findings.push(`${formatNumber(deals)} deal dari ${formatNumber(qualified)} qualified B2B (${(dealRate * 100).toFixed(1)}%); hubungan ini indikatif untuk periode dan campaign yang dicatat.`);
       } else {
         limitations.push('Belum ada catatan funnel manual dengan tanggal yang persis sama dengan periode analisis.');
       }
@@ -395,7 +457,7 @@
     };
     const messagingConversations = sumResultType('MESSAGING_CONVERSATION');
     const formLeads = sumResultType('LEAD');
-    const outcomeCampaigns = campaigns.filter(item => item.resultType === 'MESSAGING_CONVERSATION' || item.resultType === 'LEAD');
+    const outcomeCampaigns = campaigns.filter(item => ['MESSAGING_CONVERSATION', 'LEAD'].includes(normalizeResultType(item.resultType)));
     const blendedResults = outcomeCampaigns.length && outcomeCampaigns.every(item => Number.isFinite(item.results)
       || (item.results === null && item.spend === 0))
       ? outcomeCampaigns.reduce((total, item) => total + (Number.isFinite(item.results) ? item.results : 0), 0)
@@ -648,7 +710,7 @@
         return { label: 'Belum cukup data', reason: 'Like/komentar belum tersedia; potensi engagement dan hasil iklan belum bisa dinilai.' };
       }
       if (isRelevant && (known.length === 1 || engagement > median)) {
-        return { label: 'Kandidat uji iklan', reason: `Caption relevan dengan manajemen aset dan ${engagement} like + komentar; interaksi di atas median konten yang datanya tersedia (${median}). Layak diuji, bukan jaminan hasil iklan.` };
+        return { label: 'Kandidat uji iklan', reason: `Caption relevan dengan manajemen aset dan ${engagement} like + komentar; interaksi organik di atas median konten yang datanya tersedia (${median}). Layak diuji, bukan jaminan hasil iklan.` };
       }
       if (isRelevant) {
         return { label: 'Relevan — pantau', reason: `Caption relevan dengan manajemen aset, tetapi ${engagement} like + komentar belum di atas median (${median}); belum ada sinyal kuat untuk diprioritaskan.` };
@@ -756,10 +818,99 @@
     let selectedWeek = null;
     const localSnapshotPollMs = 5000;
 
+    const audienceRunButton = byId('run-audience-analysis');
+    const audienceStatus = byId('audience-analysis-status');
+    const audienceResults = byId('audience-analysis-results');
+    const audienceSince = byId('audience-analysis-since');
+    const audienceUntil = byId('audience-analysis-until');
+    const defaultAudienceRange = getDefaultAnalysisRange();
+    audienceSince.value = defaultAudienceRange.since;
+    audienceUntil.value = defaultAudienceRange.until;
+    let lastAudienceAnalysis = null;
+
     function announce(message, isError = false) {
       status.textContent = message;
       status.classList.toggle('status-error', isError);
     }
+
+    function renderAudienceAnalysis(analysis) {
+      const adSetBody = byId('audience-adset-body');
+      const funnelBody = byId('audience-funnel-body');
+      adSetBody.replaceChildren();
+      funnelBody.replaceChildren();
+      const fmt = value => value === null || value === undefined ? 'Tidak tersedia' : formatNumber(value);
+      for (const item of analysis.adSets) {
+        const row = document.createElement('tr');
+        const locations = item.targeting.locations;
+        const locationText = locations
+          ? `Termasuk: ${locations.included.map(x => x.name).join(', ') || '—'} · Dikecualikan: ${locations.excluded.map(x => x.name).join(', ') || '—'} · Jawa: ${locations.javaCoverage}`
+          : 'Target lokasi tidak tersedia';
+        const audienceText = item.targeting.ageMin !== null || item.targeting.ageMax !== null
+          ? `Usia ${fmt(item.targeting.ageMin)}–${fmt(item.targeting.ageMax)} · Gender ${item.targeting.genders?.join(', ') ?? 'semua/tidak tersedia'} · Minat ${fmt(item.targeting.interests?.count)} · Custom audience ${item.targeting.interests?.hasCustomAudiences ? 'ada' : 'tidak diketahui'}`
+          : 'Detail audience terbatas/tidak tersedia';
+        const resultText = Object.entries(item.metricsByResultType).length
+          ? Object.entries(item.metricsByResultType).map(([type, metric]) => `${type === 'LEAD' ? 'Form' : 'Chat'}: ${fmt(metric.results)} hasil · ${formatMoney(metric.spend)} spend · ${formatMoney(metric.costPerResult)}/hasil`).join(' | ')
+          : 'Hasil chat/form tidak tersedia';
+        const coverageText = item.dataCoverage.length ? item.dataCoverage.join('; ') : 'Data targeting dan insight tersedia';
+        const values = [`${item.adSetName} · ${item.campaignName}`, item.objective ?? 'Tidak tersedia', locationText, audienceText, resultText, coverageText];
+        for (const value of values) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
+        adSetBody.append(row);
+      }
+      for (const item of analysis.campaignFunnel) {
+        const row = document.createElement('tr');
+        const values = [item.campaignName, fmt(item.qualifiedLeads), fmt(item.meetingsScheduled), fmt(item.meetingsAttended), fmt(item.dealsClosed), 'Funnel campaign-level; tidak dapat diatribusikan ke ad set.'];
+        for (const value of values) { const cell = document.createElement('td'); cell.textContent = value; row.append(cell); }
+        funnelBody.append(row);
+      }
+      if (!analysis.campaignFunnel.length) {
+        const row = document.createElement('tr'); const cell = document.createElement('td');
+        cell.colSpan = 6; cell.textContent = 'Data funnel tidak tersedia untuk tanggal dan campaign yang cocok.'; row.append(cell); funnelBody.append(row);
+      }
+      const limitations = byId('audience-analysis-limitations');
+      limitations.replaceChildren();
+      for (const text of analysis.limitations) { const li = document.createElement('li'); li.textContent = text; limitations.append(li); }
+      const summary = byId('audience-analysis-coverage');
+      summary.textContent = `${analysis.since}–${analysis.until} · ${analysis.coverage.activeAdSets ?? analysis.adSets.length} ad set aktif · ${analysis.coverage.insightsRows ?? 0} baris insight${analysis.coverage.truncated ? ' · hasil dibatasi safety cap' : ''}`;
+      audienceResults.hidden = false;
+    }
+
+    async function runAudienceAnalysis() {
+      audienceRunButton.disabled = true;
+      audienceResults.hidden = true;
+      audienceStatus.textContent = '';
+      audienceStatus.classList.remove('status-error');
+      if (funnelStorageMode !== 'remote' || !supabaseConfig) {
+        audienceStatus.textContent = 'Hubungkan dan masuk ke penyimpanan Supabase privat sebelum menjalankan analisis.';
+        audienceStatus.classList.add('status-error');
+        audienceRunButton.disabled = false;
+        return;
+      }
+      if (!isDate(audienceSince.value) || !isDate(audienceUntil.value) || audienceSince.value > audienceUntil.value) {
+        audienceStatus.textContent = 'Rentang tanggal tidak valid.';
+        audienceStatus.classList.add('status-error');
+        audienceRunButton.disabled = false;
+        return;
+      }
+      audienceStatus.textContent = 'Mengambil targeting dan hasil ad set aktif dari Meta…';
+      try {
+        const client = await getSupabaseClient();
+        const { data, error } = await client.functions.invoke('analyze-audience-location', {
+          body: { since: audienceSince.value, until: audienceUntil.value },
+        });
+        if (error) throw error;
+        lastAudienceAnalysis = summarizeAudienceAnalysis(data);
+        renderAudienceAnalysis(lastAudienceAnalysis);
+        audienceStatus.textContent = 'Analisis selesai. Funnel kualitas tetap campaign-level dan tidak diatribusikan ke ad set.';
+      } catch (error) {
+        lastAudienceAnalysis = null;
+        audienceResults.hidden = true;
+        audienceStatus.textContent = `Analisis gagal: ${error.message || 'periksa konfigurasi Supabase/Meta dan coba lagi.'}`;
+        audienceStatus.classList.add('status-error');
+      } finally {
+        audienceRunButton.disabled = false;
+      }
+    }
+    audienceRunButton.addEventListener('click', runAudienceAnalysis);
 
     function setFunnelSyncStatus(message, isError = false) {
       const target = byId('funnel-sync-status');
@@ -1202,6 +1353,7 @@
     const authButton = byId('funnel-auth-button');
     const authSignIn = byId('funnel-auth-signin');
     const authSignUp = byId('funnel-auth-signup');
+    authSignUp.hidden = true;
     const authSignOut = byId('funnel-auth-signout');
     const authSaveConfig = byId('funnel-auth-save');
     byId('funnel-supabase-url').value = supabaseConfig?.url ?? '';
@@ -1218,7 +1370,8 @@
         saveSupabaseConfig({ url: byId('funnel-supabase-url').value, anonKey: byId('funnel-supabase-key').value });
         const client = await getSupabaseClient();
         const credentials = { email: byId('funnel-auth-email').value.trim(), password: byId('funnel-auth-password').value };
-        const response = createAccount ? await client.auth.signUp(credentials) : await client.auth.signInWithPassword(credentials);
+        if (createAccount) throw new Error('Buat akun dinonaktifkan untuk menghindari pendaftaran publik. Admin harus membuat pengguna secara manual di Supabase.');
+        const response = await client.auth.signInWithPassword(credentials);
         if (response.error) throw response.error;
         if (!response.data.session) {
           setFunnelSyncStatus('Akun dibuat. Konfirmasi email dari Supabase dahulu, lalu masuk.');
@@ -1233,12 +1386,11 @@
         authPanel.hidden = true;
         if (funnel.entries.length === 0) {
           const local = loadFunnel();
-          if (local.entries.length) setFunnelSyncStatus('Penyimpanan privat aktif. Ada backup lokal yang belum dipindahkan; impor backup funnel untuk memindahkannya.');
+          if (local.entries.length) setFunnelSyncStatus('Penyimpanan privat aktif. Ada backup lokal yang belum dipindahkan; migrasi otomatis belum tersedia.');
         }
       } catch (error) { setFunnelSyncStatus(`Gagal masuk: ${error.message}`, true); }
     };
     authSignIn.addEventListener('click', () => authenticate(false));
-    authSignUp.addEventListener('click', () => authenticate(true));
     authSignOut.addEventListener('click', async () => {
       try {
         const client = await getSupabaseClient();
@@ -1436,8 +1588,11 @@
     normalizeFunnel,
     mergeManualFunnel,
     getSupabaseConfig,
+    getLastCompleteDate,
+    getDefaultAnalysisRange,
     funnelRecordToEntry,
     funnelEntryToRecord,
+    summarizeAudienceAnalysis,
     parseCsvRows,
     parseMetaCsv,
     tuesdayWeekRange,
