@@ -13,7 +13,7 @@ The project URL and publishable/anon key are public browser credentials, not sec
 
 ## 2. Create the private table and policies
 
-Open Supabase **SQL Editor**, run [`schema.sql`](schema.sql), and verify it succeeds. The table has RLS enabled, reads restricted to `auth.uid()`, inserts/deletes only for the current user, and writes go through an authenticated `SECURITY INVOKER` RPC that replaces only the caller's own rows.
+Open Supabase **SQL Editor**, run [`schema.sql`](schema.sql), and verify it succeeds. The table has RLS enabled and select/insert/delete policies restricted to `auth.uid()`. The browser only writes rows carrying the signed-in user's ID; RLS independently enforces that ID on insert/delete.
 
 ## 3. Configure the dashboard
 

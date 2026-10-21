@@ -16,7 +16,7 @@ test('accepts only a Supabase URL and public anon/publishable key', () => {
   assert.equal(getSupabaseConfig({ url: 'https://example.supabase.co', anonKey: 'service_role_secret' }), null);
 });
 
-test('round-trips local funnel records to database shape without losing deals', () => {
+test('round-trips local funnel records to user-scoped database shape without losing deals', () => {
   const record = { user_id: 'user-1', campaign_id: 'camp', campaign_name: 'Campaign', period_since: '2026-10-01', period_until: '2026-10-07', qualified_leads: 4, meetings_scheduled: 2, meetings_attended: 1, deals_closed: 1, outcome_note: 'Won' };
   const entry = funnelRecordToEntry(record);
   assert.equal(entry.dealsClosed, 1);

@@ -795,6 +795,8 @@
     }
 
     async function loadPrivateFunnel() {
+      funnelStorageMode = 'local';
+      setFunnelSyncStatus('Memuat penyimpanan privat…');
       const client = await getSupabaseClient();
       const { data: userResult, error: userError } = await client.auth.getUser();
       if (userError || !userResult.user) throw new Error('Sesi masuk tidak berlaku. Silakan masuk kembali.');
@@ -808,17 +810,18 @@
     }
 
     async function savePrivateFunnel(nextFunnel) {
+      if (funnelStorageMode !== 'remote') throw new Error('Penyimpanan privat belum aktif; data lokal tidak diubah.');
       const client = await getSupabaseClient();
       const { data: userResult, error: userError } = await client.auth.getUser();
       if (userError || !userResult.user) throw new Error('Sesi masuk tidak berlaku. Silakan masuk kembali.');
       const userId = userResult.user.id;
-      const records = normalizeFunnel(nextFunnel).entries.map(entry => {
-        const row = funnelEntryToRecord(entry, userId);
-        delete row.user_id;
-        return row;
-      });
-      const { error } = await client.rpc('replace_my_funnel', { entries: records });
-      if (error) throw error;
+      const records = normalizeFunnel(nextFunnel).entries.map(entry => funnelEntryToRecord(entry, userId));
+      const { error: deleteError } = await client.from(SUPABASE_TABLE).delete().eq('user_id', userId);
+      if (deleteError) throw deleteError;
+      if (records.length) {
+        const { error } = await client.from(SUPABASE_TABLE).insert(records);
+        if (error) throw error;
+      }
       funnel = normalizeFunnel(nextFunnel);
       funnelStorageMode = 'remote';
       renderFunnel();
@@ -1365,6 +1368,7 @@
 
     confirmFunnelButton.addEventListener('click', async () => {
       if (!pendingFunnel) return;
+      if (funnelStorageMode === 'remote') return announce('Impor backup ke penyimpanan privat belum tersedia. Backup lokal tetap bisa diekspor; keluar dari cloud untuk mengelola salinan lokal.', true);
       try {
         const next = mergeManualFunnel(funnel, pendingFunnel.entries);
         if (funnelStorageMode === 'remote') await savePrivateFunnel(next);
@@ -1431,11 +1435,13 @@
     costPerResult,
     normalizeFunnel,
     mergeManualFunnel,
+    getSupabaseConfig,
+    funnelRecordToEntry,
+    funnelEntryToRecord,
     parseCsvRows,
     parseMetaCsv,
     tuesdayWeekRange,
     buildWeeklySnapshot,
-    normalizeFunnel,
     normalizeFunnelDealRate,
     loadFunnel,
     saveFunnel,
