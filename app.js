@@ -10,7 +10,7 @@
   const SNAPSHOT_VERSION = 1;
   const CONTENT_PAGE_SIZE = 5;
   const FUNNEL_VERSION = 1;
-  const FUNNEL_FIELDS = ['qualifiedLeads', 'meetingsScheduled', 'meetingsAttended'];
+  const FUNNEL_FIELDS = ['qualifiedLeads', 'meetingsScheduled', 'meetingsAttended', 'dealsClosed'];
   const MISSING = new Set(['', '—', '-', '–', 'na', 'n/a', 'null']);
 
   function parseLocalizedNumber(value) {
@@ -46,6 +46,12 @@
     return Number.isFinite(numerator) && Number.isFinite(denominator) && denominator > 0
       ? numerator / denominator
       : null;
+  }
+
+  function normalizeFunnelDealRate(entry) {
+    if (entry?.qualifiedLeads === null || entry?.qualifiedLeads === undefined || entry.qualifiedLeads <= 0
+      || !Number.isFinite(entry.dealsClosed)) return null;
+    return entry.dealsClosed / entry.qualifiedLeads;
   }
 
   function costPerResult(campaign) {
@@ -215,11 +221,16 @@
         const qualified = matching.reduce((sum, entry) => sum + (entry.qualifiedLeads ?? 0), 0);
         const scheduled = matching.reduce((sum, entry) => sum + (entry.meetingsScheduled ?? 0), 0);
         const attended = matching.reduce((sum, entry) => sum + (entry.meetingsAttended ?? 0), 0);
+        const deals = matching.reduce((sum, entry) => sum + (entry.dealsClosed ?? 0), 0);
         const hasQualified = matching.some(entry => entry.qualifiedLeads !== null);
         const hasScheduled = matching.some(entry => entry.meetingsScheduled !== null);
         const hasAttended = matching.some(entry => entry.meetingsAttended !== null);
-        facts.push(`Funnel manual untuk rentang yang sama: ${hasQualified ? `${qualified} qualified lead` : 'qualified lead tidak dicatat'}, ${hasScheduled ? `${scheduled} meeting dijadwalkan` : 'jadwal meeting tidak dicatat'}, ${hasAttended ? `${attended} meeting dihadiri` : 'kehadiran meeting tidak dicatat'}.`);
-        if (qualified > 0 && totals.messagingConversations > 0) findings.push(`${formatNumber(qualified)} qualified lead dicatat dari ${formatNumber(totals.messagingConversations)} percakapan Meta pada periode sama. Rasio ini hanya indikatif karena sumber funnel manual dapat mencakup kanal lain.`);
+        const hasDeals = matching.some(entry => entry.dealsClosed !== null);
+        facts.push(`Funnel manual untuk rentang yang sama: ${hasQualified ? `${qualified} qualified B2B` : 'qualified B2B tidak dicatat'}, ${hasScheduled ? `${scheduled} meeting dijadwalkan` : 'jadwal meeting tidak dicatat'}, ${hasAttended ? `${attended} meeting dihadiri` : 'kehadiran meeting tidak dicatat'}, ${hasDeals ? `${deals} deal` : 'deal tidak dicatat'}.`);
+        const qualificationRate = safeRate(qualified, totals.messagingConversations);
+        if (hasQualified && totals.messagingConversations > 0 && qualificationRate !== null) findings.push(`${formatNumber(qualified)} qualified B2B dari ${formatNumber(totals.messagingConversations)} percakapan pesan (${formatNumber(qualificationRate * 100, 1)}%). Rasio indikatif; funnel manual dapat mencakup kanal lain.`);
+        const dealRate = safeRate(deals, qualified);
+        if (hasDeals && hasQualified && dealRate !== null) findings.push(`${formatNumber(deals)} deal dari ${formatNumber(qualified)} qualified B2B (${formatNumber(dealRate * 100, 1)}%); hubungan ini indikatif untuk periode dan campaign yang dicatat.`);
       } else {
         limitations.push('Belum ada catatan funnel manual dengan tanggal yang persis sama dengan periode analisis.');
       }
@@ -382,6 +393,7 @@
         qualifiedLeads: null,
         meetingsScheduled: null,
         meetingsAttended: null,
+        dealsClosed: null,
         outcomeNote: String(entry.outcomeNote ?? '').slice(0, 500),
       };
       for (const field of FUNNEL_FIELDS) {
@@ -393,6 +405,10 @@
       if (normalized.meetingsAttended !== null && normalized.meetingsScheduled !== null
         && normalized.meetingsAttended > normalized.meetingsScheduled) {
         throw new Error('Meeting dihadiri tidak boleh melebihi jumlah meeting yang dijadwalkan.');
+      }
+      if (normalized.dealsClosed !== null && normalized.qualifiedLeads !== null
+        && normalized.dealsClosed > normalized.qualifiedLeads) {
+        throw new Error('Deal tidak boleh melebihi jumlah qualified B2B.');
       }
       const key = funnelIdentity(normalized);
       if (seen.has(key)) throw new Error('Backup memiliki data campaign dan periode ganda.');
@@ -706,7 +722,7 @@
       if (!entries.length) {
         const row = document.createElement('tr');
         const cell = document.createElement('td');
-        cell.colSpan = 6;
+        cell.colSpan = 7;
         cell.className = 'empty-cell';
         cell.textContent = 'Belum ada data funnel untuk periode ini. Pilih campaign dan isi form di atas.';
         row.append(cell);
@@ -717,7 +733,8 @@
         const row = document.createElement('tr');
         const qualifiedToMeeting = safeRate(entry.meetingsScheduled, entry.qualifiedLeads);
         const meetingAttendance = safeRate(entry.meetingsAttended, entry.meetingsScheduled);
-        const values = [entry.campaignName, formatNumber(entry.qualifiedLeads), formatNumber(entry.meetingsScheduled), formatNumber(entry.meetingsAttended), `${entry.outcomeNote || '—'}${qualifiedToMeeting === null ? '' : ` · Qual→meeting ${formatNumber(qualifiedToMeeting * 100, 1)}%`}${meetingAttendance === null ? '' : ` · hadir ${formatNumber(meetingAttendance * 100, 1)}%`}`];
+        const qualifiedToDeal = normalizeFunnelDealRate(entry);
+        const values = [entry.campaignName, formatNumber(entry.qualifiedLeads), formatNumber(entry.meetingsScheduled), formatNumber(entry.meetingsAttended), formatNumber(entry.dealsClosed), `${entry.outcomeNote || '—'}${qualifiedToMeeting === null ? '' : ` · Qual→meeting ${formatNumber(qualifiedToMeeting * 100, 1)}%`}${meetingAttendance === null ? '' : ` · hadir ${formatNumber(meetingAttendance * 100, 1)}%`}${qualifiedToDeal === null ? '' : ` · Qual→deal ${formatNumber(qualifiedToDeal * 100, 1)}%`}`];
         for (const value of values) {
           const cell = document.createElement('td');
           cell.textContent = value;
@@ -1009,6 +1026,7 @@
       byId('qualified-leads').value = entry.qualifiedLeads ?? '';
       byId('meetings-scheduled').value = entry.meetingsScheduled ?? '';
       byId('meetings-attended').value = entry.meetingsAttended ?? '';
+      byId('deals-closed').value = entry.dealsClosed ?? '';
       byId('outcome-note').value = entry.outcomeNote;
       byId('funnel-form-title').textContent = 'Edit data funnel';
       byId('funnel-submit').textContent = 'Simpan perubahan';
@@ -1119,6 +1137,7 @@
         qualifiedLeads: byId('qualified-leads').value === '' ? null : Number(byId('qualified-leads').value),
         meetingsScheduled: byId('meetings-scheduled').value === '' ? null : Number(byId('meetings-scheduled').value),
         meetingsAttended: byId('meetings-attended').value === '' ? null : Number(byId('meetings-attended').value),
+        dealsClosed: byId('deals-closed').value === '' ? null : Number(byId('deals-closed').value),
         outcomeNote: byId('outcome-note').value.trim().slice(0, 500),
       };
       try {
@@ -1230,6 +1249,8 @@
     parseMetaCsv,
     tuesdayWeekRange,
     buildWeeklySnapshot,
+    normalizeFunnel,
+    normalizeFunnelDealRate,
     loadFunnel,
     saveFunnel,
     normalizeAnalysis,

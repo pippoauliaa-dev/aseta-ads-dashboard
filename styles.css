@@ -164,7 +164,7 @@ input:focus, select:focus, textarea:focus { border-color: var(--accent); box-sha
 textarea { min-height: 64px; resize: vertical; line-height: 1.5; }
 .date-grid, .count-grid { display: grid; gap: 8px; }
 .date-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-.count-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.count-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 .date-grid > div, .count-grid > div { display: flex; flex-direction: column; gap: 6px; }
 .count-grid input { min-width: 0; }
 .optional-label { margin-left: 4px; color: #9aa2aa; font: 500 7px 'DM Mono', monospace; letter-spacing: .08em; }

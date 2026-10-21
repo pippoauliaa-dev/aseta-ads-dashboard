@@ -181,7 +181,7 @@
         <div>
           <p class="eyebrow eyebrow-muted">DATA YANG META TIDAK PUNYA</p>
           <h2 id="funnel-title">Dari lead ke meeting</h2>
-          <p class="section-intro">Tambahkan angka funnel agregat—tanpa data pribadi lead.</p>
+          <p class="section-intro">Tambahkan angka funnel agregat—tanpa nama, kontak, atau data pribadi lead. Gunakan kriteria qualification B2B tim saat menghitung angka ini.</p>
           <p id="funnel-level-help" class="section-intro" hidden>Funnel tersedia untuk snapshot campaign-level.</p>
         </div>
         <div class="funnel-actions"><span id="funnel-record-count" class="table-context">0 catatan</span><button id="funnel-toggle" class="button button-secondary" type="button">Isi / lihat funnel</button></div>
@@ -196,9 +196,10 @@
             <div><label for="funnel-until">Akhir periode</label><input id="funnel-until" type="date" required></div>
           </div>
           <div class="count-grid">
-            <div><label for="qualified-leads">Lead berkualifikasi</label><input id="qualified-leads" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
+            <div><label for="qualified-leads">Qualified B2B</label><input id="qualified-leads" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
             <div><label for="meetings-scheduled">Meeting dijadwalkan</label><input id="meetings-scheduled" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
             <div><label for="meetings-attended">Meeting dihadiri</label><input id="meetings-attended" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
+            <div><label for="deals-closed">Deal closed</label><input id="deals-closed" type="number" min="0" step="1" inputmode="numeric" placeholder="—"></div>
           </div>
           <label for="outcome-note">Hasil / catatan campaign <span class="optional-label">OPSIONAL</span></label>
           <textarea id="outcome-note" maxlength="500" rows="3" placeholder="Contoh: banyak lead dari manufaktur, tindak lanjut minggu depan"></textarea>
@@ -212,7 +213,7 @@
           <div class="table-scroll">
             <table>
               <caption class="visually-hidden">Data funnel manual yang tersimpan di browser untuk periode snapshot aktif</caption>
-              <thead><tr><th scope="col">CAMPAIGN</th><th scope="col">QUALIFIED</th><th scope="col">MEETING</th><th scope="col">HADIR</th><th scope="col">HASIL / CATATAN</th><th scope="col"><span class="visually-hidden">AKSI</span></th></tr></thead>
+              <thead><tr><th scope="col">CAMPAIGN</th><th scope="col">QUALIFIED B2B</th><th scope="col">MEETING</th><th scope="col">HADIR</th><th scope="col">DEAL</th><th scope="col">HASIL / CATATAN</th><th scope="col"><span class="visually-hidden">AKSI</span></th></tr></thead>
               <tbody id="funnel-table-body"></tbody>
             </table>
           </div>
